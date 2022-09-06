@@ -1,0 +1,81 @@
+{
+	"dialogue": [
+		{
+			"speed": 0.05,
+			"portrait": "splitathonleft",
+			"boxState": "normal",
+			"expression": "dave",
+			"text": "You know, I like chilling out."
+		},
+		{
+			"speed": 0.05,
+			"portrait": "splitathonleft",
+			"boxState": "normal",
+			"expression": "dave",
+			"text": "But we haven't settled which is the better rapper."
+		},
+		{
+			"speed": 0.05,
+			"portrait": "splitathonleft",
+			"boxState": "normal",
+			"expression": "dave",
+			"text": "So I think, we have a 10 minute showdown."
+		},
+		{
+			"speed": 0.05,
+			"portrait": "splitathonleft",
+			"boxState": "normal",
+			"expression": "dave",
+			"text": "Whoever wins will be proven the master rapper."
+		},
+		{
+			"speed": 0.05,
+			"portrait": "splitathonleft",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": "What about me?"
+		},
+		{
+			"speed": 0.05,
+			"portrait": "splitathonleft",
+			"boxState": "normal",
+			"expression": "dave",
+			"text": "Bambi..."
+		},
+		{
+			"speed": 0.05,
+			"portrait": "splitathonleft",
+			"boxState": "normal",
+			"expression": "dave",
+			"text": "Please stay out of this, this is only between me and boyfriend."
+		},
+		{
+			"speed": 0.05,
+			"portrait": "splitathonleft",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": "..."
+		},
+		{
+			"speed": 0.05,
+			"portrait": "splitathonleft",
+			"boxState": "normal",
+			"expression": "dave",
+			"text": "Alright, let's settle this!"
+		},
+		{
+			"speed": 0.05,
+			"portrait": "splitathonright",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": "I'm rooting for you boyfriend!"
+		},
+		{
+			"speed": 0.05,
+			"portrait": "bf",
+			"boxState": "normal",
+			"expression": "pissed",
+			"text": "Beep bo bop"
+		}
+	]
+}

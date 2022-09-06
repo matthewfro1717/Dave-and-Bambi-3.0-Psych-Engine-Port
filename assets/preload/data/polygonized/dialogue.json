@@ -1,0 +1,46 @@
+{
+	"dialogue": [
+		{
+			"speed": 0.05,
+			"portrait": "davemad",
+			"boxState": "angry",
+			"expression": "talk",
+			"text": "WHAT IS HAPPENING"
+		},
+		{
+			"speed": 0.05,
+			"portrait": "davemad",
+			"boxState": "angry",
+			"expression": "talk",
+			"text": "THE WORLD IS BECOMING THREE\\nDIMENSIONAL"
+		},
+		{
+			"speed": 0.05,
+			"portrait": "davemad",
+			"boxState": "angry",
+			"expression": "talk",
+			"text": "NOT THE LAB AGAIN"
+		},
+		{
+			"speed": 0.05,
+			"portrait": "davemad",
+			"boxState": "angry",
+			"expression": "talk",
+			"text": "PLEASE HELP ME BECOME 2D"
+		},
+		{
+			"speed": 0.05,
+			"portrait": "davemad",
+			"boxState": "angry",
+			"expression": "talk",
+			"text": "TAKE THE MICROPHONE AND RESTORE ME\\nBACK TO THIS REALITY\"S FORM"
+		},
+		{
+			"speed": 0.05,
+			"portrait": "bf",
+			"boxState": "normal",
+			"expression": "shocked",
+			"text": "B-beep...?"
+		}
+	]
+}

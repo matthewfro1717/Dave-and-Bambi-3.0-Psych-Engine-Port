@@ -1,0 +1,67 @@
+{
+	"dialogue": [
+		{
+			"expression": "talk",
+			"text": "It sure was nice of that Dave guy to invite us to a farm for a picnic after nearly killing us both and almost destroying the world.",
+			"boxState": "normal",
+			"speed": 0.04,
+			"portrait": "gfbambiweek"
+		},
+		{
+			"expression": "talk",
+			"text": "Beephoo boopsa basphed!!",
+			"boxState": "normal",
+			"speed": 0.05,
+			"portrait": "bf"
+		},
+		{
+			"expression": "talk",
+			"text": "Who goes there??",
+			"boxState": "normal",
+			"speed": 0.05,
+			"portrait": "bambi"
+		},
+		{
+			"expression": "talk",
+			"text": "Beep?",
+			"boxState": "normal",
+			"speed": 0.05,
+			"portrait": "bf"
+		},
+		{
+			"expression": "talk",
+			"text": "Hey! Are you trying to steal my corn?",
+			"boxState": "normal",
+			"speed": 0.05,
+			"portrait": "bambi"
+		},
+		{
+			"expression": "talk",
+			"text": "Bo beep ber-",
+			"boxState": "normal",
+			"speed": 0.05,
+			"portrait": "bf"
+		},
+		{
+			"expression": "talk",
+			"text": "I GONNA BLOCK YOU OUT OF MY FARM!\\nYou never coming back ever again you dirty ole' rodeo trash.",
+			"boxState": "normal",
+			"speed": 0.035,
+			"portrait": "bambi"
+		},
+		{
+			"expression": "talk",
+			"text": "Bop?",
+			"boxState": "normal",
+			"speed": 0.05,
+			"portrait": "bf"
+		},
+		{
+			"expression": "bruh",
+			"text": "Here we go again...",
+			"boxState": "normal",
+			"speed": 0.05,
+			"portrait": "gfbambiweek"
+		}
+	]
+}

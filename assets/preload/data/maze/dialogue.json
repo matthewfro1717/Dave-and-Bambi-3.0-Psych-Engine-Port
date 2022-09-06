@@ -1,0 +1,214 @@
+{
+	"dialogue": [
+		{
+			"speed": 0.05,
+			"portrait": "bambi",
+			"boxState": "normal",
+			"expression": "ok",
+			"text": "My phone..."
+		},
+		{
+			"speed": 0.05,
+			"portrait": "bambi",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": "Look what you two did!"
+		},
+		{
+			"speed": 0.05,
+			"portrait": "bambi",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": "You don't know what you guys just got me into!!"
+		},
+		{
+			"speed": 0.05,
+			"portrait": "bambi",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": "You both are gonna die!"
+		},
+		{
+			"speed": 0.05,
+			"portrait": "gfbambiweek",
+			"boxState": "normal",
+			"expression": "confused",
+			"text": "Huh?"
+		},
+		{
+			"speed": 0.05,
+			"portrait": "bambi",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": "Incoming call from dave again!?"
+		},
+		{
+			"speed": 0.05,
+			"portrait": "daveinsanity",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": "Bambi! I bought you that phone 3 hours ago!"
+		},
+		{
+			"speed": 0.05,
+			"portrait": "bambi",
+			"boxState": "angry",
+			"expression": "talk",
+			"text": "I BREAK MY PHONE!"
+		},
+		{
+			"speed": 0.05,
+			"portrait": "bambi",
+			"boxState": "angry",
+			"expression": "talk",
+			"text": "BECAUSE THEY ARE TRYING TO STEAL CORN!"
+		},
+		{
+			"speed": 0.05,
+			"portrait": "daveinsanity",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": "What?"
+		},
+		{
+			"speed": 0.05,
+			"portrait": "bf",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": "Beep."
+		},
+		{
+			"speed": 0.05,
+			"portrait": "daveinsanity",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": "I only sent them here as an apology for almost destroying the world, they aren't at all trying to trespass."
+		},
+		{
+			"speed": 0.05,
+			"portrait": "bambi",
+			"boxState": "normal",
+			"expression": "ok",
+			"text": "What?"
+		},
+		{
+			"speed": 0.05,
+			"portrait": "daveinsanity",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": "Can you please just stop getting on to them?"
+		},
+		{
+			"speed": 0.05,
+			"portrait": "bambi",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": "You lying? You liar!"
+		},
+		{
+			"speed": 0.05,
+			"portrait": "daveinsanity",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": "No, I promise I'm not lying Bambi."
+		},
+		{
+			"speed": 0.05,
+			"portrait": "bambi",
+			"boxState": "angry",
+			"expression": "talk",
+			"text": "NO YOU LYING!! *HANG UP*"
+		},
+		{
+			"speed": 0.05,
+			"portrait": "bambi",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": "That's it, that's it!"
+		},
+		{
+			"speed": 0.05,
+			"portrait": "bf",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": "Beep boop bap skdoop"
+		},
+		{
+			"speed": 0.05,
+			"portrait": "bambi",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": "You two are going to die!"
+		},
+		{
+			"speed": 0.05,
+			"portrait": "bambi",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": "I don't care if I'm tired, I don't care if I'm bored."
+		},
+		{
+			"speed": 0.05,
+			"portrait": "bambi",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": "I will be here all day and I will end you you are life!"
+		},
+		{
+			"speed": 0.05,
+			"portrait": "bambi",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": "One more song... If you win, I-I, uhh.."
+		},
+		{
+			"speed": 0.05,
+			"portrait": "bf",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": "Beep?"
+		},
+		{
+			"speed": 0.05,
+			"portrait": "bambi",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": "I guess we call it a draw."
+		},
+		{
+			"speed": 0.05,
+			"portrait": "bambi",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": "You ready?"
+		},
+		{
+			"speed": 0.05,
+			"portrait": "bf",
+			"boxState": "normal",
+			"expression": "excited",
+			"text": "Bess"
+		},
+		{
+			"speed": 0.05,
+			"portrait": "bambi",
+			"boxState": "angry",
+			"expression": "talk",
+			"text": "THEN LETS GO YOU IDIOT!"
+		},
+		{
+			"speed": 0.05,
+			"portrait": "gfbambiweek",
+			"boxState": "normal",
+			"expression": "bruh",
+			"text": "sigh"
+		},
+		{
+			"speed": 0.05,
+			"portrait": "gfbambiweek",
+			"boxState": "normal",
+			"expression": "bruh",
+			"text": "Guess I gotta add this one to the list of hard last songs I made..."
+		}
+	]
+}

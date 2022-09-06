@@ -1,0 +1,50 @@
+{
+	"songs": [
+		[
+			"House",
+			"dave",
+			[
+				66,
+				133,
+				255
+			]
+		],
+		[
+			"Insanity",
+			"dave",
+			[
+				66,
+				133,
+				255
+			]
+		],
+		[
+			"Polygonized",
+			"dave-3d",
+			[
+				255,
+				153,
+				195
+			]
+		]
+	],
+	"hiddenUntilUnlocked": false,
+	"hideFreeplay": false,
+	"weekBackground": "dave",
+	"difficulties": "",
+	"weekCharacters": [
+		"",
+		"",
+		""
+	],
+	"storyName": "Dave's Fun Rapping Battle!",
+	"weekName": "Vs Dave",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"hideStoryMode": false,
+	"weekBefore": "tutorial",
+	"startUnlocked": true
+}
