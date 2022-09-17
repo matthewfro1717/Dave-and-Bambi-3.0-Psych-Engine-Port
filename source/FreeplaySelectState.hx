@@ -1,11 +1,15 @@
 package;
 
+import flixel.addons.display.FlxBackdrop;
 import flixel.group.FlxGroup.FlxTypedGroup;
+import flixel.group.FlxGroup;
+import flixel.util.FlxColor;
 import flixel.FlxSprite;
 import flixel.FlxG;
 import flixel.tweens.FlxEase;
+import flixel.tweens.FlxTween;
 
-//THIS WAS INTENDED FOR PSYCH SO BECAUSE OF THAT ITS BROKEN FOR THE TIME BEING (nvm)
+
 class FreeplaySelectState extends MusicBeatState 
 {
     public static var freeplayCats:Array<String> = ['Dave', 'Base', 'Extra', 'Joke', 'Insanity']; 
@@ -15,6 +19,17 @@ class FreeplaySelectState extends MusicBeatState
     var curSelected:Int = 0;
     var BG:FlxSprite;
     var categoryIcon:FlxSprite;
+    //var categoryIconsGroup:FlxTypedGroup<FlxSprite>; THIS SHIT IS  SO COMPLICATED FOR NO REASON AUGHHHHHHHHHHHHHHHHHHH
+
+    var songColors:Array<FlxColor> = [ //unused as of rn
+		0xFF4965FF, // davee
+		0xFF35C2FF, // bf
+		0xFF2CD12C, // bamber
+        0xFFF12B2B, // expunded
+        0xFF9F9F9F, // morrowowow
+        0xFFC300FF, // gambii
+        0xFF3045FF // bamlin+banlin (NO NOT SHIPPING)
+    ];
 
     override function create()
     {
@@ -23,13 +38,32 @@ class FreeplaySelectState extends MusicBeatState
         BG = new FlxSprite().loadGraphic(Paths.image('backgrounds/morie'));
         BG.updateHitbox();
         BG.screenCenter();
-        BG.color = 0x55D650;
+        //BG.color = 0x55D650;
         add(BG);
+
+        var gridthing:FlxBackdrop;
+
+		gridthing = new FlxBackdrop(Paths.image('loading'), 0.2, 0, true, true);
+		gridthing.velocity.set(50, -25);
+		gridthing.updateHitbox();
+		gridthing.alpha = 0.4;
+		gridthing.screenCenter(X);
+		gridthing.color = 0xFFFFFF;
+		gridthing.antialiasing = ClientPrefs.globalAntialiasing;
+		add(gridthing);
 
         categoryIcon = new FlxSprite().loadGraphic(Paths.image('weekicons/week_icon_' + freeplayCats[curSelected].toLowerCase()));
         categoryIcon.updateHitbox();
         categoryIcon.screenCenter();
         add(categoryIcon);
+        
+        /*categoryIconsGroup = new FlxTypedGroup<FlxSprite>();
+        add(categoryIconsGroup);
+        for (i in 0...freeplayCats.length) {
+            categoryIcon = new FlxSprite().loadGraphic(Paths.image('weekicons/week_icon_' + freeplayCats[i].toLowerCase()));
+            categoryIcon.x = i;
+            categoryIconsGroup.add(categoryIcon);
+        }*/
 
         /*grpCats = new FlxTypedGroup<Alphabet>();
         add(grpCats);
@@ -82,22 +116,26 @@ class FreeplaySelectState extends MusicBeatState
         if (curSelected >= freeplayCats.length)
             curSelected = 0;
 
-        var bullShit:Int = 0;
-
-        /*for (item in grpCats.members) {
-            item.targetY = bullShit - curSelected;
+        //var bullShit:Int = 0;
+        /*
+        for (item in categoryIconsGroup.members) {
+            item.x = bullShit - curSelected;
             bullShit++;
-            item.alpha = 0.6;
-            if (item.targetY == 0) {
-                item.alpha = 1;
-            }
-        }*/
-
+            item.alpha = 1;
+            item.screenCenter();
+            if (item.ID == Std.int(0) && unlocked)
+				item.alpha = 1;
+			else
+				item.alpha = 0.6;
+        }
+        */
         NameAlpha.destroy();
         NameAlpha = new Alphabet(10,(FlxG.height / 2) - 282,freeplayCats[curSelected],true,false);
         NameAlpha.screenCenter(X);
         add(NameAlpha);
         categoryIcon.loadGraphic(Paths.image('weekicons/week_icon_' + (freeplayCats[curSelected].toLowerCase())));
         FlxG.sound.play(Paths.sound('scrollMenu'));
+
+        FlxTween.color(BG, 0.25, BG.color, songColors[curSelected]);
     }
 }

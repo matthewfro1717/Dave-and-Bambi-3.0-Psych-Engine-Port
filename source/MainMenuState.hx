@@ -8,6 +8,7 @@ import flixel.FlxObject;
 import flixel.FlxSprite;
 import flixel.FlxCamera;
 import flixel.addons.transition.FlxTransitionableState;
+import flixel.addons.display.FlxBackdrop;
 import flixel.effects.FlxFlicker;
 import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.group.FlxGroup.FlxTypedGroup;
@@ -29,8 +30,8 @@ using StringTools;
 
 class MainMenuState extends MusicBeatState
 {
-	public static var osEngineVesrion:String = '1.3.1'; //This is also used for Discord RPC
-	public static var barrenEngineVesrion:String = '1.0';
+	public static var osEngineVesrion:String = '1.3.1'; //This is also used for Discord RPC (not anymore lol)
+	public static var barrenEngineVesrion:String = '1.0.1';
 	public static var curSelected:Int = 0;
 
 	var menuItems:FlxTypedGroup<FlxSprite>;
@@ -94,6 +95,8 @@ class MainMenuState extends MusicBeatState
 
 		persistentUpdate = persistentDraw = true;
 
+		
+
 		var yScroll:Float = Math.max(0.25 - (0.05 * (optionShit.length - 4)), 0.1);
         var bg:FlxSprite = new FlxSprite(-80).loadGraphic(randomizeBG());
 		bg.color = 0x0066FF;
@@ -103,6 +106,16 @@ class MainMenuState extends MusicBeatState
         bg.screenCenter();
         bg.antialiasing = ClientPrefs.globalAntialiasing;
         add(bg);
+		
+		var gridthing:FlxBackdrop;
+		gridthing = new FlxBackdrop(Paths.image('loading'), 0.2, 0, true, true);
+		gridthing.velocity.set(50, -25);
+		gridthing.updateHitbox();
+		gridthing.alpha = 0.4;
+		gridthing.screenCenter(X);
+		gridthing.color = 0xFFFFFF;
+		gridthing.antialiasing = ClientPrefs.globalAntialiasing;
+		add(gridthing);
 
         if(ClientPrefs.themedmainmenubg == true) {
 
@@ -175,9 +188,13 @@ class MainMenuState extends MusicBeatState
 			//curoffset = curoffset + 20;
 		}
 
+		if (FlxG.sound.music == null) {
+			FlxG.sound.playMusic(Paths.music('freakyMenu'), 0);
+		}
+
 		FlxG.camera.follow(camFollowPos, null, 1);
 
-		var versionShit:FlxText = new FlxText(FlxG.width * 0.7, FlxG.height - 64, 0, "Barren Engine v" + barrenEngineVesrion + " - Modded OS Engine", 12);
+		var versionShit:FlxText = new FlxText(FlxG.width * 0.7, FlxG.height - 64, 0, "Barren Engine v" + barrenEngineVesrion, 12);
 		versionShit.scrollFactor.set();
 		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(versionShit);
@@ -278,6 +295,7 @@ class MainMenuState extends MusicBeatState
 				FlxG.sound.play(Paths.sound('cancelMenu'));
 				MusicBeatState.switchState(new TitleState());
 				CoolUtil.cameraZoom(camera, 3, 3, FlxEase.backOut, ONESHOT);
+				//FlxG.sound.music.fadeOut();
 			}
 
 			if (controls.ACCEPT)

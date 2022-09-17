@@ -1,0 +1,32 @@
+{
+	"storyName": "Hard Only",
+	"difficulties": "Hard",
+	"hideFreeplay": false,
+	"weekBackground": "splitathon",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"weekBefore": "tutorial",
+	"startUnlocked": true,
+	"weekCharacters": [
+		"",
+		"",
+		""
+	],
+	"songs": [
+		[
+			"Triple Trouble",
+			"expunged",
+			[
+				66,
+				253,
+				255
+			]
+		]
+	],
+	"hideStoryMode": true,
+	"weekName": "Finale",
+	"hiddenUntilUnlocked": true
+}

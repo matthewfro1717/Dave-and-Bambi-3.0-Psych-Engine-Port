@@ -77,16 +77,17 @@ class PlayState extends MusicBeatState
 	public static var cameramovingoffsetbf = 40; // idk why i made literally same variable
 
 	public static var ratingStuff:Array<Dynamic> = [
-		['You Suck!', 0.2], //From 0% to 19%
-		['Shit', 0.4], //From 20% to 39%
-		['Bad', 0.5], //From 40% to 49%
-		['Bruh', 0.6], //From 50% to 59%
+		['how the fuck do you even get this low?', 0.1], //10 below
+		['trash', 0.2], //From 10% to 19%
+		['damn', 0.4], //From 20% to 39%
+		['Nope', 0.5], //From 40% to 49%
+		['Could be better.', 0.6], //From 50% to 59%
 		['Meh', 0.69], //From 60% to 68%
-		['Nice', 0.7], //69%
+		['scary', 0.7], //69%
 		['Good', 0.8], //From 70% to 79%
 		['Great', 0.9], //From 80% to 89%
-		['Sick!', 1], //From 90% to 99%
-		['Perfect!!!', 1] //The value on this one isn't used actually, since Perfect is always "1"
+		['Cool!', 1], //From 90% to 99%
+		['Nice one!', 1] //The value on this one isn't used actually, since Perfect is always "1"
 	];
 	public static var animatedShaders:Map<String, DynamicShaderHandler> = new Map<String, DynamicShaderHandler>();
 	public var modchartTweens:Map<String, FlxTween> = new Map<String, FlxTween>();
@@ -142,8 +143,8 @@ class PlayState extends MusicBeatState
 	public var gf:Character = null;
 	public var boyfriend:Boyfriend = null;
 
-	var floaterfloats:Array<String> = ['dave-3d', 'bambi-3d', 'bambi-unfair', 'expunged', 'morrow'];
-	var floaterfloatsWHAR:Array<String> = ['morrow'];
+	var floaterfloats:Array<String> = ['dave-3d', 'bambi-3d', 'bambi-unfair', 'expunged', 'morrow', 'bandu', 'corruptb'];
+	var floaterfloatsWHAR:Array<String> = ['morrow', 'corruptb'];
 
 	public var elapsedtime:Float = 0;
 
@@ -322,16 +323,17 @@ class PlayState extends MusicBeatState
 		Paths.clearStoredMemory();
 
 		ratingStuff = [
-			['You Suck!', 0.2], //From 0% to 19%
-			['Shit', 0.4], //From 20% to 39%
-			['Bad', 0.5], //From 40% to 49%
-			['Bruh', 0.6], //From 50% to 59%
+			['how the fuck do you even get this low?', 0.1], //10 below
+			['trash', 0.2], //From 10% to 19%
+			['damn', 0.4], //From 20% to 39%
+			['Nope', 0.5], //From 40% to 49%
+			['Could be better.', 0.6], //From 50% to 59%
 			['Meh', 0.69], //From 60% to 68%
-			['Nice', 0.7], //69%
+			['scary', 0.7], //69%
 			['Good', 0.8], //From 70% to 79%
 			['Great', 0.9], //From 80% to 89%
-			['Sick!', 1], //From 90% to 99%
-			['Perfect!!!', 1] //The value on this one isn't used actually, since Perfect is always "1"
+			['Cool!', 1], //From 90% to 99%
+			['Nice one!', 1] //The value on this one isn't used actually, since Perfect is always "1"
 		];
 
 		// ^^^^^^ if i won't add it, setRating() won't work properly
@@ -438,6 +440,8 @@ class PlayState extends MusicBeatState
 					curStage = 'scarybg';
 				case 'remorseless':
 					curStage = 'morrowBG';
+				case 'overdrive':
+					curStage = 'scarierbg';
 				default:
 					curStage = 'stage';
 			}
@@ -533,6 +537,30 @@ class PlayState extends MusicBeatState
 			case 'scarybg':
 				defaultCamZoom = 0.85;
 				var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('backgrounds/scarybg'));
+				bg.antialiasing = true;
+				bg.scrollFactor.set(0, 0);
+				bg.active = true;
+
+				add(bg);
+				// below code assumes shaders are always enabled which is bad
+				var testshader:Shaders.GlitchEffect = new Shaders.GlitchEffect(2, 5, 0.1);
+                bg.shader = testshader.shader;
+
+			case 'scarierbg':
+				defaultCamZoom = 0.85;
+				var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('backgrounds/scarierbg'));
+				bg.antialiasing = true;
+				bg.scrollFactor.set(0, 0);
+				bg.active = true;
+
+				add(bg);
+				// below code assumes shaders are always enabled which is bad
+				var testshader:Shaders.GlitchEffect = new Shaders.GlitchEffect(2, 5, 0.1);
+                bg.shader = testshader.shader;
+
+			case 'cbarrenBG':
+				defaultCamZoom = 0.85;
+				var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('backgrounds/cbarrenBG'));
 				bg.antialiasing = true;
 				bg.scrollFactor.set(0, 0);
 				bg.active = true;
@@ -655,7 +683,7 @@ class PlayState extends MusicBeatState
 				fence.scrollFactor.set(0.98, 0.98);
 				fence.active = true;
 
-				var sign:FlxSprite = new FlxSprite(0, 500).loadGraphic(Paths.image('backgrounds/bambi/sign'));
+				var sign:FlxSprite = new FlxSprite(0, 500).loadGraphic(Paths.image('backgrounds/bambi/Sign'));
 				sign.antialiasing = true;
 				sign.scrollFactor.set(1, 1);
 				sign.active = true;
@@ -672,7 +700,7 @@ class PlayState extends MusicBeatState
 			case 'farmSunset':
 				defaultCamZoom = 0.85;
 
-				var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('dave/sky_sunset'));
+				var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('backgrounds/sky_sunset'));
 				bg.antialiasing = true;
 				bg.scrollFactor.set(0.2, 0.2);
 				bg.active = true;
@@ -707,7 +735,7 @@ class PlayState extends MusicBeatState
 				fence.scrollFactor.set(0.98, 0.98);
 				fence.active = true;
 
-				var sign:FlxSprite = new FlxSprite(0, 500).loadGraphic(Paths.image('backgrounds/bambi/sign'));
+				var sign:FlxSprite = new FlxSprite(0, 500).loadGraphic(Paths.image('backgrounds/bambi/Sign'));
 				sign.antialiasing = true;
 				sign.scrollFactor.set(1, 1);
 				sign.active = true;
@@ -732,7 +760,7 @@ class PlayState extends MusicBeatState
 			case 'farmNight':
 				defaultCamZoom = 0.85;
 
-				var bg:FlxSprite = new FlxSprite(-600, -400).loadGraphic(Paths.image('dave/sky_night'));
+				var bg:FlxSprite = new FlxSprite(-600, -400).loadGraphic(Paths.image('backgrounds/sky_night'));
 				bg.antialiasing = true;
 				bg.scrollFactor.set(0.2, 0.2);
 				bg.active = true;
@@ -767,7 +795,7 @@ class PlayState extends MusicBeatState
 				fence.scrollFactor.set(0.98, 0.98);
 				fence.active = true;
 
-				var sign:FlxSprite = new FlxSprite(0, 500).loadGraphic(Paths.image('backgrounds/bambi/sign'));
+				var sign:FlxSprite = new FlxSprite(0, 500).loadGraphic(Paths.image('backgrounds/bambi/Sign'));
 				sign.antialiasing = true;
 				sign.scrollFactor.set(1, 1);
 				sign.active = true;
@@ -990,7 +1018,7 @@ class PlayState extends MusicBeatState
 		laneunderlayOp.cameras = [camHUD];
 
 		var showTime:Bool = (ClientPrefs.timeBarType != 'Disabled');
-		timeTxt = new FlxText(STRUM_X + (FlxG.width / 2) - 248, 19, 400, "", 32);
+		timeTxt = new FlxText(STRUM_X + (FlxG.width / 2) - 220, 30, 400, "", 32);
 		timeTxt.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		timeTxt.scrollFactor.set();
 		timeTxt.alpha = 0;
@@ -1014,10 +1042,11 @@ class PlayState extends MusicBeatState
 		timeBarBG.color = FlxColor.BLACK;
 		timeBarBG.xAdd = -4;
 		timeBarBG.yAdd = -4;
+		timeBarBG.visible = false;
 		add(timeBarBG);
 
 
-		timeBar = new FlxBar(timeBarBG.x + 4, timeBarBG.y + 4, LEFT_TO_RIGHT, Std.int(timeBarBG.width - 8), Std.int(timeBarBG.height - 8), this,
+		timeBar = new FlxBar(0, timeBarBG.y + 4, LEFT_TO_RIGHT, FlxG.width, Std.int(timeBarBG.height + 8), this,
 			'songPercent', 0, 1);
 		timeBar.scrollFactor.set();
 		timeBar.createFilledBar(0xFF000000, 0xFFFFFFFF);
@@ -2788,6 +2817,8 @@ class PlayState extends MusicBeatState
 		    		boyfriend.color = 0xFFFF8F65;
 				}
 		}
+
+		timeBar.color = FlxColor.fromRGB(dad.healthColorArray[0], dad.healthColorArray[1], dad.healthColorArray[2]);
 
 		if(floaterfloats.contains(dad.curCharacter.toLowerCase()))
 		{
@@ -4896,11 +4927,20 @@ class PlayState extends MusicBeatState
 
 			// Rating FC
 			ratingFC = "";
-			if (sicks > 0) ratingFC = "SFC";
-			if (goods > 0) ratingFC = "GFC";
-			if (bads > 0 || shits > 0) ratingFC = "FC";
-			if (songMisses > 0 && songMisses < 10) ratingFC = "SDCB";
-			else if (songMisses >= 10) ratingFC = "Clear";
+			if(ClientPrefs.fullNameFC) {
+				if (sicks > 0) ratingFC = "Perfect Full Combo!";
+				if (goods > 0) ratingFC = "Good Full Combo";
+				if (bads > 0 || shits > 0) ratingFC = "Full Combo";
+				if (songMisses > 0 && songMisses < 10) ratingFC = "Single Digit Combo Break (SDCB)";
+				else if (songMisses >= 10) ratingFC = "Clear";
+			} else {
+				if (sicks > 0) ratingFC = "SFC";
+				if (goods > 0) ratingFC = "GFC";
+				if (bads > 0 || shits > 0) ratingFC = "FC";
+				if (songMisses > 0 && songMisses < 10) ratingFC = "SDCB";
+				else if (songMisses >= 10) ratingFC = "Clear";
+			}
+				
 		}
 		setOnLuas('rating', ratingPercent);
 		setOnLuas('ratingName', ratingName);

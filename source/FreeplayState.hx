@@ -9,6 +9,7 @@ import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.addons.display.FlxGridOverlay;
 import flixel.addons.transition.FlxTransitionableState;
+import flixel.addons.display.FlxBackdrop;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.math.FlxMath;
 import flixel.text.FlxText;
@@ -51,6 +52,8 @@ class FreeplayState extends MusicBeatState
 	var intendedColor:Int;
 	var colorTween:FlxTween;
 
+	var categoryIcon:FlxSprite;
+
 	override function create()
 	{
 		switch (FreeplaySelectState.freeplayCats[FreeplaySelectState.curCategory].toLowerCase())
@@ -60,10 +63,12 @@ class FreeplayState extends MusicBeatState
 			case 'dave':
 				addWeek(['House', 'Insanity', 'Polygonized'], 1, 0xFF00dcff, ['dave', 'dave', 'dave-3d']);
 				addWeek(['Bonus Song'], 1, 0xFF00dcff, ['dave']);
+				addWeek(['Rano'], 4, 0xFF00dcff, ['dave']);
 				addWeek(['Blocked','Corn Theft','Maze',], 2, 0xFF58cf08, ['bambi']);
 				addWeek(['Splitathon'], 3, 0xFF27f5fb, ['the-duo']);
 			case 'joke':
 				addWeek(['Supernovae', 'Glitch', 'Vs Dave Thanksgiving'], 2, 0xFF58cf08, ['bambiJoke']);
+				addWeek(['Rush E'], 4, 0xFF58cf08, ['bambi-3d-2']);
 				if (FlxG.save.data.cheatingFound)
 					addWeek(['Cheating'], 2, 0xFF58cf08, ['bambi-3d']);
 				if(FlxG.save.data.unfairnessFound)
@@ -71,8 +76,15 @@ class FreeplayState extends MusicBeatState
 			case 'extra':
 				addWeek(['Mealie'], 2, 0xFF58cf08, ['bambi']);
 				addWeek(['Furiosity'], 1, 0xFF00dcff, ['madman-dave']);
+				addWeek(["Rockin'"], 4, 0xFF58cf08, ['bambi']);
+				addWeek(['Harmony'], 4, 0xFF00dcff, ['dave']);
+				//addWeek(['Tales'], 1, 0xFF00dcff, ['dave']);
 			case 'insanity':
-				addWeek(['Remorseless'], 0, 0xff303030, ['morrow']);
+				addWeek(['Blu'], 4, 0xff2466ff, ['barren']);
+				addWeek(['Anillo'], 4, 0xffffea00, ['lenzo']);
+				addWeek(['Remorseless'], 4, 0xff303030, ['morrow']);
+				addWeek(['Overdrive'], 4, 0xffff0000, ['cbarren']);
+				addWeek(['Amber'], 4, 0xffffab1a, ['lenzai']);
 		};
 
 		Paths.clearStoredMemory();
@@ -132,6 +144,23 @@ class FreeplayState extends MusicBeatState
 		bg.antialiasing = ClientPrefs.globalAntialiasing;
 		add(bg);
 		bg.screenCenter();
+
+		var gridthing:FlxBackdrop;
+
+		gridthing = new FlxBackdrop(Paths.image('loading'), 0.2, 0, true, true);
+		gridthing.velocity.set(50, -25);
+		gridthing.updateHitbox();
+		gridthing.alpha = 0.4;
+		gridthing.screenCenter(X);
+		gridthing.color = 0xFFFFFF;
+		gridthing.antialiasing = ClientPrefs.globalAntialiasing;
+		add(gridthing);
+		
+		categoryIcon = new FlxSprite(0,0).loadGraphic(Paths.image('weekicons/week_icon_' + FreeplaySelectState.freeplayCats[FreeplaySelectState.curCategory].toLowerCase()));
+		categoryIcon.setGraphicSize(Std.int(categoryIcon.width * 0.5), Std.int(categoryIcon.height * 0.5));
+		categoryIcon.updateHitbox();
+        //categoryIcon.screenCenter();
+        add(categoryIcon);
 
 		grpSongs = new FlxTypedGroup<Alphabet>();
 		add(grpSongs);

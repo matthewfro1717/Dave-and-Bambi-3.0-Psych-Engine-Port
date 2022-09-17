@@ -4612,15 +4612,7 @@
 			{
 				"lengthInSteps": 16,
 				"typeOfSection": 0,
-				"sectionNotes": [
-					[
-						109500,
-						-1,
-						"Play Animation",
-						"scared",
-						"0"
-					]
-				],
+				"sectionNotes": [],
 				"altAnim": false,
 				"bpm": 160,
 				"changeBPM": false,
@@ -4672,11 +4664,10 @@
 				"mustHitSection": true
 			}
 		],
-		"player2": "daveinsanity",
+		"player2": "dave-annoyed",
 		"player3": "gf",
 		"song": "Insanity",
 		"needsVoices": true,
-		"stage": "davehouse",
 		"validScore": true,
 		"sections": 25,
 		"speed": 3.1,

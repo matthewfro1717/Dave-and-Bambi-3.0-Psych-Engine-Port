@@ -7,6 +7,7 @@ import flash.text.TextField;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.addons.display.FlxGridOverlay;
+import flixel.addons.display.FlxBackdrop;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.math.FlxMath;
 import flixel.text.FlxText;
@@ -46,11 +47,22 @@ class NotesSubState extends MusicBeatSubstate
 	public function new() {
 		super();
 		
-		bg = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
+		bg = new FlxSprite().loadGraphic(Paths.image('backgrounds/Olyantwo'));
 		bg.color = 0xFFea71fd;
 		bg.screenCenter();
 		bg.antialiasing = ClientPrefs.globalAntialiasing;
 		add(bg);
+
+		var gridthing:FlxBackdrop;
+
+		gridthing = new FlxBackdrop(Paths.image('loading'), 0.2, 0, true, true);
+		gridthing.velocity.set(-50, 25);
+		gridthing.updateHitbox();
+		gridthing.alpha = 0.4;
+		gridthing.screenCenter(X);
+		gridthing.color = 0xFFFFFF;
+		gridthing.antialiasing = ClientPrefs.globalAntialiasing;
+		add(gridthing);
 		
 		blackBG = new FlxSprite(posX - 25).makeGraphic(870, 200, FlxColor.BLACK);
 		blackBG.alpha = 0.4;

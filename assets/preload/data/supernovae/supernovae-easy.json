@@ -2,7 +2,7 @@
 	"song": {
 		"sectionLengths": [],
 		"player1": "bf",
-		"player2": "jokebambi",
+		"player2": "bambi-old",
 		"notes": [
 			{
 				"sectionNotes": [],
@@ -35068,7 +35068,6 @@
 		],
 		"player3": "gf",
 		"song": "Supernovae",
-		"stage": "davehouse",
 		"validScore": true,
 		"needsVoices": false,
 		"sections": 1329,

@@ -7,6 +7,7 @@ import flash.text.TextField;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.addons.display.FlxGridOverlay;
+import flixel.addons.display.FlxBackdrop;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.math.FlxMath;
 import flixel.text.FlxText;
@@ -35,11 +36,14 @@ class ControlsSubState extends MusicBeatSubstate {
 	private var bindLength:Int = 0;
 
 	var optionShit:Array<Dynamic> = [
-		['NOTES'],
+		['GAMEPLAY'],
 		['Left', 'note_left'],
 		['Down', 'note_down'],
 		['Up', 'note_up'],
 		['Right', 'note_right'],
+		/*['Dodge', 'dodge_button'],
+		['Extra 1', 'ex_1'],
+		['Extra 2', 'ex_2'],*/
 		[''],
 		['UI'],
 		['Left', 'ui_left'],
@@ -71,11 +75,22 @@ class ControlsSubState extends MusicBeatSubstate {
 	public function new() {
 		super();
 
-		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
+		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('backgrounds/Olyantwo'));
 		bg.color = 0xFFea71fd;
 		bg.screenCenter();
 		bg.antialiasing = ClientPrefs.globalAntialiasing;
 		add(bg);
+
+		var gridthing:FlxBackdrop;
+
+		gridthing = new FlxBackdrop(Paths.image('loading'), 0.2, 0, true, true);
+		gridthing.velocity.set(-50, 25);
+		gridthing.updateHitbox();
+		gridthing.alpha = 0.4;
+		gridthing.screenCenter(X);
+		gridthing.color = 0xFFFFFF;
+		gridthing.antialiasing = ClientPrefs.globalAntialiasing;
+		add(gridthing);
 
 		grpOptions = new FlxTypedGroup<Alphabet>();
 		add(grpOptions);

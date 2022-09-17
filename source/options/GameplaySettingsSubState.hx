@@ -93,6 +93,13 @@ class GameplaySettingsSubState extends BaseOptionsMenu
 			false);
 		addOption(option);
 
+		var option:Option = new Option('Full Name FCs', //Name
+			'If checked, the full combo rating will show its full name instead of its abbreviation.', //Description
+			'fullNameFC', //Save data variable name
+			'bool', //Variable type
+			false); //Default value
+		addOption(option);
+
 		var option:Option = new Option('Hitsound Volume',
 			'Funny notes does \"Tick!\" when you hit them."',
 			'hitsoundVolume',

@@ -3043,10 +3043,9 @@
 				"mustHitSection": true
 			}
 		],
-		"player2": "daveinsanity",
+		"player2": "dave-annoyed",
 		"player3": "gf",
 		"song": "Insanity",
-		"stage": "davehouse",
 		"needsVoices": true,
 		"sections": 1,
 		"validScore": true,

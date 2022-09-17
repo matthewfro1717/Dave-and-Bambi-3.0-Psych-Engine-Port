@@ -1,0 +1,78 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "idle",
+			"loop": true,
+			"name": "DaveAngry idle dance"
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singUP",
+			"loop": true,
+			"name": "DaveAngry Sing Note UP"
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singRIGHT",
+			"loop": true,
+			"name": "DaveAngry Sing Note RIGHT"
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singLEFT",
+			"loop": true,
+			"name": "DaveAngry Sing Note LEFT"
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singDOWN",
+			"loop": true,
+			"name": "DaveAngry Sing Note DOWN"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/dave/Dave_insanity_3d",
+	"position": [
+		0,
+		-60
+	],
+	"healthicon": "madman-dave",
+	"flip_x": false,
+	"healthbar_colors": [
+		185,
+		119,
+		146
+	],
+	"camera_position": [
+		-340,
+		0
+	],
+	"sing_duration": 6.1,
+	"scale": 0.8
+}

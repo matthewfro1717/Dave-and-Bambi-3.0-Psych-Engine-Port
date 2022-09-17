@@ -82,6 +82,8 @@ class Note extends FlxSprite
 
 	public var hitsoundDisabled:Bool = false;
 
+	public static var cool3Dcharacters:Array<String> = ['dave-3d', 'bambi-3d', 'bambi-unfair', 'expunged', 'morrow', 'barren', 'lenzo']; //rn this is useless
+
 	private function set_texture(value:String):String {
 		if(texture != value) {
 			reloadNote('', value);

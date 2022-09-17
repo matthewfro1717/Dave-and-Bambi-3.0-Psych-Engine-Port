@@ -2,7 +2,7 @@
 	"song": {
 		"player1": "bf",
 		"sectionLengths": [],
-		"player2": "unfairbambi",
+		"player2": "expunged",
 		"notes": [
 			{
 				"sectionNotes": [
@@ -11547,7 +11547,6 @@
 		"song": "Unfairness",
 		"validScore": true,
 		"sections": 1,
-		"stage": "youareunfair",
 		"needsVoices": true,
 		"bpm": 300,
 		"speed": 5.99999999999999

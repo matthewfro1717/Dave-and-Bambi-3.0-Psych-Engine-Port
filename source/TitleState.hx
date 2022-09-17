@@ -248,12 +248,8 @@ class TitleState extends MusicBeatState
 			// FlxG.sound.list.add(music);
 			// music.play();
 
-			if (FlxG.sound.music == null)
-			{
-				FlxG.sound.playMusic(Paths.music('freakyMenu'), 0);
-
-				FlxG.sound.music.fadeIn(4, 0, 0.7);
-			}
+			FlxG.sound.playMusic(Paths.music('funkyTitle'), 0);
+			FlxG.sound.music.fadeIn(4, 0, 0.7);
 		}
 
 		Conductor.changeBPM(titleJSON.bpm);
@@ -328,6 +324,7 @@ class TitleState extends MusicBeatState
 		titlestatebg.updateHitbox();
 		titlestatebg.alpha = 0.5;
 		titlestatebg.screenCenter(X);
+		titlestatebg.color = 0xBE46FF;
 		add(titlestatebg);
 		titlestatebg.shader = swagShader.shader;
 
@@ -495,7 +492,8 @@ class TitleState extends MusicBeatState
 						}
 						else
 						{
-							MusicBeatState.switchState(new MainMenuState());
+							MusicBeatState.switchState(new WarningState());
+							FlxG.sound.playMusic(Paths.music('freakyMenu'), 0);
 						}
 						closedState = true;
 					});
@@ -529,7 +527,8 @@ class TitleState extends MusicBeatState
 					}
 					else
 					{
-						MusicBeatState.switchState(new MainMenuState());
+						MusicBeatState.switchState(new WarningState());
+						FlxG.sound.playMusic(Paths.music('freakyMenu'), 0);
 					}
 					closedState = true;
 				});
@@ -696,10 +695,10 @@ class TitleState extends MusicBeatState
 					addMoreText('Psych Engine', 45);
 				case 6:
 					deleteCoolText();
-					createCoolText(['Psych Engine by'], 45);
-					addMoreText('Shadow Mario',45);
-					addMoreText('RiverOaken',45);
-					addMoreText('bbpanzu',45);
+					createCoolText(['Mod made by'], 45);
+					addMoreText('Fyrid',45);
+					addMoreText('Cahne',45);
+					addMoreText('dev3',45);
 				case 8:
 					deleteCoolText();
 					createCoolText([curWacky[0]]);
@@ -708,13 +707,13 @@ class TitleState extends MusicBeatState
 				case 12:
 					deleteCoolText();
 				case 13:
-					addMoreText('Friday');
+					addMoreText('Vs Dave');
 				// credTextShit.visible = true;
 				case 14:
-					addMoreText('Night');
+					addMoreText('And Bambi');
 				// credTextShit.text += '\nNight';
 				case 15:
-					addMoreText('Funkin'); // credTextShit.text += '\nFunkin';
+					addMoreText('Anniversary Edition'); // credTextShit.text += '\nFunkin';
 
 				case 16:
 					skipIntro();

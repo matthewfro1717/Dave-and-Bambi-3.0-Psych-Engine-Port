@@ -209,6 +209,8 @@ class ChartingState extends MusicBeatState
 			Lib.setInterval(autosaveSong, ClientPrefs.autosaveInterval * 60 * 1000); // <arubz> * 60 * 1000
 		}
 
+		//FlxG.sound.playMusic(Paths.music('tea-time'), 0.5);
+
 		if (PlayState.SONG != null)
 			_song = PlayState.SONG;
 		else
@@ -237,7 +239,7 @@ class ChartingState extends MusicBeatState
 				disableAntiMash: false,
 				disableDebugButtons: false,
 				swapStrumLines: false,
-				hidegf: true
+				hidegf: false
 			};
 			addSection();
 			PlayState.SONG = _song;
@@ -254,9 +256,9 @@ class ChartingState extends MusicBeatState
 
 		vortex = FlxG.save.data.chart_vortex;
 		ignoreWarnings = FlxG.save.data.ignoreWarnings;
-		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
+		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('backgrounds/SwagnotrllyTheMod'));
 		bg.scrollFactor.set();
-		bg.color = 0xFF222222;
+		bg.color = 0xFF393939;
 		add(bg);
 
 		gridLayer = new FlxTypedGroup<FlxSprite>();

@@ -14074,10 +14074,9 @@
 				"mustHitSection": true
 			}
 		],
-		"player2": "mealieoffsets",
+		"player2": "split-bambi",
 		"player3": "gf",
 		"song": "Mealie",
-		"stage": "farmlandnight",
 		"needsVoices": true,
 		"sections": 1,
 		"validScore": true,

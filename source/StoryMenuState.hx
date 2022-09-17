@@ -32,6 +32,7 @@ class StoryMenuState extends MusicBeatState
 
 	var txtWeekTitle:FlxText;
 	var bgSprite:FlxSprite;
+	var bgYellow:FlxSprite;
 
 	private static var curWeek:Int = 0;
 
@@ -48,6 +49,14 @@ class StoryMenuState extends MusicBeatState
 	var rightArrow:FlxSprite;
 
 	var loadedWeeks:Array<WeekData> = [];
+
+	var songColors:Array<FlxColor> = [
+        0xFFca1f6f, // GF
+		0xFF4965FF, // DAVE
+		0xFF00B515, // MISTER BAMBI
+		0xFF00FFFF, //SPLIT THE THONNNNN
+        0xFF9F9F9F //CRAZY INSANITYYYYYYYYY
+    ];
 
 	override function create()
 	{
@@ -73,7 +82,8 @@ class StoryMenuState extends MusicBeatState
 		rankText.screenCenter(X);
 
 		var ui_tex = Paths.getSparrowAtlas('campaign_menu_UI_assets');
-		var bgYellow:FlxSprite = new FlxSprite(0, 56).makeGraphic(FlxG.width, 386, 0xFFF9CF51);
+		bgYellow = new FlxSprite(0, 56).makeGraphic(FlxG.width * 2, 400, FlxColor.WHITE);
+		bgYellow.color = songColors[0];
 		bgSprite = new FlxSprite(0, 56);
 		bgSprite.antialiasing = ClientPrefs.globalAntialiasing;
 
@@ -445,6 +455,8 @@ class StoryMenuState extends MusicBeatState
 			curDifficulty = newPos;
 		}
 		updateText();
+
+		FlxTween.color(bgYellow, 0.25, bgYellow.color, songColors[curWeek]);
 	}
 
 	function weekIsLocked(name:String):Bool {
