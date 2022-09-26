@@ -67,7 +67,8 @@ class ChartingState extends MusicBeatState
 		'Hey!',
 		'Hurt Note',
 		'GF Sing',
-		'No Animation'
+		'No Animation',
+		'Drive Note'
 	];
 	private var noteTypeIntMap:Map<Int, String> = new Map<Int, String>();
 	private var noteTypeMap:Map<String, Null<Int>> = new Map<String, Null<Int>>();
@@ -208,8 +209,6 @@ class ChartingState extends MusicBeatState
 		if(ClientPrefs.autosavecharts == true) {
 			Lib.setInterval(autosaveSong, ClientPrefs.autosaveInterval * 60 * 1000); // <arubz> * 60 * 1000
 		}
-
-		//FlxG.sound.playMusic(Paths.music('tea-time'), 0.5);
 
 		if (PlayState.SONG != null)
 			_song = PlayState.SONG;

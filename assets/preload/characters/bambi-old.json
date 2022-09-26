@@ -1,66 +1,66 @@
 {
 	"animations": [
 		{
-			"offsets": [
-				0,
-				0
-			],
 			"loop": false,
-			"fps": 24,
+			"offsets": [
+				0,
+				0
+			],
 			"anim": "idle",
-			"indices": [],
-			"name": "MARCELLO idle dance"
+			"fps": 24,
+			"name": "MARCELLO idle dance",
+			"indices": []
 		},
 		{
+			"loop": true,
 			"offsets": [
 				0,
 				0
 			],
-			"loop": true,
-			"fps": 24,
 			"anim": "singLEFT",
-			"indices": [],
-			"name": "MARCELLO NOTE LEFT"
+			"fps": 24,
+			"name": "MARCELLO NOTE LEFT",
+			"indices": []
 		},
 		{
+			"loop": true,
 			"offsets": [
 				0,
 				0
 			],
-			"loop": true,
-			"fps": 24,
 			"anim": "singDOWN",
-			"indices": [],
-			"name": "MARCELLO NOTE DOWN"
+			"fps": 24,
+			"name": "MARCELLO NOTE DOWN",
+			"indices": []
 		},
 		{
+			"loop": true,
 			"offsets": [
 				0,
 				0
 			],
-			"loop": true,
-			"fps": 24,
 			"anim": "singRIGHT",
-			"indices": [],
-			"name": "MARCELLO NOTE RIGHT"
+			"fps": 24,
+			"name": "MARCELLO NOTE RIGHT",
+			"indices": []
 		},
 		{
+			"loop": true,
 			"offsets": [
 				0,
 				0
 			],
-			"loop": true,
-			"fps": 24,
 			"anim": "singUP",
-			"indices": [],
-			"name": "MARCELLO NOTE UP"
+			"fps": 24,
+			"name": "MARCELLO NOTE UP",
+			"indices": []
 		}
 	],
 	"no_antialiasing": false,
 	"image": "characters/bambi/bambi-old",
 	"position": [
 		120,
-		310
+		370
 	],
 	"healthicon": "bambiJoke",
 	"flip_x": true,

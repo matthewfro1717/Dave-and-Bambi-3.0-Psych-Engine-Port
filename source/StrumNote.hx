@@ -15,8 +15,11 @@ class StrumNote extends FlxSprite
 	public var direction:Float = 90;//plan on doing scroll directions soon -bb
 	public var downScroll:Bool = false;//plan on doing scroll directions soon -bb
 	public var sustainReduce:Bool = true;
+
+	//var cool3Dcharacters:Array<String> = ['dave-3d', 'bambi-3d', 'bambi-unfair', 'expunged', 'morrow', 'bandu', 'corruptb', 'bf-3d', 'badai']; //useless now
 	
 	private var player:Int;
+	public static var plrStatic:Int;
 	
 	public var texture(default, set):String = null;
 	private function set_texture(value:String):String {
@@ -44,6 +47,8 @@ class StrumNote extends FlxSprite
 		this.noteData = leData;
 		super(x, y);
 
+		plrStatic = player;
+
 		var skin:String = 'NOTE_assets';
 		if (PlayState.SONG.arrowSkin == null || PlayState.SONG.arrowSkin.length <= 1) {
 			if(ClientPrefs.noteSkinSettings == 'Clasic') {
@@ -53,9 +58,21 @@ class StrumNote extends FlxSprite
 			} else {
 				skin = 'NOTE_assets';// for preventing crashes
 			}
+			/*if (cool3Dcharacters.contains(PlayState.SONG.player1)) {
+				skin = '3DNotes';
+			} else if (cool3Dcharacters.contains(PlayState.SONG.player2)) {
+				skin = '3DNotes';
+			}*/
 		}
+		
 		if (PlayState.SONG.arrowSkin != null && PlayState.SONG.arrowSkin.length > 1) skin = PlayState.SONG.arrowSkin;
 		//trace(PlayState.SONG.arrowSkin); мама я в ютубе
+		if (PlayState.cool3Dcharacters.contains(PlayState.SONG.player1) && player == 1) {
+			skin = '3DNotes';
+		} 
+		if (PlayState.cool3Dcharacters.contains(PlayState.SONG.player2) && player == 0) {
+			skin = '3DNotes';
+		}
 		texture = skin; //Load texture and anims
 
 		scrollFactor.set();
@@ -160,6 +177,8 @@ class StrumNote extends FlxSprite
 			centerOrigin();
 		//}
 		}
+
+		//plrStatic = player;
 
 		super.update(elapsed);
 	}

@@ -61,30 +61,32 @@ class FreeplayState extends MusicBeatState
 			case 'base':
 				addWeek(['Tutorial'], 0, 0xFFce3c80, ['gf']);
 			case 'dave':
-				addWeek(['House', 'Insanity', 'Polygonized'], 1, 0xFF00dcff, ['dave', 'dave', 'dave-3d']);
-				addWeek(['Bonus Song'], 1, 0xFF00dcff, ['dave']);
-				addWeek(['Rano'], 4, 0xFF00dcff, ['dave']);
+				addWeek(['House', 'Insanity', 'Polygonized'], 1, 0xff00b3ff, ['dave', 'dave', 'dave-3d']);
+				addWeek(['Bonus Song'], 1, 0xff00b3ff, ['dave']);
+				addWeek(['Rano'], 4, 0xff00b3ff, ['dave']);
 				addWeek(['Blocked','Corn Theft','Maze',], 2, 0xFF58cf08, ['bambi']);
 				addWeek(['Splitathon'], 3, 0xFF27f5fb, ['the-duo']);
 			case 'joke':
 				addWeek(['Supernovae', 'Glitch', 'Vs Dave Thanksgiving'], 2, 0xFF58cf08, ['bambiJoke']);
-				addWeek(['Rush E'], 4, 0xFF58cf08, ['bambi-3d-2']);
+				//addWeek(['Rush E'], 4, 0xFF58cf08, ['bambi-3d-2']); //rush e lags too much and its quite broken
 				if (FlxG.save.data.cheatingFound)
 					addWeek(['Cheating'], 2, 0xFF58cf08, ['bambi-3d']);
 				if(FlxG.save.data.unfairnessFound)
 					addWeek(['Unfairness'], 2, 0xFFf40000, ['expunged']);
 			case 'extra':
 				addWeek(['Mealie'], 2, 0xFF58cf08, ['bambi']);
-				addWeek(['Furiosity'], 1, 0xFF00dcff, ['madman-dave']);
+				addWeek(['Furiosity'], 1, 0xff00b3ff, ['madman-dave']);
 				addWeek(["Rockin'"], 4, 0xFF58cf08, ['bambi']);
-				addWeek(['Harmony'], 4, 0xFF00dcff, ['dave']);
-				//addWeek(['Tales'], 1, 0xFF00dcff, ['dave']);
+				addWeek(['Harmony'], 4, 0xff00b3ff, ['dave']);
+			//	if(FlxG.save.data.talesFound)
+				//	addWeek(['Tales'], 1, 0xff00b3ff, ['dave']);
 			case 'insanity':
 				addWeek(['Blu'], 4, 0xff2466ff, ['barren']);
 				addWeek(['Anillo'], 4, 0xffffea00, ['lenzo']);
 				addWeek(['Remorseless'], 4, 0xff303030, ['morrow']);
 				addWeek(['Overdrive'], 4, 0xffff0000, ['cbarren']);
 				addWeek(['Amber'], 4, 0xffffab1a, ['lenzai']);
+				addWeek(['Ultimatum'], 4, 0xff8e37ff, ['funni-duo']);
 		};
 
 		Paths.clearStoredMemory();
@@ -200,7 +202,7 @@ class FreeplayState extends MusicBeatState
 		WeekData.setDirectoryFromWeek();
 
 		scoreText = new FlxText(FlxG.width * 0.7, 5, 0, "", 32);
-		scoreText.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, RIGHT);
+		scoreText.setFormat(Paths.font("comic.ttf"), 32, FlxColor.WHITE, RIGHT);
 
 		scoreBG = new FlxSprite(scoreText.x - 6, 0).makeGraphic(1, 66, 0xFF000000);
 		scoreBG.alpha = 0.6;
@@ -256,7 +258,7 @@ class FreeplayState extends MusicBeatState
 		var size:Int = 18;
 		#end
 		var text:FlxText = new FlxText(textBG.x, textBG.y + 4, FlxG.width, leText, size);
-		text.setFormat(Paths.font("vcr.ttf"), size, FlxColor.WHITE, RIGHT);
+		text.setFormat(Paths.font("comic.ttf"), size, FlxColor.WHITE, RIGHT);
 		text.scrollFactor.set();
 		add(text);
 		super.create();

@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="menu_extras.png">
+<SubTexture name="extras basic0000" x="402" y="136" width="354" height="120" frameX="0" frameY="0" frameWidth="354" frameHeight="120" />
+<SubTexture name="extras basic0001" x="402" y="136" width="354" height="120" frameX="0" frameY="0" frameWidth="354" frameHeight="120" />
+<SubTexture name="extras basic0002" x="402" y="136" width="354" height="120" frameX="0" frameY="0" frameWidth="354" frameHeight="120" />
+<SubTexture name="extras basic0003" x="0" y="272" width="354" height="120" frameX="0" frameY="0" frameWidth="354" frameHeight="120" />
+<SubTexture name="extras basic0004" x="0" y="272" width="354" height="120" frameX="0" frameY="0" frameWidth="354" frameHeight="120" />
+<SubTexture name="extras basic0005" x="0" y="272" width="354" height="120" frameX="0" frameY="0" frameWidth="354" frameHeight="120" />
+<SubTexture name="extras basic0006" x="354" y="272" width="354" height="120" frameX="0" frameY="0" frameWidth="354" frameHeight="120" />
+<SubTexture name="extras basic0007" x="354" y="272" width="354" height="120" frameX="0" frameY="0" frameWidth="354" frameHeight="120" />
+<SubTexture name="extras basic0008" x="354" y="272" width="354" height="120" frameX="0" frameY="0" frameWidth="354" frameHeight="120" />
+<SubTexture name="extras white0000" x="0" y="0" width="402" height="136" frameX="0" frameY="0" frameWidth="402" frameHeight="136" />
+<SubTexture name="extras white0001" x="0" y="136" width="402" height="136" frameX="0" frameY="0" frameWidth="402" frameHeight="136" />
+<SubTexture name="extras white0002" x="402" y="0" width="402" height="136" frameX="0" frameY="0" frameWidth="402" frameHeight="136" />
+</TextureAtlas>

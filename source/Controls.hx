@@ -42,6 +42,9 @@ enum abstract Action(String) to String from String
 	var BACK = "back";
 	var PAUSE = "pause";
 	var RESET = "reset";
+	var DODGE = "dodge_button";
+	var EXTRA_1 = "extra_1";
+	var EXTRA_2 = "extra_2";
 }
 #else
 @:enum
@@ -75,6 +78,9 @@ abstract Action(String) to String from String
 	var BACK = "back";
 	var PAUSE = "pause";
 	var RESET = "reset";
+	var DODGE = "dodge_button";
+	var EXTRA_1 = "extra_1";
+	var EXTRA_2 = "extra_2";
 }
 #end
 
@@ -103,6 +109,9 @@ enum Control
 	ACCEPT;
 	BACK;
 	PAUSE;
+	DODGE;
+	EXTRA_1;
+	EXTRA_2;
 }
 
 enum KeyboardScheme
@@ -147,6 +156,9 @@ class Controls extends FlxActionSet
 	var _back = new FlxActionDigital(Action.BACK);
 	var _pause = new FlxActionDigital(Action.PAUSE);
 	var _reset = new FlxActionDigital(Action.RESET);
+	var _dodge = new FlxActionDigital(Action.DODGE);
+	var _extra_1 = new FlxActionDigital(Action.EXTRA_1);
+	var _extra_2 = new FlxActionDigital(Action.EXTRA_2);
 
 	#if (haxe >= "4.0.0")
 	var byName:Map<String, FlxActionDigital> = [];
@@ -297,6 +309,21 @@ class Controls extends FlxActionSet
 	inline function get_RESET()
 		return _reset.check();
 
+	public var DODGE(get, never):Bool;
+
+	inline function get_DODGE()
+		return _dodge.check();
+
+	public var EXTRA_1(get, never):Bool;
+
+	inline function get_EXTRA_1()
+		return _extra_1.check();
+
+	public var EXTRA_2(get, never):Bool;
+
+	inline function get_EXTRA_2()
+		return _extra_2.check();
+
 	#if (haxe >= "4.0.0")
 	public function new(name, scheme = None)
 	{
@@ -330,6 +357,9 @@ class Controls extends FlxActionSet
 		add(_back);
 		add(_pause);
 		add(_reset);
+		add(_dodge);
+		add(_extra_1);
+		add(_extra_2);
 
 		for (action in digitalActions)
 			byName[action.name] = action;
@@ -369,6 +399,9 @@ class Controls extends FlxActionSet
 		add(_back);
 		add(_pause);
 		add(_reset);
+		add(_dodge);
+		add(_extra_1);
+		add(_extra_2);
 
 		for (action in digitalActions)
 			byName[action.name] = action;
@@ -426,6 +459,9 @@ class Controls extends FlxActionSet
 			case BACK: _back;
 			case PAUSE: _pause;
 			case RESET: _reset;
+			case DODGE: _dodge;
+			case EXTRA_1: _extra_1;
+			case EXTRA_2: _extra_2;
 		}
 	}
 
@@ -485,6 +521,12 @@ class Controls extends FlxActionSet
 				func(_pause, JUST_PRESSED);
 			case RESET:
 				func(_reset, JUST_PRESSED);
+			case DODGE:
+				func(_dodge, JUST_PRESSED);
+			case EXTRA_1:
+				func(_extra_1, JUST_PRESSED);
+			case EXTRA_2:
+				func(_extra_2, JUST_PRESSED);
 		}
 	}
 
@@ -648,6 +690,9 @@ class Controls extends FlxActionSet
 				inline bindKeys(Control.NOTE_DOWN, keysMap.get('note_down'));
 				inline bindKeys(Control.NOTE_LEFT, keysMap.get('note_left'));
 				inline bindKeys(Control.NOTE_RIGHT, keysMap.get('note_right'));
+				inline bindKeys(Control.DODGE, keysMap.get('dodge_button'));
+				inline bindKeys(Control.EXTRA_1, keysMap.get('extra_1'));
+				inline bindKeys(Control.EXTRA_2, keysMap.get('extra_2'));
 
 				inline bindKeys(Control.ACCEPT, keysMap.get('accept'));
 				inline bindKeys(Control.BACK, keysMap.get('back'));
@@ -666,6 +711,9 @@ class Controls extends FlxActionSet
 				inline bindKeys(Control.BACK, [H, X]);
 				inline bindKeys(Control.PAUSE, [ONE]);
 				inline bindKeys(Control.RESET, [R]);
+				inline bindKeys(Control.DODGE, [SPACE]);
+				inline bindKeys(Control.EXTRA_1, [F]);
+				inline bindKeys(Control.EXTRA_2, [J]);
 			case Duo(false):
 				inline bindKeys(Control.UI_UP, [FlxKey.UP]);
 				inline bindKeys(Control.UI_DOWN, [FlxKey.DOWN]);
@@ -679,6 +727,9 @@ class Controls extends FlxActionSet
 				inline bindKeys(Control.BACK, [P]);
 				inline bindKeys(Control.PAUSE, [ENTER]);
 				inline bindKeys(Control.RESET, [BACKSPACE]);
+				inline bindKeys(Control.DODGE, [ALT]);
+				inline bindKeys(Control.EXTRA_1, [G]);
+				inline bindKeys(Control.EXTRA_2, [H]);
 			case None: // nothing
 			case Custom: // nothing
 		}
@@ -698,6 +749,9 @@ class Controls extends FlxActionSet
 				bindKeys(Control.BACK, [BACKSPACE, ESCAPE]);
 				bindKeys(Control.PAUSE, [P, ENTER, ESCAPE]);
 				bindKeys(Control.RESET, [R]);
+				bindKeys(Control.DODGE, [SPACE]);
+				bindKeys(Control.EXTRA_1, [F]);
+				bindKeys(Control.EXTRA_2, [J]);
 			case Duo(true):
 				bindKeys(Control.UI_UP, [W]);
 				bindKeys(Control.UI_DOWN, [S]);
@@ -711,6 +765,9 @@ class Controls extends FlxActionSet
 				bindKeys(Control.BACK, [H, X]);
 				bindKeys(Control.PAUSE, [ONE]);
 				bindKeys(Control.RESET, [R]);
+				bindKeys(Control.DODGE, [SPACE]);
+				bindKeys(Control.EXTRA_1, [F]);
+				bindKeys(Control.EXTRA_2, [J]);
 			case Duo(false):
 				bindKeys(Control.UI_UP, [FlxKey.UP]);
 				bindKeys(Control.UI_DOWN, [FlxKey.DOWN]);
@@ -724,6 +781,9 @@ class Controls extends FlxActionSet
 				bindKeys(Control.BACK, [P]);
 				bindKeys(Control.PAUSE, [ENTER]);
 				bindKeys(Control.RESET, [BACKSPACE]);
+				bindKeys(Control.DODGE, [SPACE]);
+				bindKeys(Control.EXTRA_1, [F]);
+				bindKeys(Control.EXTRA_2, [J]);
 			case None: // nothing
 			case Custom: // nothing
 		}
@@ -786,7 +846,7 @@ class Controls extends FlxActionSet
 		gamepadsAdded.remove(deviceID);
 	}
 
-	public function addDefaultGamepad(id):Void
+	public function addDefaultGamepad(id):Void //i am not doing this (cry about it)
 	{
 		#if !switch
 		addGamepadLiteral(id, [

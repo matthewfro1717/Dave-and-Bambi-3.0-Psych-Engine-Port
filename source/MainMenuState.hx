@@ -17,6 +17,7 @@ import flixel.math.FlxMath;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
+import flixel.ui.FlxButton;
 #if MODS_ALLOWED
 import sys.FileSystem;
 import sys.io.File;
@@ -31,7 +32,7 @@ using StringTools;
 class MainMenuState extends MusicBeatState
 {
 	public static var osEngineVesrion:String = '1.3.1'; //This is also used for Discord RPC (not anymore lol)
-	public static var barrenEngineVesrion:String = '1.0.1';
+	public static var barrenEngineVesrion:String = '1.0.1'; //now this is used for rpc
 	public static var curSelected:Int = 0;
 
 	var menuItems:FlxTypedGroup<FlxSprite>;
@@ -53,10 +54,11 @@ class MainMenuState extends MusicBeatState
 		'story_mode',
 		'freeplay',
 		//#if MODS_ALLOWED 'mods', #end
-		#if ACHIEVEMENTS_ALLOWED 'awards', #end
+		//#if ACHIEVEMENTS_ALLOWED 'awards', #end //you can look at that on gamejolt im not coding that shit
 		'credits',
-		//'discord', //once the A.E official server is actually made this will work
-		'options'
+		'discord',
+		'options',
+		'extras'
 	];
 
 	#if MODS_ALLOWED
@@ -68,6 +70,8 @@ class MainMenuState extends MusicBeatState
 	var camFollow:FlxObject;
 	var camFollowPos:FlxObject;
 	var debugKeys:Array<FlxKey>;
+
+	var gamejoltButton:FlxButton;
 
 	override function create()
 	{
@@ -84,6 +88,8 @@ class MainMenuState extends MusicBeatState
 		camAchievement = new FlxCamera();
 		camAchievement.bgColor.alpha = 0;
 
+		FlxG.mouse.visible = true;
+
 		FlxG.cameras.reset(camGame);
 		FlxG.cameras.add(camAchievement);
 		FlxCamera.defaultCameras = [camGame];
@@ -94,8 +100,6 @@ class MainMenuState extends MusicBeatState
 		transOut = FlxTransitionableState.defaultTransOut;
 
 		persistentUpdate = persistentDraw = true;
-
-		
 
 		var yScroll:Float = Math.max(0.25 - (0.05 * (optionShit.length - 4)), 0.1);
         var bg:FlxSprite = new FlxSprite(-80).loadGraphic(randomizeBG());
@@ -116,6 +120,13 @@ class MainMenuState extends MusicBeatState
 		gridthing.color = 0xFFFFFF;
 		gridthing.antialiasing = ClientPrefs.globalAntialiasing;
 		add(gridthing);
+
+		var border:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('mainmenuBorder'));
+        border.scrollFactor.set(0, 0);
+        border.updateHitbox();
+        border.screenCenter();
+        border.antialiasing = ClientPrefs.globalAntialiasing;
+        add(border);
 
         if(ClientPrefs.themedmainmenubg == true) {
 
@@ -176,36 +187,50 @@ class MainMenuState extends MusicBeatState
 			menuItem.animation.addByPrefix('selected', optionShit[i] + " white", 24);
 			menuItem.animation.play('idle');
 			menuItem.ID = i;
-			//menuItem.x = 100*i+100;
+			if(menuItem.ID <= 3) {
+				menuItem.x = 50*i+100;
+				menuItem.y = 200*i+100;
+			} 
+			if(menuItem.ID >= 3) {
+				menuItem.x = -50*(i-3)+800;
+				menuItem.y = 200*(i-3)+100;
+			}
 			//menuItem.screenCenter(X);
 			menuItems.add(menuItem);
 			var scr:Float = (optionShit.length - 4) * 0.135;
-			if(optionShit.length < 6) scr = 0;
-			menuItem.scrollFactor.set(0, scr);
+			//if(optionShit.length < 6) scr = 0;
+			menuItem.scrollFactor.set(0, 0);
 			menuItem.antialiasing = ClientPrefs.globalAntialiasing;
 			//menuItem.setGraphicSize(Std.int(menuItem.width * 0.58));
 			menuItem.updateHitbox();
 			//curoffset = curoffset + 20;
 		}
-
+		/*
 		if (FlxG.sound.music == null) {
 			FlxG.sound.playMusic(Paths.music('freakyMenu'), 0);
 		}
-
+		*/
 		FlxG.camera.follow(camFollowPos, null, 1);
 
 		var versionShit:FlxText = new FlxText(FlxG.width * 0.7, FlxG.height - 64, 0, "Barren Engine v" + barrenEngineVesrion, 12);
 		versionShit.scrollFactor.set();
-		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		versionShit.setFormat(Paths.font("comic.ttf"), 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(versionShit);
 		var versionShit:FlxText = new FlxText(FlxG.width * 0.7, FlxG.height - 44, 0, "OS Engine v" + osEngineVesrion + " - Modded Psych Engine", 12);
 		versionShit.scrollFactor.set();
-		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		versionShit.setFormat(Paths.font("comic.ttf"), 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(versionShit);
 		var versionShit:FlxText = new FlxText(FlxG.width * 0.7, FlxG.height - 24, 0, "Friday Night Funkin' v" + Application.current.meta.get('version'), 12);
 		versionShit.scrollFactor.set();
-		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		versionShit.setFormat(Paths.font("comic.ttf"), 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(versionShit);
+
+		//gamejoltButton = new FlxTypedButton(0, 0, function()
+		//{
+		//	MusicBeatState.switchState(new gamejolt.GameJoltLogin());
+		//});
+		//gamejoltButton.loadGraphic('login', false, 500, 250, false);
+		//add(gamejoltButton);
 
 		// NG.core.calls.event.logEvent('swag').send();
 
@@ -289,20 +314,33 @@ class MainMenuState extends MusicBeatState
 				changeItem(1);
 			}
 
+			if (controls.UI_LEFT_P)
+			{
+				FlxG.sound.play(Paths.sound('scrollMenu'));
+				changeItem(-3);
+			}
+
+			if (controls.UI_RIGHT_P)
+			{
+				FlxG.sound.play(Paths.sound('scrollMenu'));
+				changeItem(3);
+			}
+
 			if (controls.BACK)
 			{
 				selectedSomethin = true;
 				FlxG.sound.play(Paths.sound('cancelMenu'));
-				MusicBeatState.switchState(new TitleState());
+				MusicBeatState.switchState(new GameExitState());
 				CoolUtil.cameraZoom(camera, 3, 3, FlxEase.backOut, ONESHOT);
 				//FlxG.sound.music.fadeOut();
 			}
 
 			if (controls.ACCEPT)
 			{
-				if (optionShit[curSelected] == 'donate')
-				{
+				if (optionShit[curSelected] == 'donate') {
 					CoolUtil.browserLoad('https://www.youtube.com/watch?v=dQw4w9WgXcQ'); // WHOEVER DELETES THIS IS GAY
+				} else if (optionShit[curSelected] == 'discord') {
+					CoolUtil.browserLoad('https://discord.gg/UZ9mpaju'); // cool discord server
 				} else if (optionShit[curSelected] == customOption) {
 					CoolUtil.browserLoad(customOptionLink);
 				}
@@ -326,7 +364,7 @@ class MainMenuState extends MusicBeatState
 								}
 							});
 							*/
-							FlxTween.tween(spr, {x: -500}, 2, {ease: FlxEase.backInOut, type: ONESHOT, onComplete: function(twn:FlxTween) {
+							FlxTween.tween(spr, {y: 1000}, 2, {ease: FlxEase.backInOut, type: ONESHOT, onComplete: function(twn:FlxTween) {
 								spr.kill();
 							}});
 						}
@@ -383,6 +421,9 @@ class MainMenuState extends MusicBeatState
 									case 'options':
 										LoadingState.loadAndSwitchState(new options.OptionsState());
 										   	CoolUtil.cameraZoom(camera, 2, 1, FlxEase.backOut, ONESHOT);
+									case 'extras':
+										LoadingState.loadAndSwitchState(new ExtrasState());
+										   	CoolUtil.cameraZoom(camera, 2, 1, FlxEase.backOut, ONESHOT);
 								}
 							});
 						}
@@ -431,7 +472,7 @@ class MainMenuState extends MusicBeatState
 				if(menuItems.length > 4) {
 					add = menuItems.length * 8;
 				}
-				camFollow.setPosition(spr.getGraphicMidpoint().x, spr.getGraphicMidpoint().y - add);
+				//camFollow.setPosition(spr.getGraphicMidpoint().x, spr.getGraphicMidpoint().y - add);
 				//spr.centerOffsets();
 			}
 		});

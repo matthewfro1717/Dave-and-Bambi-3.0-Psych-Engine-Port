@@ -4,6 +4,7 @@ import flixel.FlxG;
 import flixel.util.FlxSave;
 import flixel.input.keyboard.FlxKey;
 import flixel.graphics.FlxGraphic;
+import GameJoltAPI;
 import Controls;
 
 class ClientPrefs {
@@ -84,12 +85,15 @@ class ClientPrefs {
 		'note_down'		=> [S, DOWN],
 		'note_up'		=> [W, UP],
 		'note_right'	=> [D, RIGHT],
+		'dodge_button'	=> [SPACE, NONE],
+		'extra_1'		=> [F, NONE],
+		'extra_2'		=> [J, NONE],
 		
 		'ui_left'		=> [A, LEFT],
 		'ui_down'		=> [S, DOWN],
 		'ui_up'			=> [W, UP],
 		'ui_right'		=> [D, RIGHT],
-		
+
 		'accept'		=> [SPACE, ENTER],
 		'back'			=> [BACKSPACE, ESCAPE],
 		'pause'			=> [ENTER, ESCAPE],
@@ -171,6 +175,28 @@ class ClientPrefs {
 	}
 
 	public static function loadPrefs() {
+		//GameJolt Things
+        if(FlxG.save.data.gjUser != null)
+		{
+			FlxG.save.data.gjUser = FlxG.save.data.gjUser;
+		}
+	
+		if (FlxG.save.data.gjToken != null)
+		{
+			FlxG.save.data.gjToken = FlxG.save.data.gjToken;
+		}
+	
+		if (FlxG.save.data.lbToggle == null)
+		{
+			FlxG.save.data.lbToggle = false;
+			FlxG.save.flush();
+		}
+	
+		if (FlxG.save.data.lbToggle != null)
+		{
+			GameJoltAPI.leaderboardToggle = FlxG.save.data.lbToggle;
+		}
+
 		if(FlxG.save.data.downScroll != null) {
 			downScroll = FlxG.save.data.downScroll;
 		}

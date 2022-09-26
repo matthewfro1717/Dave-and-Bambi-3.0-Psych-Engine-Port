@@ -44,8 +44,10 @@ class DiscordClient
 	static function onReady()
 	{
 		DiscordRpc.presence({
-			details: "In the Menus",
-			state: null,
+			//details: "In the Menus",
+			details: 'NO LEAKS BITCH',
+			//state: null,
+			state: 'NYEHEHEHEHEHEHHE',
 			largeImageKey: 'icon',
 			largeImageText: "Vs Dave and Bambi: A.E."
 		});
@@ -80,12 +82,23 @@ class DiscordClient
 			endTimestamp = startTimestamp + endTimestamp;
 		}
 
-		DiscordRpc.presence({
+		/*DiscordRpc.presence({
 			details: details,
 			state: state,
 			largeImageKey: 'icon',
 			largeImageText: "Mod Version: " + MainMenuState.barrenEngineVesrion,
 			smallImageKey : smallImageKey,
+			// Obtained times are in milliseconds so they are divided so Discord can use it
+			startTimestamp : Std.int(startTimestamp / 1000),
+            endTimestamp : Std.int(endTimestamp / 1000)
+		});*/
+
+		DiscordRpc.presence({ //NO LEAKS BITCH
+			details: 'NO LEAKS BITCH',
+			state: 'NYEHEHEHEHEHEHHE',
+			largeImageKey: 'icon',
+			largeImageText: "Mod Version: " + MainMenuState.barrenEngineVesrion,
+			smallImageKey : 'NO LEAKS BITCH',
 			// Obtained times are in milliseconds so they are divided so Discord can use it
 			startTimestamp : Std.int(startTimestamp / 1000),
             endTimestamp : Std.int(endTimestamp / 1000)

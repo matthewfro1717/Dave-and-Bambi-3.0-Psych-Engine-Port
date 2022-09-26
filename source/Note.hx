@@ -1,5 +1,6 @@
 package;
 
+import flixel.math.FlxRandom;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.graphics.frames.FlxAtlasFrames;
@@ -7,6 +8,8 @@ import flixel.math.FlxMath;
 import flixel.util.FlxColor;
 import flash.display.BitmapData;
 import editors.ChartingState;
+import PlayState;
+import StrumNote;
 
 using StringTools;
 
@@ -30,6 +33,7 @@ class Note extends FlxSprite
 	public var hitByOpponent:Bool = false;
 	public var noteWasHit:Bool = false;
 	public var prevNote:Note;
+	public var LocalScrollSpeed:Float = 1;
 
 	public var sustainLength:Float = 0;
 	public var isSustainNote:Bool = false;
@@ -82,7 +86,9 @@ class Note extends FlxSprite
 
 	public var hitsoundDisabled:Bool = false;
 
-	public static var cool3Dcharacters:Array<String> = ['dave-3d', 'bambi-3d', 'bambi-unfair', 'expunged', 'morrow', 'barren', 'lenzo']; //rn this is useless
+	private var player:Int;
+
+	//public static var cool3Dcharacters:Array<String> = ['dave-3d', 'bambi-3d', 'bambi-unfair', 'expunged', 'morrow', 'barren', 'lenzo']; //this is outdated
 
 	private function set_texture(value:String):String {
 		if(texture != value) {
@@ -113,6 +119,11 @@ class Note extends FlxSprite
 						missHealth = 0.3;
 					}
 					hitCausesMiss = true;
+				case 'Drive Note':
+					ignoreNote = mustPress;
+					reloadNote('HURT');
+					noteSplashTexture = 'HURTnoteSplashes';
+					hitCausesMiss = true;
 				case 'No Animation':
 					noAnimation = true;
 				case 'GF Sing':
@@ -140,6 +151,14 @@ class Note extends FlxSprite
 		if (prevNote == null)
 			prevNote = this;
 
+		if (PlayState.SONG.swapStrumLines == true) {
+			if (player == 1) {
+				player = 0;
+			} else if (player == 0) {
+				player = 1;
+			}
+		}
+
 		this.prevNote = prevNote;
 		isSustainNote = sustainNote;
 		this.inEditor = inEditor;
@@ -160,16 +179,34 @@ class Note extends FlxSprite
 			x += swagWidth * (noteData % 4);
 			if(!isSustainNote) { //Doing this 'if' check to fix the warnings on Senpai songs
 				var animToPlay:String = '';
-				switch (noteData % 4)
+				switch (PlayState.SONG.song.toLowerCase())
 				{
-					case 0:
-						animToPlay = 'purple';
-					case 1:
-						animToPlay = 'blue';
-					case 2:
-						animToPlay = 'green';
-					case 3:
-						animToPlay = 'red';
+					case 'cheating':
+						switch (noteData % 4)
+						{
+							case 3:
+								animToPlay = 'purple';
+							case 2:
+								animToPlay = 'blue';
+							case 1:
+								animToPlay = 'green';
+							case 0:
+								animToPlay = 'red';
+							flipY = (Math.round(Math.random()) == 0); //fuck you
+							flipX = (Math.round(Math.random()) == 1);
+						}
+					default:
+						switch (noteData % 4)
+						{
+							case 0:
+								animToPlay = 'purple';
+							case 1:
+								animToPlay = 'blue';
+							case 2:
+								animToPlay = 'green';
+							case 3:
+								animToPlay = 'red';
+						}
 				}
 				animation.play(animToPlay + 'Scroll');
 			}
@@ -187,17 +224,34 @@ class Note extends FlxSprite
 			offsetX += width / 2;
 			copyAngle = false;
 
-			switch (noteData)
+			switch (PlayState.SONG.song.toLowerCase())
 			{
-				case 0:
-					animation.play('purpleholdend');
-				case 1:
-					animation.play('blueholdend');
-				case 2:
-					animation.play('greenholdend');
-				case 3:
-					animation.play('redholdend');
+				case 'cheating':
+					switch (noteData)
+					{
+						case 3:
+							animation.play('purpleholdend');
+						case 2:
+							animation.play('blueholdend');
+						case 1:
+							animation.play('greenholdend');
+						case 0:
+							animation.play('redholdend');
+					}
+				default:
+					switch (noteData)
+					{
+						case 0:
+							animation.play('purpleholdend');
+						case 1:
+							animation.play('blueholdend');
+						case 2:
+							animation.play('greenholdend');
+						case 3:
+							animation.play('redholdend');
+					}
 			}
+			
 
 			updateHitbox();
 
@@ -208,16 +262,32 @@ class Note extends FlxSprite
 
 			if (prevNote.isSustainNote)
 			{
-				switch (prevNote.noteData)
+				switch (PlayState.SONG.song.toLowerCase())
 				{
-					case 0:
-						prevNote.animation.play('purplehold');
-					case 1:
-						prevNote.animation.play('bluehold');
-					case 2:
-						prevNote.animation.play('greenhold');
-					case 3:
-						prevNote.animation.play('redhold');
+					case 'cheating':
+						switch (prevNote.noteData)
+						{
+							case 3:
+								prevNote.animation.play('purplehold');
+							case 2:
+								prevNote.animation.play('bluehold');
+							case 1:
+								prevNote.animation.play('greenhold');
+							case 0:
+								prevNote.animation.play('redhold');
+						}
+					default:
+						switch (prevNote.noteData)
+						{
+							case 0:
+								prevNote.animation.play('purplehold');
+							case 1:
+								prevNote.animation.play('bluehold');
+							case 2:
+								prevNote.animation.play('greenhold');
+							case 3:
+								prevNote.animation.play('redhold');
+						}
 				}
 
 				prevNote.scale.y *= Conductor.stepCrochet / 100 * 1.05;
@@ -258,12 +328,32 @@ class Note extends FlxSprite
 			if(skin == null || skin.length < 1) {
 				skin = 'NOTE_assets';
 				if (prefix != 'HURT') {
-					if(ClientPrefs.noteSkinSettings == 'Clasic') {
-						skin = 'NOTE_assets';
-					} else if (ClientPrefs.noteSkinSettings == 'Circle') {
-						skin = 'NOTE_assets_circle';
+					if (PlayState.cool3Dcharacters.contains(PlayState.SONG.player1) && PlayState.cool3Dcharacters.contains(PlayState.SONG.player2)) {
+						skin = '3DNotes';
+					} else if (PlayState.cool3Dcharacters.contains(PlayState.SONG.player2)) {
+						var rng:FlxRandom = new FlxRandom();
+						if (rng.int(0,2) == 1)
+						{
+							if(ClientPrefs.noteSkinSettings == 'Clasic') {
+								skin = 'NOTE_assets';
+							} else if (ClientPrefs.noteSkinSettings == 'Circle') {
+								skin = 'NOTE_assets_circle';
+							} else {
+								skin = 'NOTE_assets';// for preventing crashes
+							}
+						}
+						else
+						{
+							skin = '3DNotes';
+						}
 					} else {
-						skin = 'NOTE_assets';// for preventing crashes
+						if(ClientPrefs.noteSkinSettings == 'Clasic') {
+							skin = 'NOTE_assets';
+						} else if (ClientPrefs.noteSkinSettings == 'Circle') {
+							skin = 'NOTE_assets_circle';
+						} else {
+							skin = 'NOTE_assets';// for preventing crashes
+						}
 					}
 				}
 			}
@@ -317,6 +407,19 @@ class Note extends FlxSprite
 			scale.y = lastScaleY;
 		}
 		updateHitbox();
+
+		if (PlayState.SONG.song.toLowerCase() == 'unfairness')
+		{
+			var rng:FlxRandom = new FlxRandom();
+			if (rng.int(0,120) == 1)
+			{
+				LocalScrollSpeed = 0.1;
+			}
+			else
+			{
+				LocalScrollSpeed = rng.float(1,3);
+			}
+		}
 
 		if(animName != null)
 			animation.play(animName, true);

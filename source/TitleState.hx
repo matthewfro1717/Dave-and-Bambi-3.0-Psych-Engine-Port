@@ -4,6 +4,7 @@ package;
 import Discord.DiscordClient;
 import sys.thread.Thread;
 #end
+import GameJoltAPI;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.FlxState;
@@ -154,6 +155,9 @@ class TitleState extends MusicBeatState
 		FlxG.save.bind('funkin', 'ninjamuffin99');
 
 		ClientPrefs.loadPrefs();
+
+		GameJoltAPI.connect();
+		GameJoltAPI.authDaUser(FlxG.save.data.gjUser, FlxG.save.data.gjToken);
 
 		Highscore.load();
 
@@ -322,9 +326,9 @@ class TitleState extends MusicBeatState
 		titlestatebg = new FlxBackdrop(Paths.image('loading'), 0.2, 0, true, true);
 		titlestatebg.velocity.set(200, 110);
 		titlestatebg.updateHitbox();
-		titlestatebg.alpha = 0.5;
+		//titlestatebg.alpha = 0.5;
 		titlestatebg.screenCenter(X);
-		titlestatebg.color = 0xBE46FF;
+		titlestatebg.color = 0xFFF94E;
 		add(titlestatebg);
 		titlestatebg.shader = swagShader.shader;
 
@@ -472,7 +476,7 @@ class TitleState extends MusicBeatState
 					add(blackBg);
 
 					var skippedText:FlxText = new FlxText(450, 300, "SKIPPED...", 80);
-					skippedText.setFormat("VCR OSD Mono", 80, FlxColor.WHITE, CENTER);
+					skippedText.setFormat(Paths.font("comic.ttf"), 80, FlxColor.WHITE, CENTER);
 					add(skippedText);
 
 					new FlxTimer().start(3, function(tmr:FlxTimer) {
@@ -493,7 +497,7 @@ class TitleState extends MusicBeatState
 						else
 						{
 							MusicBeatState.switchState(new WarningState());
-							FlxG.sound.playMusic(Paths.music('freakyMenu'), 0);
+							//FlxG.sound.playMusic(Paths.music('freakyMenu'), 0);
 						}
 						closedState = true;
 					});
@@ -697,8 +701,8 @@ class TitleState extends MusicBeatState
 					deleteCoolText();
 					createCoolText(['Mod made by'], 45);
 					addMoreText('Fyrid',45);
-					addMoreText('Cahne',45);
-					addMoreText('dev3',45);
+					addMoreText('And more',45);
+				//	addMoreText('dev3',45);
 				case 8:
 					deleteCoolText();
 					createCoolText([curWacky[0]]);
