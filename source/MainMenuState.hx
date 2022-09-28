@@ -32,7 +32,7 @@ using StringTools;
 class MainMenuState extends MusicBeatState
 {
 	public static var osEngineVesrion:String = '1.3.1'; //This is also used for Discord RPC (not anymore lol)
-	public static var barrenEngineVesrion:String = '1.0.1'; //now this is used for rpc
+	public static var barrenEngineVesrion:String = '1.0.1 DEV BUILD'; //now this is used for rpc
 	public static var curSelected:Int = 0;
 
 	var menuItems:FlxTypedGroup<FlxSprite>;

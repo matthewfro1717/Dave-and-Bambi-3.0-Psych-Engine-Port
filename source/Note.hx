@@ -332,7 +332,7 @@ class Note extends FlxSprite
 						skin = '3DNotes';
 					} else if (PlayState.cool3Dcharacters.contains(PlayState.SONG.player2)) {
 						var rng:FlxRandom = new FlxRandom();
-						if (rng.int(0,2) == 1)
+						if (rng.int(0,1) == 1)
 						{
 							if(ClientPrefs.noteSkinSettings == 'Clasic') {
 								skin = 'NOTE_assets';

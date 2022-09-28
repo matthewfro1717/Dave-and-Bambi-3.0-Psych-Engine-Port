@@ -209,6 +209,9 @@ class PlayState extends MusicBeatState
 	private var shakeCam:Bool = false;
 
 	public static var eyesoreson = true;
+
+	//public static var screenshader:Shaders.PulseEffect = new PulseEffect(1, 2, 1);
+	public var polygonizedShader:PulseEffect;
 	
 	private var generatedMusic:Bool = false;
 	public var endingSong:Bool = false;
@@ -284,6 +287,8 @@ class PlayState extends MusicBeatState
 	public var songMisses:Int = 0;
 	public var scoreTxt:FlxText;
 	public var songTxt:FlxText;
+	public var engineTxt:FlxText;
+	public var storyTxt:FlxText;
 
 	var allNotesMs:Float = 0;
 	var averageMs:Float = 0;
@@ -476,6 +481,8 @@ class PlayState extends MusicBeatState
 			}
 		}
 		SONG.stage = curStage;
+
+		//screenshader.shader.uTime.value[0] = new flixel.math.FlxRandom().float(-100000, 100000);
 
 		var stageData:StageFile = StageData.getStageFile(curStage);
 		if(stageData == null) { //Stage couldn't be found, create a dummy stage for preventing a crash
@@ -920,6 +927,8 @@ class PlayState extends MusicBeatState
 				healthGain = 2;
 		}
 
+		polygonizedShader = new PulseEffect(1, 2, 1);
+
 		add(gfGroup); //Needed for blammed lights
 
 		// Shitty layering but whatev it works LOL
@@ -1273,8 +1282,8 @@ class PlayState extends MusicBeatState
 		}
 		add(scoreTxt);
 
-		songTxt = new FlxText(12, FlxG.height - 24, 0, "", 8);
-		songTxt.setFormat(Paths.font("comic.ttf"), 16, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		songTxt = new FlxText(12, FlxG.height - 35, 0, "", 8);
+		songTxt.setFormat(Paths.font("comic.ttf"), 20, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		songTxt.scrollFactor.set();
 		songTxt.borderSize = 1;
 		if (!ClientPrefs.hideWatermark && !ClientPrefs.hideHud) {
@@ -1283,7 +1292,30 @@ class PlayState extends MusicBeatState
 			songTxt.visible = false;
 		}
 		add(songTxt);
-		songTxt.text = curSong + " (" + storyDifficultyText + ") " + "| BE " + MainMenuState.barrenEngineVesrion;
+		songTxt.text = curSong + " (" + storyDifficultyText + ")";
+
+		engineTxt = new FlxText(songTxt.x, FlxG.height - 65, 0, "", 8);
+		engineTxt.scrollFactor.set();
+		engineTxt.borderSize = 1.25;
+		engineTxt.setFormat(Paths.font("comic.ttf"), 20, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		engineTxt.visible = !ClientPrefs.hideHud;
+		add(engineTxt);
+		engineTxt.text = "Barren Engine v" + MainMenuState.barrenEngineVesrion;
+
+		storyTxt = new FlxText(songTxt.x, FlxG.height - 95, 0, "", 8);
+		storyTxt.scrollFactor.set();
+		storyTxt.borderSize = 1.25;
+		storyTxt.setFormat(Paths.font("comic.ttf"), 20, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		storyTxt.visible = !ClientPrefs.hideHud;
+		add(storyTxt);
+		if (isStoryMode) // basically detailsText but for playstate instead of discord rpc
+		{
+			storyTxt.text = "Story Mode: " + WeekData.getCurrentWeek().weekName;
+		}
+		else
+		{
+			storyTxt.text = "Freeplay";
+		}
 
 		credits = new FlxText(songTxt.x, FlxG.height/4, 0, "", 8);
 		credits.scrollFactor.set();
@@ -1329,6 +1361,8 @@ class PlayState extends MusicBeatState
 		iconP2.cameras = [camHUD];
 		scoreTxt.cameras = [camHUD];
 		songTxt.cameras = [camHUD];
+		engineTxt.cameras = [camHUD];
+		storyTxt.cameras = [camHUD];
 		credits.cameras = [camHUD];
 		botplayTxt.cameras = [camHUD];
 		timeBar.cameras = [camHUD];
@@ -2897,6 +2931,11 @@ class PlayState extends MusicBeatState
 			iconP1.swapOldIcon();
 		}*/
 
+		if (FlxG.keys.justPressed.ONE)
+		{
+			addShaderToCamera('game', polygonizedShader.shader);
+		}
+
 		if(spike1 != null)
 		{
 			spike1.angle += elapsed * 10;
@@ -2966,10 +3005,24 @@ class PlayState extends MusicBeatState
 				});
 			}
 
+		//FlxG.camera.setFilters([new ShaderFilter(screenshader.shader)]); // this is very stupid but doesn't effect memory all that much so
 		if (shakeCam && eyesoreson)
 		{
+			// var shad = cast(FlxG.camera.screen.shader,Shaders.PulseShader);
 			FlxG.camera.shake(0.015, 0.015);
 		}
+		/*
+		screenshader.shader.uTime.value[0] += elapsed;
+		if (shakeCam && eyesoreson)
+		{
+			screenshader.shader.uampmul.value[0] = 1;
+		}
+		else
+		{
+			screenshader.shader.uampmul.value[0] -= (elapsed / 2);
+		}
+		*/
+		//screenshader.Enabled = shakeCam && eyesoreson;
 
 		callOnLuas('onUpdate', [elapsed]);
 
@@ -3044,6 +3097,21 @@ class PlayState extends MusicBeatState
 					FlxG.camera.flash(FlxColor.WHITE, 1);
 					splitExpress('split-bambi', 'corn', -30, 520);
 			}
+		case 'polygonized':
+				switch(curStep)
+				{
+					case 1024 | 1312 | 1424 | 1552 | 1664:
+						addShaderToCamera('game', polygonizedShader.shader);
+						shakeCam = true;
+						camZooming = true;
+					case 1152 | 1408 | 1472 | 1600 | 2048 | 2176:
+						clearShaderFromCamera('game');
+						shakeCam = false;
+						camZooming = false;
+					case 2432:
+						boyfriend.animation.play('hey', true);
+						gf.animation.play('cheer', true);
+				}
 		case 'insanity':
 			switch (curStep)
 			{
@@ -3071,6 +3139,11 @@ class PlayState extends MusicBeatState
 			forceMiddleScrollOff = false;
 		}
 		*/
+
+		if (shakeCam)
+		{
+			gf.animation.play('scared', true);
+		}
 
 		if(SONG.hidegf) {
 			gf.visible = false;
