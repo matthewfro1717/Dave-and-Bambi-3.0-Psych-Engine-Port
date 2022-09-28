@@ -7,13 +7,10 @@ I need help with making good wikis. So if you can, ping me in [my discord server
 !!Add mods by folders (mods/my-mod/) instead of just (mods/)!!! Or it'll break engine
 
 ## Installation:
-You must have [the most up-to-date version of Haxe](https://haxe.org/download/), seriously, stop using 4.1.5, it misses some stuff.
+Follow the Psych Engine compiling tutorial and then come back.
 
-Follow a Friday Night Funkin' source code compilation tutorial, after this you will need to install LuaJIT.
-
-To install LuaJIT do this: `haxelib git linc_luajit https://github.com/AndreiRudenko/linc_luajit ` on a Command prompt/PowerShell
-
-...Or if you don't want your mod to be able to run .lua scripts, delete the "LUA_ALLOWED" line on Project.xml
+To make GameJolt support actually work when compiling, run these in the terminal:
+(cant do it rn)
 
 ## OS Engine Credits:
 * [weuz_](https://github.com/weuz-github) - Coding
