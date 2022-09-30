@@ -121,7 +121,7 @@ class Note extends FlxSprite
 					hitCausesMiss = true;
 				case 'Drive Note':
 					ignoreNote = mustPress;
-					reloadNote('HURT');
+					reloadNote('DRIVE');
 					noteSplashTexture = 'HURTnoteSplashes';
 					hitCausesMiss = true;
 				case 'No Animation':
@@ -317,7 +317,7 @@ class Note extends FlxSprite
 	var lastNoteOffsetXForPixelAutoAdjusting:Float = 0;
 	var lastNoteScaleToo:Float = 1;
 	public var originalHeightForCalcs:Float = 6;
-	function reloadNote(?prefix:String = '', ?texture:String = '', ?suffix:String = '') {
+	function reloadNote(prefix:String = '', ?texture:String = '', ?suffix:String = '') {
 		if(prefix == null) prefix = '';
 		if(texture == null) texture = '';
 		if(suffix == null) suffix = '';
@@ -327,13 +327,31 @@ class Note extends FlxSprite
 			skin = PlayState.SONG.arrowSkin;
 			if(skin == null || skin.length < 1) {
 				skin = 'NOTE_assets';
-				if (prefix != 'HURT') {
-					if (PlayState.cool3Dcharacters.contains(PlayState.SONG.player1) && PlayState.cool3Dcharacters.contains(PlayState.SONG.player2)) {
-						skin = '3DNotes';
-					} else if (PlayState.cool3Dcharacters.contains(PlayState.SONG.player2)) {
-						var rng:FlxRandom = new FlxRandom();
-						if (rng.int(0,1) == 1)
-						{
+				switch (prefix) { //had to rework note skins because the drive note assets werent loading
+					case 'HURT':
+						skin = 'NOTE_assets';
+					case 'DRIVE':
+						skin = 'NOTE_assets';
+					default:
+						if (PlayState.cool3Dcharacters.contains(PlayState.SONG.player1) && PlayState.cool3Dcharacters.contains(PlayState.SONG.player2)) {
+							skin = '3DNotes';
+						} else if (PlayState.cool3Dcharacters.contains(PlayState.SONG.player2) || PlayState.cool3Dcharacters.contains(PlayState.SONG.player1)) {
+							var rng:FlxRandom = new FlxRandom();
+							if (rng.int(0,1) == 1)
+							{
+								if(ClientPrefs.noteSkinSettings == 'Clasic') {
+									skin = 'NOTE_assets';
+								} else if (ClientPrefs.noteSkinSettings == 'Circle') {
+									skin = 'NOTE_assets_circle';
+								} else {
+									skin = 'NOTE_assets';// for preventing crashes
+								}
+							}
+							else
+							{
+								skin = '3DNotes';
+							}
+						} else {
 							if(ClientPrefs.noteSkinSettings == 'Clasic') {
 								skin = 'NOTE_assets';
 							} else if (ClientPrefs.noteSkinSettings == 'Circle') {
@@ -342,19 +360,6 @@ class Note extends FlxSprite
 								skin = 'NOTE_assets';// for preventing crashes
 							}
 						}
-						else
-						{
-							skin = '3DNotes';
-						}
-					} else {
-						if(ClientPrefs.noteSkinSettings == 'Clasic') {
-							skin = 'NOTE_assets';
-						} else if (ClientPrefs.noteSkinSettings == 'Circle') {
-							skin = 'NOTE_assets_circle';
-						} else {
-							skin = 'NOTE_assets';// for preventing crashes
-						}
-					}
 				}
 			}
 		}

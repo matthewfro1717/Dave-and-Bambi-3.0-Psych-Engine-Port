@@ -195,6 +195,7 @@ class PlayState extends MusicBeatState
 	private var healthBarBG:AttachedSprite;
 	public var healthBar:FlxBar;
 	public var healthBarOverlay:FlxSprite;
+	public var healthBarOverlayRound:FlxSprite;
 	var songPercent:Float = 0;
 
 	private var timeBarBG:AttachedSprite;
@@ -464,7 +465,7 @@ class PlayState extends MusicBeatState
 					curStage = 'redsky';
 				case 'blocked' | 'corn-theft':
 					curStage = 'farmDay';
-				case 'maze' | "rockin'" | 'mealie':
+				case 'maze' | "rockin'" | 'mealie' | 'screwed':
 					curStage = 'farmSunset';
 				case 'splitathon':
 					curStage = 'farmNight';
@@ -476,6 +477,8 @@ class PlayState extends MusicBeatState
 					curStage = 'morrowBG';
 				case 'overdrive':
 					curStage = 'scarierbg';
+				case 'empowered':
+					curStage = 'micBG';
 				default:
 					curStage = 'stage';
 			}
@@ -597,6 +600,18 @@ class PlayState extends MusicBeatState
 			case 'cbarrenBG':
 				defaultCamZoom = 0.85;
 				var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('backgrounds/cbarrenBG'));
+				bg.antialiasing = true;
+				bg.scrollFactor.set(0, 0);
+				bg.active = true;
+
+				add(bg);
+				// below code assumes shaders are always enabled which is bad
+				var testshader:Shaders.GlitchEffect = new Shaders.GlitchEffect(2, 5, 0.1);
+                bg.shader = testshader.shader;
+
+			case 'micBG':
+				defaultCamZoom = 0.85;
+				var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('backgrounds/micBG'));
 				bg.antialiasing = true;
 				bg.scrollFactor.set(0, 0);
 				bg.active = true;
@@ -1220,7 +1235,7 @@ class PlayState extends MusicBeatState
 		FlxG.fixedTimestep = false;
 		moveCameraSection(0);
 
-		healthBarBG = new AttachedSprite('healthBar');
+		healthBarBG = new AttachedSprite('healthBarRounded');
 		healthBarBG.y = FlxG.height * 0.89;
 		healthBarBG.screenCenter(X);
 		healthBarBG.scrollFactor.set();
@@ -1229,6 +1244,8 @@ class PlayState extends MusicBeatState
 		healthBarBG.yAdd = -4;
 		add(healthBarBG);
 		if(ClientPrefs.downScroll) healthBarBG.y = 0.11 * FlxG.height;
+
+		
 
 		healthBar = new FlxBar(healthBarBG.x + 4, healthBarBG.y + 4, RIGHT_TO_LEFT, Std.int(healthBarBG.width - 8), Std.int(healthBarBG.height - 8), this,
 			'health', 0, 2);
@@ -1241,7 +1258,7 @@ class PlayState extends MusicBeatState
 
 		// i hate making strips (like in vs cassette girl) or whatever they named. so theres shit analog 
 
-		healthBarOverlay = new FlxSprite().loadGraphic(Paths.image('healthBarOverlay'));
+		healthBarOverlay = new FlxSprite().loadGraphic(Paths.image('healthBarRounded-overlay2'));
 		healthBarOverlay.y = FlxG.height * 0.89;
 		healthBarOverlay.screenCenter(X);
 		healthBarOverlay.scrollFactor.set();
@@ -1252,6 +1269,18 @@ class PlayState extends MusicBeatState
 	    healthBarOverlay.alpha = ClientPrefs.healthBarAlpha;
 		healthBarOverlay.antialiasing = ClientPrefs.globalAntialiasing;
 		add(healthBarOverlay); healthBarOverlay.alpha = ClientPrefs.healthBarAlpha; if(ClientPrefs.downScroll) healthBarOverlay.y = 0.11 * FlxG.height;
+
+		healthBarOverlayRound = new FlxSprite().loadGraphic(Paths.image('healthBarRounded-overlay'));
+		healthBarOverlayRound.y = FlxG.height * 0.89;
+		healthBarOverlayRound.screenCenter(X);
+		healthBarOverlayRound.scrollFactor.set();
+		healthBarOverlayRound.visible = !ClientPrefs.hideHud;
+        healthBarOverlayRound.color = FlxColor.BLACK;
+		healthBarOverlayRound.x = healthBarBG.x;
+	    healthBarOverlayRound.alpha = ClientPrefs.healthBarAlpha;
+		healthBarOverlayRound.antialiasing = ClientPrefs.globalAntialiasing;
+		add(healthBarOverlayRound);
+		if(ClientPrefs.downScroll) healthBarOverlayRound.y = 0.11 * FlxG.height;
 
 		iconP1 = new HealthIcon(boyfriend.healthIcon, true);
 		iconP1.y = healthBar.y - 75;
@@ -1357,6 +1386,7 @@ class PlayState extends MusicBeatState
 		healthBar.cameras = [camHUD];
 		healthBarBG.cameras = [camHUD];
 		healthBarOverlay.cameras = [camHUD];
+		healthBarOverlayRound.cameras = [camHUD];
 		iconP1.cameras = [camHUD];
 		iconP2.cameras = [camHUD];
 		scoreTxt.cameras = [camHUD];
@@ -3303,8 +3333,8 @@ class PlayState extends MusicBeatState
 		iconP1.updateHitbox();
 		iconP2.updateHitbox();
 
-		iconP1.x = healthBar.x + ((healthBar.width + (150 * iconP1.scale.x - 150)) / 2 - iconOffset) + (FlxG.width/4);
-		iconP2.x = healthBar.x + ((healthBar.width - (150 * iconP2.scale.x)) / 2 - iconOffset * 2) - (FlxG.width/4);
+		iconP1.x = healthBar.x + ((healthBar.width + (150 * iconP1.scale.x - 200)) / 2 - iconOffset) + (FlxG.width/6);
+		iconP2.x = healthBar.x + ((healthBar.width - (150 * iconP2.scale.x - 50)) / 2 - iconOffset * 2) - (FlxG.width/6);
 
 		if (health > 2)
 			health = 2;
@@ -4853,7 +4883,7 @@ class PlayState extends MusicBeatState
 							boyfriend.playAnim('hurt', true);
 							boyfriend.specialAnim = true;
 						}
-					case 'Drive Note':
+					case 'Drive Note': //Drive note (for overdrive)
 						if(boyfriend.animation.getByName('hurt') != null) {
 							boyfriend.playAnim('hurt', true);
 							boyfriend.specialAnim = true;

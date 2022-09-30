@@ -12,7 +12,7 @@ import flixel.tweens.FlxTween;
 import flixel.tweens.FlxEase;
 import flixel.util.FlxTimer;
 
-class GameState extends MusicBeatState //THIS IS FOR A LATER UPDATE
+class GameState extends MusicBeatState //I MAKE THIS WHEN I FEEL LIKE IT
 {
 	override function create()
 	{

@@ -75,9 +75,11 @@ class FreeplayState extends MusicBeatState
 					addWeek(['Unfairness'], 2, 0xFFf40000, ['expunged']);
 			case 'extra':
 				addWeek(['Mealie'], 2, 0xFF58cf08, ['bambi']);
+				addWeek(['Screwed'], 4, 0xFF58cf08, ['bambi-maddd']);
 				addWeek(['Furiosity'], 1, 0xff00b3ff, ['madman-dave']);
 				addWeek(["Rockin'"], 4, 0xFF58cf08, ['bambi']);
 				addWeek(['Harmony'], 4, 0xff00b3ff, ['dave']);
+				addWeek(['Empowered'], 4, 0xFF35C2FF, ['bf']);
 			//	if(FlxG.save.data.talesFound)
 				//	addWeek(['Tales'], 1, 0xff00b3ff, ['dave']);
 			case 'insanity':
