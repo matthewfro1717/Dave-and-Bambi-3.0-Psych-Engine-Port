@@ -47,7 +47,7 @@ class NotesSubState extends MusicBeatSubstate
 	public function new() {
 		super();
 		
-		bg = new FlxSprite().loadGraphic(Paths.image('backgrounds/Olyantwo'));
+		bg = new FlxSprite().loadGraphic(MainMenuState.randomizeBG());
 		bg.color = 0xFFea71fd;
 		bg.screenCenter();
 		bg.antialiasing = ClientPrefs.globalAntialiasing;

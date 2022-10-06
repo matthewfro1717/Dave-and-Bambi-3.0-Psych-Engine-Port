@@ -92,7 +92,7 @@ class Note extends FlxSprite
 
 	private function set_texture(value:String):String {
 		if(texture != value) {
-			reloadNote('', value);
+			reloadNote('', 'notes', value);
 		}
 		texture = value;
 		return value;
@@ -317,8 +317,9 @@ class Note extends FlxSprite
 	var lastNoteOffsetXForPixelAutoAdjusting:Float = 0;
 	var lastNoteScaleToo:Float = 1;
 	public var originalHeightForCalcs:Float = 6;
-	function reloadNote(prefix:String = '', ?texture:String = '', ?suffix:String = '') {
+	function reloadNote(prefix:String = '', ?folder:String, ?texture:String = '', ?suffix:String = '') {
 		if(prefix == null) prefix = '';
+		if(folder == null) folder = 'notes';
 		if(texture == null) texture = '';
 		if(suffix == null) suffix = '';
 		
@@ -333,9 +334,9 @@ class Note extends FlxSprite
 					case 'DRIVE':
 						skin = 'NOTE_assets';
 					default:
-						if (PlayState.cool3Dcharacters.contains(PlayState.SONG.player1) && PlayState.cool3Dcharacters.contains(PlayState.SONG.player2)) {
+						if ((PlayState.floaterfloats.contains(PlayState.SONG.player1) || PlayState.floaterfloatsWHAR.contains(PlayState.SONG.player1)) && (PlayState.floaterfloats.contains(PlayState.SONG.player2) || PlayState.floaterfloatsWHAR.contains(PlayState.SONG.player2))) {
 							skin = '3DNotes';
-						} else if (PlayState.cool3Dcharacters.contains(PlayState.SONG.player2) || PlayState.cool3Dcharacters.contains(PlayState.SONG.player1)) {
+						} else if ((PlayState.floaterfloats.contains(PlayState.SONG.player2) || PlayState.floaterfloatsWHAR.contains(PlayState.SONG.player2)) || (PlayState.floaterfloats.contains(PlayState.SONG.player1) || PlayState.floaterfloatsWHAR.contains(PlayState.SONG.player1))) {
 							var rng:FlxRandom = new FlxRandom();
 							if (rng.int(0,1) == 1)
 							{
@@ -370,7 +371,7 @@ class Note extends FlxSprite
 		}
 
 		var arraySkin:Array<String> = skin.split('/');
-		arraySkin[arraySkin.length-1] = prefix + arraySkin[arraySkin.length-1] + suffix;
+		arraySkin[arraySkin.length-1] = folder + '/' + prefix + arraySkin[arraySkin.length-1] + suffix;
 
 		var lastScaleY:Float = scale.y;
 		var blahblah:String = arraySkin.join('/');
@@ -422,7 +423,7 @@ class Note extends FlxSprite
 			}
 			else
 			{
-				LocalScrollSpeed = rng.float(1,3);
+				LocalScrollSpeed = rng.float(1,5);
 			}
 		}
 

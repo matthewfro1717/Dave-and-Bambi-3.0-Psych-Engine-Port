@@ -36,18 +36,67 @@ class MainMenuState extends MusicBeatState
 	public static var curSelected:Int = 0;
 
 	var menuItems:FlxTypedGroup<FlxSprite>;
+	var menuIcon:FlxSprite;
+	var menuIconTitle:FlxText;
+	var menuIconDesc:FlxText;
 	private var camGame:FlxCamera;
 	private var camAchievement:FlxCamera;
 
-	public static var bgPaths:Array<String> = 
+	public static var bgPaths:Array<String> = //thats a lot of backgrounds
 	[
-		'backgrounds/SUSSUS AMOGUS',
 		'backgrounds/SwagnotrllyTheMod',
-		'backgrounds/Olyantwo',
 		'backgrounds/morie',
 		'backgrounds/mantis',
 		'backgrounds/mamakotomi',
-		'backgrounds/T5mpler'
+		'backgrounds/Aadsta',
+		'backgrounds/ArtiztGmer',
+		'backgrounds/DeltaKastel',
+		'backgrounds/DeltaKastel2',
+		'backgrounds/DeltaKastel3',
+		'backgrounds/DeltaKastel4',
+		'backgrounds/DeltaKastel5',
+		'backgrounds/diamond man',
+		'backgrounds/Jukebox',
+		'backgrounds/kiazu',
+		'backgrounds/Lancey',
+		'backgrounds/mepperpint',
+		'backgrounds/neon',
+		'backgrounds/Onuko',
+		'backgrounds/ps',
+		'backgrounds/ramzgaming',
+		'backgrounds/ricee_png',
+		'backgrounds/sk0rbias',
+		'backgrounds/zombought'
+	];
+
+	var menuDescs:Array<String> = [
+		'Play the story mode to unlock new characters, and understand the story!', //story mode
+		'Play any song as you wish and get new scores!', //freeplay
+		'Look at the people who have worked for or contributed to the mod!', //credits
+		'Listen to songs of the mod.', //ost
+		'Adjust game settings and keybinds.', //settings
+		'Join the official Anniversary Edition discord!', //discord
+		'Connect your GameJolt account and more!' //extras
+	];
+
+	var menuTitles:Array<String> = [
+		'Story Mode',
+		'Freeplay',
+		'Credits',
+		'OST',
+		'Settings',
+		'Discord',
+		'Extras'
+	];
+
+	var menuDescsALT:Array<String> = [
+		'Play my song as I wish and fail.',
+		'Adjust game settings and keybinds.',
+	];
+
+	var menuTitlesALT:Array<String> = [
+		'MY Play',
+		'Settings'
 	];
 	
 	var optionShit:Array<String> = [
@@ -56,8 +105,9 @@ class MainMenuState extends MusicBeatState
 		//#if MODS_ALLOWED 'mods', #end
 		//#if ACHIEVEMENTS_ALLOWED 'awards', #end //you can look at that on gamejolt im not coding that shit
 		'credits',
-		'discord',
+		'ost',
 		'options',
+		'discord',
 		'extras'
 	];
 
@@ -111,22 +161,50 @@ class MainMenuState extends MusicBeatState
         bg.antialiasing = ClientPrefs.globalAntialiasing;
         add(bg);
 		
-		var gridthing:FlxBackdrop;
-		gridthing = new FlxBackdrop(Paths.image('loading'), 0.2, 0, true, true);
-		gridthing.velocity.set(50, -25);
-		gridthing.updateHitbox();
-		gridthing.alpha = 0.4;
-		gridthing.screenCenter(X);
-		gridthing.color = 0xFFFFFF;
-		gridthing.antialiasing = ClientPrefs.globalAntialiasing;
-		add(gridthing);
+		var checkeredBG:FlxBackdrop;
+		checkeredBG = new FlxBackdrop(Paths.image('checkeredBG'), 0.2, 0, true, true);
+		checkeredBG.velocity.set(50, -25);
+		checkeredBG.updateHitbox();
+		checkeredBG.alpha = 0.4;
+		checkeredBG.screenCenter(X);
+		checkeredBG.color = 0xFFFFFF;
+		checkeredBG.antialiasing = ClientPrefs.globalAntialiasing;
+		add(checkeredBG);
 
+		/*
 		var border:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('mainmenuBorder'));
         border.scrollFactor.set(0, 0);
         border.updateHitbox();
         border.screenCenter();
         border.antialiasing = ClientPrefs.globalAntialiasing;
         add(border);
+		*/
+
+		var selectBG:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('mainmenu/Select_Thing'));
+        selectBG.scrollFactor.set(0, 0);
+        selectBG.updateHitbox();
+        selectBG.screenCenter();
+        selectBG.antialiasing = ClientPrefs.globalAntialiasing;
+        add(selectBG);
+
+		menuIcon = new FlxSprite(-80).loadGraphic(Paths.image('mainmenu/menuicons/' + optionShit[curSelected].toLowerCase()));
+        menuIcon.scrollFactor.set(0, 0);
+		menuIcon.updateHitbox();
+        menuIcon.screenCenter(X);
+		menuIcon.y = FlxG.height/5 - 150;
+        add(menuIcon);
+
+		menuIconTitle = new FlxText((FlxG.width / 2) - 220, (FlxG.height / 2) + 30, 400, "", 50);
+		menuIconTitle.scrollFactor.set();
+		menuIconTitle.borderSize = 2;
+		menuIconTitle.setFormat(Paths.font("comic.ttf"), 50, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		add(menuIconTitle);
+
+		menuIconDesc = new FlxText((FlxG.width / 2) - 310, (FlxG.height / 2) - 60, 600, "", 25);
+		menuIconDesc.scrollFactor.set();
+		menuIconDesc.borderSize = 2;
+		menuIconDesc.setFormat(Paths.font("comic.ttf"), 25, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		add(menuIconDesc);
 
         if(ClientPrefs.themedmainmenubg == true) {
 
@@ -166,7 +244,7 @@ class MainMenuState extends MusicBeatState
 		menuItems = new FlxTypedGroup<FlxSprite>();
 		add(menuItems);
 
-		var scale:Float = 0.7;
+		var scale:Float = 0.5;
 		/*if(optionShit.length > 6) {
 			scale = 6 / optionShit.length;
 		}*/
@@ -182,20 +260,22 @@ class MainMenuState extends MusicBeatState
 			var menuItem:FlxSprite = new FlxSprite(curoffset, (i * 140) + offset);
 			menuItem.scale.x = scale;
 			menuItem.scale.y = scale;
-			menuItem.frames = Paths.getSparrowAtlas('mainmenu/menu_' + optionShit[i]);
+			menuItem.frames = Paths.getSparrowAtlas('mainmenu/menubuttons/menu_' + optionShit[i]);
 			menuItem.animation.addByPrefix('idle', optionShit[i] + " basic", 24);
 			menuItem.animation.addByPrefix('selected', optionShit[i] + " white", 24);
 			menuItem.animation.play('idle');
 			menuItem.ID = i;
-			if(menuItem.ID <= 3) {
+			/*if(menuItem.ID <= 3) {
 				menuItem.x = 50*i+100;
 				menuItem.y = 200*i+100;
 			} 
 			if(menuItem.ID >= 3) {
 				menuItem.x = -50*(i-3)+800;
 				menuItem.y = 200*(i-3)+100;
-			}
+			}*/
 			//menuItem.screenCenter(X);
+			menuItem.x = 180*i+50;
+			menuItem.y = FlxG.height - 210;
 			menuItems.add(menuItem);
 			var scr:Float = (optionShit.length - 4) * 0.135;
 			//if(optionShit.length < 6) scr = 0;
@@ -300,9 +380,12 @@ class MainMenuState extends MusicBeatState
 		var lerpVal:Float = CoolUtil.boundTo(elapsed * 7.5, 0, 1);
 		camFollowPos.setPosition(FlxMath.lerp(camFollowPos.x, camFollow.x, lerpVal), FlxMath.lerp(camFollowPos.y, camFollow.y, lerpVal));
 
+		menuIconTitle.text = menuTitles[curSelected];
+		menuIconDesc.text = menuDescs[curSelected];
+
 		if (!selectedSomethin)
 		{
-			if (controls.UI_UP_P)
+			/*if (controls.UI_UP_P)
 			{
 				FlxG.sound.play(Paths.sound('scrollMenu'));
 				changeItem(-1);
@@ -312,18 +395,18 @@ class MainMenuState extends MusicBeatState
 			{
 				FlxG.sound.play(Paths.sound('scrollMenu'));
 				changeItem(1);
-			}
+			}*/
 
 			if (controls.UI_LEFT_P)
 			{
 				FlxG.sound.play(Paths.sound('scrollMenu'));
-				changeItem(-3);
+				changeItem(-1);
 			}
 
 			if (controls.UI_RIGHT_P)
 			{
 				FlxG.sound.play(Paths.sound('scrollMenu'));
-				changeItem(3);
+				changeItem(1);
 			}
 
 			if (controls.BACK)
@@ -340,7 +423,7 @@ class MainMenuState extends MusicBeatState
 				if (optionShit[curSelected] == 'donate') {
 					CoolUtil.browserLoad('https://www.youtube.com/watch?v=dQw4w9WgXcQ'); // WHOEVER DELETES THIS IS GAY
 				} else if (optionShit[curSelected] == 'discord') {
-					CoolUtil.browserLoad('https://discord.gg/UZ9mpaju'); // cool discord server
+					CoolUtil.browserLoad('https://discord.gg/uhT9pJ5Xd8'); // cool discord server
 				} else if (optionShit[curSelected] == customOption) {
 					CoolUtil.browserLoad(customOptionLink);
 				}
@@ -364,9 +447,9 @@ class MainMenuState extends MusicBeatState
 								}
 							});
 							*/
-							FlxTween.tween(spr, {y: 1000}, 2, {ease: FlxEase.backInOut, type: ONESHOT, onComplete: function(twn:FlxTween) {
-								spr.kill();
-							}});
+							//FlxTween.tween(spr, {y: 1000}, 2, {ease: FlxEase.backInOut, type: ONESHOT, onComplete: function(twn:FlxTween) {
+							//	spr.kill();
+							//}});
 						}
 						else
 						{
@@ -456,18 +539,20 @@ class MainMenuState extends MusicBeatState
 		if (curSelected < 0)
 			curSelected = menuItems.length - 1;
 
+		menuIcon.loadGraphic(Paths.image('mainmenu/menuicons/' + optionShit[curSelected].toLowerCase()));
+		
 		menuItems.forEach(function(spr:FlxSprite)
 		{
 			spr.animation.play('idle');
 			//spr.updateHitbox();
-			spr.scale.x = 0.7;
-			spr.scale.y = 0.7;
+			spr.scale.x = 0.6;
+			spr.scale.y = 0.6;
 
 			if (spr.ID == curSelected)
 			{
 				spr.animation.play('selected');
-				spr.scale.x = 1.0;
-				spr.scale.y = 1.0;
+				spr.scale.x = 0.6;
+				spr.scale.y = 0.6;
 				var add:Float = 0;
 				if(menuItems.length > 4) {
 					add = menuItems.length * 8;

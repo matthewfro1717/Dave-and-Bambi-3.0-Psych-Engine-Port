@@ -151,15 +151,17 @@ class PlayState extends MusicBeatState
 	public var stupidy:Float = 0; // stupid velocities for cutscene
 	public var updatevels:Bool = false;
 
-	public static var cool3Dcharacters:Array<String> = ['dave-3d', 'bambi-3d', 'bambi-unfair', 'expunged', 'morrow', 'bandu', 'corruptb', 'bf-3d', 'badai'];
+	var funnyZoomSongs:Array<String> = ['overdrive', 'amber', 'ultimatum'];
 
-	var floaterfloats:Array<String> = ['dave-3d', 'bambi-3d', 'bambi-unfair', 'expunged', 'morrow', 'corruptb', 'bf-3d'];
-	var floaterfloatsWHAR:Array<String> = ['morrow', 'corruptb', 'badai', 'bandu'];
+	public static var cool3Dcharacters:Array<String> = ['dave-angey', 'bambi-3d', 'bambi-unfair', 'expunged', 'morrow', 'bandu', 'corruptb', 'bf-3d', 'badai']; // is no more
+
+	public static var floaterfloats:Array<String> = ['dave-angey', 'bambi-3d', 'bambi-unfair', 'expunged', 'morrow', 'corruptb', 'bf-3d'];
+	public static var floaterfloatsWHAR:Array<String> = ['morrow', 'corruptb', 'badai', 'bandu'];
 
 	var rotate:Array<String> = ['badai'];
 
-	var earthquakers:Array<String> = ['expunged', 'bambi-3d', 'corruptb', 'badai'];
-	var dudesWhoTakeUrHealthBecauseTheyCan:Array<String> = ['expunged', 'bambi-3d', 'corruptb', 'morrow', 'badai'];
+	var earthquakers:Array<String> = ['expunged', 'bambi-unfair', 'bambi-3d', 'corruptb', 'badai'];
+	var dudesWhoTakeUrHealthBecauseTheyCan:Array<String> = ['expunged', 'bambi-unfair', 'bambi-3d', 'corruptb', 'morrow', 'badai'];
 
 	public var elapsedtime:Float = 0;
 
@@ -199,6 +201,7 @@ class PlayState extends MusicBeatState
 	var songPercent:Float = 0;
 
 	private var timeBarBG:AttachedSprite;
+	public var timeBarFG:FlxSprite;
 	public var timeBar:FlxBar;
 	
 	public var perfects:Int = 0;
@@ -211,8 +214,7 @@ class PlayState extends MusicBeatState
 
 	public static var eyesoreson = true;
 
-	//public static var screenshader:Shaders.PulseEffect = new PulseEffect(1, 2, 1);
-	public var polygonizedShader:PulseEffect;
+	//public static var screenshader:Shaders.PulseEffectAlt = new PulseEffectAlt();
 	
 	private var generatedMusic:Bool = false;
 	public var endingSong:Bool = false;
@@ -425,7 +427,7 @@ class PlayState extends MusicBeatState
 		persistentDraw = true;
 
 		if (SONG == null)
-			SONG = Song.loadFromJson('tutorial');
+			SONG = Song.loadFromJson('warmup', 'charts');
 
 		Conductor.mapBPMChanges(SONG);
 		Conductor.changeBPM(SONG.bpm);
@@ -537,8 +539,8 @@ class PlayState extends MusicBeatState
 		switch (curStage)
 		{
 			case 'morrowBG':
-				defaultCamZoom = 0.85;
-				var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('backgrounds/morrowBG'));
+				defaultCamZoom = 0.65;
+				var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('backgrounds/void/morrowBG'));
 				bg.antialiasing = true;
 				bg.scrollFactor.set(0, 0);
 				bg.active = true;
@@ -550,8 +552,8 @@ class PlayState extends MusicBeatState
 				//curbg = bg; //YAY NO MORE CURBG
 
 			case 'redsky':
-				defaultCamZoom = 0.85;
-				var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('backgrounds/redsky'));
+				defaultCamZoom = 0.65;
+				var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('backgrounds/void/redsky'));
 				bg.antialiasing = true;
 				bg.scrollFactor.set(0, 0);
 				bg.active = true;
@@ -562,8 +564,8 @@ class PlayState extends MusicBeatState
                 bg.shader = testshader.shader;
 
 			case 'cheater':
-				defaultCamZoom = 0.85;
-				var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('backgrounds/cheater'));
+				defaultCamZoom = 0.65;
+				var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('backgrounds/void/cheater'));
 				bg.antialiasing = true;
 				bg.scrollFactor.set(0, 0);
 				bg.active = true;
@@ -574,11 +576,13 @@ class PlayState extends MusicBeatState
                 bg.shader = testshader.shader;
 
 			case 'scarybg':
-				defaultCamZoom = 0.85;
-				var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('backgrounds/scarybg'));
+				defaultCamZoom = 0.65;
+				var bg:FlxSprite = new FlxSprite(200, 0).loadGraphic(Paths.image('backgrounds/void/scarybg'));
+				bg.scale.set(1.7,1.7);
 				bg.antialiasing = true;
 				bg.scrollFactor.set(0, 0);
 				bg.active = true;
+				
 
 				add(bg);
 				// below code assumes shaders are always enabled which is bad
@@ -586,8 +590,8 @@ class PlayState extends MusicBeatState
                 bg.shader = testshader.shader;
 
 			case 'scarierbg':
-				defaultCamZoom = 0.85;
-				var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('backgrounds/scarierbg'));
+				defaultCamZoom = 0.65;
+				var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('backgrounds/void/scarierbg'));
 				bg.antialiasing = true;
 				bg.scrollFactor.set(0, 0);
 				bg.active = true;
@@ -598,8 +602,8 @@ class PlayState extends MusicBeatState
                 bg.shader = testshader.shader;
 
 			case 'cbarrenBG':
-				defaultCamZoom = 0.85;
-				var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('backgrounds/cbarrenBG'));
+				defaultCamZoom = 0.65;
+				var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('backgrounds/void/cbarrenBG'));
 				bg.antialiasing = true;
 				bg.scrollFactor.set(0, 0);
 				bg.active = true;
@@ -610,8 +614,8 @@ class PlayState extends MusicBeatState
                 bg.shader = testshader.shader;
 
 			case 'micBG':
-				defaultCamZoom = 0.85;
-				var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('backgrounds/micBG'));
+				defaultCamZoom = 0.65;
+				var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('backgrounds/void/micBG'));
 				bg.antialiasing = true;
 				bg.scrollFactor.set(0, 0);
 				bg.active = true;
@@ -623,11 +627,11 @@ class PlayState extends MusicBeatState
 
 			case 'purp':
 				defaultCamZoom = 0.5;
-				var bg:BGSprite = new BGSprite('backgrounds/purp/purpleAHHHHH', -600, -500, 0, 0);
+				var bg:BGSprite = new BGSprite('backgrounds/void/purp/purpleAHHHHH', -600, -500, 0, 0);
 				bg.setGraphicSize(Std.int(bg.width * 1.1), Std.int(bg.height * 1.1));
 				add(bg);
 
-				var warp:FlxSprite = new FlxSprite(-600, -500).loadGraphic(Paths.image('backgrounds/purp/warper'));
+				var warp:FlxSprite = new FlxSprite(-600, -500).loadGraphic(Paths.image('backgrounds/void/purp/warper'));
 				warp.antialiasing = true;
 				warp.scrollFactor.set(0, 0);
 				warp.setGraphicSize(Std.int(warp.width * 1.1), Std.int(warp.height * 1.1));
@@ -635,13 +639,13 @@ class PlayState extends MusicBeatState
 				//warp.alpha = 0.5;
 				add(warp);
 				
-				spike1 = new FlxSprite(-600, -500).loadGraphic(Paths.image('backgrounds/purp/spike1'));
+				spike1 = new FlxSprite(-600, -500).loadGraphic(Paths.image('backgrounds/void/purp/spike1'));
 				spike1.scrollFactor.set(0, 0);
 				spike1.setGraphicSize(Std.int(spike1.width * 1.1), Std.int(spike1.height * 1.1));
 				spike1.updateHitbox();
 				add(spike1);
 
-				spike2 = new FlxSprite(-600, -500).loadGraphic(Paths.image('backgrounds/purp/spike2'));
+				spike2 = new FlxSprite(-600, -500).loadGraphic(Paths.image('backgrounds/void/purp/spike2'));
 				spike2.scrollFactor.set(0, 0);
 				spike2.setGraphicSize(Std.int(spike2.width * 1.1), Std.int(spike2.height * 1.1));
 				spike2.updateHitbox();
@@ -654,22 +658,22 @@ class PlayState extends MusicBeatState
 				var bg:BGSprite = new BGSprite('backgrounds/sky', -600, -200, 0.2, 0.2);
 				add(bg);
 	
-				var hills:BGSprite = new BGSprite('backgrounds/dave/hills', -225, -125, 0.5, 0.5);
-				hills.setGraphicSize(Std.int(hills.width * 1.25));
+				var hills:BGSprite = new BGSprite('backgrounds/dave/hills', -225, 250, 0.5, 0.5);
+				//hills.setGraphicSize(Std.int(hills.width * 1.25));
 				hills.updateHitbox();
 				add(hills);
 	
-				var gate:BGSprite = new BGSprite('backgrounds/dave/gate', -226, -125, 0.9, 0.9);
-				gate.setGraphicSize(Std.int(gate.width * 1.2));
+				var gate:BGSprite = new BGSprite('backgrounds/dave/gate', -226, 150, 1, 1);
+				//gate.setGraphicSize(Std.int(gate.width * 1.2));
 				gate.updateHitbox();
 				add(gate);
 	
-				var grass:BGSprite = new BGSprite('backgrounds/dave/grass', -225, -125, 0.9, 0.9);
-				grass.setGraphicSize(Std.int(grass.width * 1.2));
+				var grass:BGSprite = new BGSprite('backgrounds/dave/grass', -225, 250, 1, 1);
+				//grass.setGraphicSize(Std.int(grass.width * 1.2));
 				grass.updateHitbox();
 				add(grass);
 	
-				insanityRed.loadGraphic(Paths.image('backgrounds/redsky_insanity'));
+				insanityRed.loadGraphic(Paths.image('backgrounds/void/redsky_insanity'));
 				insanityRed.antialiasing = true;
 				insanityRed.scrollFactor.set(0.6, 0.6);
 				insanityRed.active = true;
@@ -728,174 +732,137 @@ class PlayState extends MusicBeatState
 			case 'farmDay':
 				defaultCamZoom = 0.85;
 
-				var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('backgrounds/sky'));
-				bg.antialiasing = true;
-				bg.scrollFactor.set(0.2, 0.2);
-				bg.active = true;	
-
-				var hills:FlxSprite = new FlxSprite(-300, 110).loadGraphic(Paths.image('backgrounds/bambi/orangey hills'));
-				hills.antialiasing = true;
-				hills.scrollFactor.set(0.5, 0.5);
-				hills.active = true;
-
-				var farm:FlxSprite = new FlxSprite(150, 200).loadGraphic(Paths.image('backgrounds/bambi/funfarmhouse'));
-				farm.antialiasing = true;
-				farm.scrollFactor.set(0.65, 0.65);
-				farm.active = true;
-
-				var foreground:FlxSprite = new FlxSprite(-400, 600).loadGraphic(Paths.image('backgrounds/bambi/grass lands'));
-				foreground.antialiasing = true;
-				foreground.scrollFactor.set(1, 1);
-				foreground.active = true;
-
-				var cornSet:FlxSprite = new FlxSprite(-350, 325).loadGraphic(Paths.image('backgrounds/bambi/Cornys'));
-				cornSet.antialiasing = true;
-				cornSet.scrollFactor.set(1, 1);
-				cornSet.active = true;
-
-				var cornSet2:FlxSprite = new FlxSprite(1050, 325).loadGraphic(Paths.image('backgrounds/bambi/Cornys'));
-				cornSet2.antialiasing = true;
-				cornSet2.scrollFactor.set(1, 1);
-				cornSet2.active = true;
-
-				var fence:FlxSprite = new FlxSprite(-350, 450).loadGraphic(Paths.image('backgrounds/bambi/crazy fences'));
-				fence.antialiasing = true;
-				fence.scrollFactor.set(0.98, 0.98);
-				fence.active = true;
-
-				var sign:FlxSprite = new FlxSprite(0, 500).loadGraphic(Paths.image('backgrounds/bambi/Sign'));
-				sign.antialiasing = true;
-				sign.scrollFactor.set(1, 1);
-				sign.active = true;
-
+				var bg:BGSprite = new BGSprite('backgrounds/sky', -600, -200, 0.2, 0.2);
 				add(bg);
+
+				var grasshill:BGSprite = new BGSprite('backgrounds/bambi/gm_flatgrass', -400, 50, 0.5, 0.5);
+				grasshill.setGraphicSize(Std.int(grasshill.width * 0.7), Std.int(grasshill.height * 0.7));
+				grasshill.updateHitbox();
+				add(grasshill);
+
+				var hills:BGSprite = new BGSprite('backgrounds/bambi/orangey hills', -300, 110, 0.5, 0.5);
+				hills.updateHitbox();
 				add(hills);
+
+				var farm:BGSprite = new BGSprite('backgrounds/bambi/funfarmhouse', 150, 200, 0.65, 0.65);
+				farm.updateHitbox();
 				add(farm);
+
+				var foreground:BGSprite = new BGSprite('backgrounds/bambi/grass lands', -400, 600, 1, 1);
+				foreground.updateHitbox();
 				add(foreground);
+
+				var cornSet:BGSprite = new BGSprite('backgrounds/bambi/cornFence', -350, 325, 1, 1);
+				cornSet.updateHitbox();
 				add(cornSet);
+
+				var cornSet2:BGSprite = new BGSprite('backgrounds/bambi/cornFence2', 1050, 325, 1, 1);
+				cornSet2.updateHitbox();
 				add(cornSet2);
-				add(fence);
+
+				var sign:BGSprite = new BGSprite('backgrounds/bambi/Sign', 0, 500, 1, 1);
+				sign.updateHitbox();
 				add(sign);
+
+				var bagocorn:BGSprite = new BGSprite('backgrounds/bambi/cornbag', 300, 800, 1, 1);
+				bagocorn.updateHitbox();
+				add(bagocorn);
 
 			case 'farmSunset':
 				defaultCamZoom = 0.85;
 
-				var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('backgrounds/sky_sunset'));
-				bg.antialiasing = true;
-				bg.scrollFactor.set(0.2, 0.2);
-				bg.active = true;
+				var bg:BGSprite = new BGSprite('backgrounds/sky_sunset', -600, -200, 0.2, 0.2);
+				add(bg);
 
-				var hills:FlxSprite = new FlxSprite(-300, 110).loadGraphic(Paths.image('backgrounds/bambi/orangey hills'));
-				hills.antialiasing = true;
-				hills.scrollFactor.set(0.5, 0.5);
-				hills.active = true;
+				var grasshill:BGSprite = new BGSprite('backgrounds/bambi/gm_flatgrass', -400, 50, 0.5, 0.5);
+				grasshill.setGraphicSize(Std.int(grasshill.width * 0.7), Std.int(grasshill.height * 0.7));
+				grasshill.updateHitbox();
+				add(grasshill);
 
-				var farm:FlxSprite = new FlxSprite(150, 200).loadGraphic(Paths.image('backgrounds/bambi/funfarmhouse'));
-				farm.antialiasing = true;
-				farm.scrollFactor.set(0.65, 0.65);
-				farm.active = true;
+				var hills:BGSprite = new BGSprite('backgrounds/bambi/orangey hills', -300, 110, 0.5, 0.5);
+				hills.updateHitbox();
+				add(hills);
 
-				var foreground:FlxSprite = new FlxSprite(-400, 600).loadGraphic(Paths.image('backgrounds/bambi/grass lands'));
-				foreground.antialiasing = true;
-				foreground.scrollFactor.set(1, 1);
-				foreground.active = true;
+				var farm:BGSprite = new BGSprite('backgrounds/bambi/funfarmhouse', 150, 200, 0.65, 0.65);
+				farm.updateHitbox();
+				add(farm);
 
-				var cornSet:FlxSprite = new FlxSprite(-350, 325).loadGraphic(Paths.image('backgrounds/bambi/Cornys'));
-				cornSet.antialiasing = true;
-				cornSet.scrollFactor.set(1, 1);
-				cornSet.active = true;
+				var foreground:BGSprite = new BGSprite('backgrounds/bambi/grass lands', -400, 600, 1, 1);
+				foreground.updateHitbox();
+				add(foreground);
 
-				var cornSet2:FlxSprite = new FlxSprite(1050, 325).loadGraphic(Paths.image('backgrounds/bambi/Cornys'));
-				cornSet2.antialiasing = true;
-				cornSet2.scrollFactor.set(1, 1);
-				cornSet2.active = true;
+				var cornSet:BGSprite = new BGSprite('backgrounds/bambi/cornFence', -350, 325, 1, 1);
+				cornSet.updateHitbox();
+				add(cornSet);
 
-				var fence:FlxSprite = new FlxSprite(-350, 450).loadGraphic(Paths.image('backgrounds/bambi/crazy fences'));
-				fence.antialiasing = true;
-				fence.scrollFactor.set(0.98, 0.98);
-				fence.active = true;
+				var cornSet2:BGSprite = new BGSprite('backgrounds/bambi/cornFence2', 1050, 325, 1, 1);
+				cornSet2.updateHitbox();
+				add(cornSet2);
 
-				var sign:FlxSprite = new FlxSprite(0, 500).loadGraphic(Paths.image('backgrounds/bambi/Sign'));
-				sign.antialiasing = true;
-				sign.scrollFactor.set(1, 1);
-				sign.active = true;
+				var sign:BGSprite = new BGSprite('backgrounds/bambi/Sign', 0, 500, 1, 1);
+				sign.updateHitbox();
+				add(sign);
 
+				var bagocorn:BGSprite = new BGSprite('backgrounds/bambi/cornbag', 300, 800, 1, 1);
+				bagocorn.updateHitbox();
+				add(bagocorn);
+
+				grasshill.color = 0xFFF9974C;
 				hills.color = 0xFFF9974C;
 				farm.color = 0xFFF9974C;
 				foreground.color = 0xFFF9974C;
 				cornSet.color = 0xFFF9974C;
 				cornSet2.color = 0xFFF9974C;
-				fence.color = 0xFFF9974C;
 				sign.color = 0xFFF9974C;
-
-				add(bg);
-				add(hills);
-				add(farm);
-				add(foreground);
-				add(cornSet);
-				add(cornSet2);
-				add(fence);
-				add(sign);
+				bagocorn.color = 0xFFF9974C;
 
 			case 'farmNight':
 				defaultCamZoom = 0.85;
 
-				var bg:FlxSprite = new FlxSprite(-600, -400).loadGraphic(Paths.image('backgrounds/sky_night'));
-				bg.antialiasing = true;
-				bg.scrollFactor.set(0.2, 0.2);
-				bg.active = true;
+				var bg:BGSprite = new BGSprite('backgrounds/sky_night', -600, -200, 0.2, 0.2);
+				add(bg);
 
-				var hills:FlxSprite = new FlxSprite(-300, 110).loadGraphic(Paths.image('backgrounds/bambi/orangey hills'));
-				hills.antialiasing = true;
-				hills.scrollFactor.set(0.5, 0.5);
-				hills.active = true;
+				var grasshill:BGSprite = new BGSprite('backgrounds/bambi/gm_flatgrass', -400, 50, 0.5, 0.5);
+				grasshill.setGraphicSize(Std.int(grasshill.width * 0.7), Std.int(grasshill.height * 0.7));
+				grasshill.updateHitbox();
+				add(grasshill);
 
-				var farm:FlxSprite = new FlxSprite(150, 200).loadGraphic(Paths.image('backgrounds/bambi/funfarmhouse'));
-				farm.antialiasing = true;
-				farm.scrollFactor.set(0.65, 0.65);
-				farm.active = true;
+				var hills:BGSprite = new BGSprite('backgrounds/bambi/orangey hills', -300, 110, 0.5, 0.5);
+				hills.updateHitbox();
+				add(hills);
 
-				var foreground:FlxSprite = new FlxSprite(-400, 600).loadGraphic(Paths.image('backgrounds/bambi/grass lands'));
-				foreground.antialiasing = true;
-				foreground.scrollFactor.set(1, 1);
-				foreground.active = true;
+				var farm:BGSprite = new BGSprite('backgrounds/bambi/funfarmhouse', 150, 200, 0.65, 0.65);
+				farm.updateHitbox();
+				add(farm);
 
-				var cornSet:FlxSprite = new FlxSprite(-350, 325).loadGraphic(Paths.image('backgrounds/bambi/Cornys'));
-				cornSet.antialiasing = true;
-				cornSet.scrollFactor.set(1, 1);
-				cornSet.active = true;
+				var foreground:BGSprite = new BGSprite('backgrounds/bambi/grass lands', -400, 600, 1, 1);
+				foreground.updateHitbox();
+				add(foreground);
 
-				var cornSet2:FlxSprite = new FlxSprite(1050, 325).loadGraphic(Paths.image('backgrounds/bambi/Cornys'));
-				cornSet2.antialiasing = true;
-				cornSet2.scrollFactor.set(1, 1);
-				cornSet2.active = true;
+				var cornSet:BGSprite = new BGSprite('backgrounds/bambi/cornFence', -350, 325, 1, 1);
+				cornSet.updateHitbox();
+				add(cornSet);
 
-				var fence:FlxSprite = new FlxSprite(-350, 450).loadGraphic(Paths.image('backgrounds/bambi/crazy fences'));
-				fence.antialiasing = true;
-				fence.scrollFactor.set(0.98, 0.98);
-				fence.active = true;
+				var cornSet2:BGSprite = new BGSprite('backgrounds/bambi/cornFence2', 1050, 325, 1, 1);
+				cornSet2.updateHitbox();
+				add(cornSet2);
 
-				var sign:FlxSprite = new FlxSprite(0, 500).loadGraphic(Paths.image('backgrounds/bambi/Sign'));
-				sign.antialiasing = true;
-				sign.scrollFactor.set(1, 1);
-				sign.active = true;
+				var sign:BGSprite = new BGSprite('backgrounds/bambi/Sign', 0, 500, 1, 1);
+				sign.updateHitbox();
+				add(sign);
 
+				var bagocorn:BGSprite = new BGSprite('backgrounds/bambi/cornbag', 300, 800, 1, 1);
+				bagocorn.updateHitbox();
+				add(bagocorn);
+
+				grasshill.color = 0xFF878787;
 				hills.color = 0xFF878787;
 				farm.color = 0xFF878787;
 				foreground.color = 0xFF878787;
 				cornSet.color = 0xFF878787;
 				cornSet2.color = 0xFF878787;
-				fence.color = 0xFF878787;
 				sign.color = 0xFF878787;
-
-				add(bg);
-				add(hills);
-				add(farm);
-				add(foreground);
-				add(cornSet);
-				add(cornSet2);
-				add(fence);
-				add(sign);
+				bagocorn.color = 0xFF878787;
 
 			case 'stage': //Week 1
 				var bg:BGSprite = new BGSprite('stageback', -600, -200, 0.9, 0.9);
@@ -941,8 +908,6 @@ class PlayState extends MusicBeatState
 			case 'overdrive':
 				healthGain = 2;
 		}
-
-		polygonizedShader = new PulseEffect(1, 2, 1);
 
 		add(gfGroup); //Needed for blammed lights
 
@@ -1002,6 +967,13 @@ class PlayState extends MusicBeatState
 		if(doPush) 
 			luaArray.push(new FunkinLua(luaFile));
 		#end
+
+		/*
+		screenshader.waveAmplitude = 1;
+        screenshader.waveFrequency = 2;
+        screenshader.waveSpeed = 1;
+        screenshader.shader.uTime.value[0] = new flixel.math.FlxRandom().float(-100000, 100000);
+		*/
 
 		var gfVersion:String = SONG.gfVersion;
 		if(gfVersion == null || gfVersion.length < 1)
@@ -1068,7 +1040,7 @@ class PlayState extends MusicBeatState
 			dialogueJson = DialogueBoxPsych.parseDialogue(file);
 		}
 
-		var file:String = Paths.txt(songName + '/' + songName + 'Dialogue'); //Checks for vanilla/Senpai dialogue
+		var file:String = Paths.txt('dialogue/' + songName); //Checks for vanilla/Senpai dialogue
 		if (OpenFlAssets.exists(file)) {
 			dialogue = CoolUtil.coolTextFile(file);
 		}
@@ -1108,7 +1080,7 @@ class PlayState extends MusicBeatState
 		laneunderlayOp.cameras = [camHUD];
 
 		var showTime:Bool = (ClientPrefs.timeBarType != 'Disabled');
-		timeTxt = new FlxText(STRUM_X + (FlxG.width / 2) - 220, 30, 400, "", 32);
+		timeTxt = new FlxText(0, 30, 400, "", 32);
 		timeTxt.setFormat(Paths.font("comic.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		timeTxt.scrollFactor.set();
 		timeTxt.alpha = 0;
@@ -1123,8 +1095,8 @@ class PlayState extends MusicBeatState
 		updateTime = showTime;
 
 
-		timeBarBG = new AttachedSprite('timeBar');
-		timeBarBG.x = timeTxt.x;
+		timeBarBG = new AttachedSprite('roundBar');
+		timeBarBG.screenCenter(X);
 		timeBarBG.y = timeTxt.y + (timeTxt.height / 4);
 		timeBarBG.scrollFactor.set();
 		timeBarBG.alpha = 0;
@@ -1132,11 +1104,11 @@ class PlayState extends MusicBeatState
 		timeBarBG.color = FlxColor.BLACK;
 		timeBarBG.xAdd = -4;
 		timeBarBG.yAdd = -4;
-		timeBarBG.visible = false;
+		//timeBarBG.visible = false;
 		add(timeBarBG);
 
 
-		timeBar = new FlxBar(0, timeBarBG.y + 4, LEFT_TO_RIGHT, FlxG.width, Std.int(timeBarBG.height + 8), this,
+		timeBar = new FlxBar(timeBarBG.x + 4, timeBarBG.y + 4, LEFT_TO_RIGHT, Std.int(timeBarBG.width - 8), Std.int(timeBarBG.height - 8), this,
 			'songPercent', 0, 1);
 		timeBar.scrollFactor.set();
 		timeBar.createFilledBar(0xFF000000, 0xFFFFFFFF);
@@ -1146,6 +1118,16 @@ class PlayState extends MusicBeatState
 		add(timeBar);
 		add(timeTxt);
 		timeBarBG.sprTracker = timeBar;
+
+		timeBarFG = new FlxSprite().loadGraphic(Paths.image('roundBar'));
+		timeBarFG.screenCenter(X);
+		timeBarFG.y = timeTxt.y + (timeTxt.height / 4);
+		timeBarFG.scrollFactor.set();
+		timeBarFG.alpha = 0;
+		timeBarFG.visible = showTime;
+		timeBarFG.color = FlxColor.BLACK;
+		timeBarFG.antialiasing = ClientPrefs.globalAntialiasing;
+		add(timeBarFG);
 
 		strumLineNotes = new FlxTypedGroup<StrumNote>();
 		add(strumLineNotes);
@@ -1235,7 +1217,7 @@ class PlayState extends MusicBeatState
 		FlxG.fixedTimestep = false;
 		moveCameraSection(0);
 
-		healthBarBG = new AttachedSprite('healthBarRounded');
+		healthBarBG = new AttachedSprite('roundBar');
 		healthBarBG.y = FlxG.height * 0.89;
 		healthBarBG.screenCenter(X);
 		healthBarBG.scrollFactor.set();
@@ -1256,31 +1238,19 @@ class PlayState extends MusicBeatState
 		add(healthBar);
 		healthBarBG.sprTracker = healthBar;
 
-		// i hate making strips (like in vs cassette girl) or whatever they named. so theres shit analog 
+		// health bar again so the corners arent sticking out
 
-		healthBarOverlay = new FlxSprite().loadGraphic(Paths.image('healthBarRounded-overlay2'));
+		healthBarOverlay = new FlxSprite().loadGraphic(Paths.image('healthBar'));
 		healthBarOverlay.y = FlxG.height * 0.89;
 		healthBarOverlay.screenCenter(X);
 		healthBarOverlay.scrollFactor.set();
 		healthBarOverlay.visible = !ClientPrefs.hideHud;
         healthBarOverlay.color = FlxColor.BLACK;
-		healthBarOverlay.blend = MULTIPLY;
-		healthBarOverlay.x = healthBarBG.x-1.9;
+		healthBarOverlay.x = healthBarBG.x;
 	    healthBarOverlay.alpha = ClientPrefs.healthBarAlpha;
 		healthBarOverlay.antialiasing = ClientPrefs.globalAntialiasing;
-		add(healthBarOverlay); healthBarOverlay.alpha = ClientPrefs.healthBarAlpha; if(ClientPrefs.downScroll) healthBarOverlay.y = 0.11 * FlxG.height;
-
-		healthBarOverlayRound = new FlxSprite().loadGraphic(Paths.image('healthBarRounded-overlay'));
-		healthBarOverlayRound.y = FlxG.height * 0.89;
-		healthBarOverlayRound.screenCenter(X);
-		healthBarOverlayRound.scrollFactor.set();
-		healthBarOverlayRound.visible = !ClientPrefs.hideHud;
-        healthBarOverlayRound.color = FlxColor.BLACK;
-		healthBarOverlayRound.x = healthBarBG.x;
-	    healthBarOverlayRound.alpha = ClientPrefs.healthBarAlpha;
-		healthBarOverlayRound.antialiasing = ClientPrefs.globalAntialiasing;
-		add(healthBarOverlayRound);
-		if(ClientPrefs.downScroll) healthBarOverlayRound.y = 0.11 * FlxG.height;
+		add(healthBarOverlay);
+		if(ClientPrefs.downScroll) healthBarOverlay.y = 0.11 * FlxG.height;
 
 		iconP1 = new HealthIcon(boyfriend.healthIcon, true);
 		iconP1.y = healthBar.y - 75;
@@ -1386,7 +1356,6 @@ class PlayState extends MusicBeatState
 		healthBar.cameras = [camHUD];
 		healthBarBG.cameras = [camHUD];
 		healthBarOverlay.cameras = [camHUD];
-		healthBarOverlayRound.cameras = [camHUD];
 		iconP1.cameras = [camHUD];
 		iconP2.cameras = [camHUD];
 		scoreTxt.cameras = [camHUD];
@@ -1398,6 +1367,7 @@ class PlayState extends MusicBeatState
 		timeBar.cameras = [camHUD];
 		timeBarBG.cameras = [camHUD];
 		timeTxt.cameras = [camHUD];
+		timeBarFG.cameras = [camHUD];
 		doof.cameras = [camHUD];
 
 		// if (SONG.song == 'South')
@@ -1494,6 +1464,21 @@ class PlayState extends MusicBeatState
 					});
 				case 'senpai' | 'roses' | 'thorns':
 					if(daSong == 'roses') FlxG.sound.play(Paths.sound('ANGRY'));
+					schoolIntro(doof);
+
+			//	case 'insanity' | 'polygonized' | 'blocked' | 'corn-theft' | 'shredder' | 'greetings' | 'interdimensional' | 'rano' | 'supernovae' | 'glitch' | 'master':
+			//		schoolIntro(doof);
+
+				case 'house':
+					startVideo('daveCutscene');
+				
+				case 'house':
+					schoolIntro(doof);
+
+				case 'maze':
+					startVideo('mazeCutscene');
+
+				case 'maze':
 					schoolIntro(doof);
 
 				case 'ugh' | 'guns' | 'stress':
@@ -2594,7 +2579,7 @@ class PlayState extends MusicBeatState
 		#else
 		if (OpenFlAssets.exists(file)) {
 		#end
-			var eventsData:Array<Dynamic> = Song.loadFromJson('events', songName).events;
+			var eventsData:Array<Dynamic> = Song.loadFromJson('events', 'events/' + songName).events;
 			for (event in eventsData) //Event Notes
 			{
 				for (i in 0...event[1].length)
@@ -2963,7 +2948,7 @@ class PlayState extends MusicBeatState
 
 		if (FlxG.keys.justPressed.ONE)
 		{
-			addShaderToCamera('game', polygonizedShader.shader);
+			addShaderToCamera('game', new PulseEffect(1,2,1));
 		}
 
 		if(spike1 != null)
@@ -3035,13 +3020,13 @@ class PlayState extends MusicBeatState
 				});
 			}
 
-		//FlxG.camera.setFilters([new ShaderFilter(screenshader.shader)]); // this is very stupid but doesn't effect memory all that much so
+		/*
+		FlxG.camera.setFilters([new ShaderFilter(screenshader.shader)]); // this is very stupid but doesn't effect memory all that much so
 		if (shakeCam && eyesoreson)
 		{
 			// var shad = cast(FlxG.camera.screen.shader,Shaders.PulseShader);
 			FlxG.camera.shake(0.015, 0.015);
 		}
-		/*
 		screenshader.shader.uTime.value[0] += elapsed;
 		if (shakeCam && eyesoreson)
 		{
@@ -3051,9 +3036,9 @@ class PlayState extends MusicBeatState
 		{
 			screenshader.shader.uampmul.value[0] -= (elapsed / 2);
 		}
+		screenshader.Enabled = shakeCam && eyesoreson;
 		*/
-		//screenshader.Enabled = shakeCam && eyesoreson;
-
+		
 		callOnLuas('onUpdate', [elapsed]);
 
 		switch (curStage)
@@ -3128,20 +3113,19 @@ class PlayState extends MusicBeatState
 					splitExpress('split-bambi', 'corn', -30, 520);
 			}
 		case 'polygonized':
-				switch(curStep)
-				{
-					case 1024 | 1312 | 1424 | 1552 | 1664:
-						addShaderToCamera('game', polygonizedShader.shader);
-						shakeCam = true;
-						camZooming = true;
-					case 1152 | 1408 | 1472 | 1600 | 2048 | 2176:
-						clearShaderFromCamera('game');
-						shakeCam = false;
-						camZooming = false;
-					case 2432:
-						boyfriend.animation.play('hey', true);
-						gf.animation.play('cheer', true);
-				}
+			switch(curStep)
+			{
+				case 1024 | 1312 | 1424 | 1552 | 1664:
+					shakeCam = true;
+					camZooming = true;
+				case 1152 | 1408 | 1472 | 1600 | 2048 | 2176:
+					shakeCam = false;
+					camZooming = false;
+				case 2175:
+					FlxTween.tween(FlxG.camera, {zoom: 1.7}, 5, {ease: FlxEase.expoOut,});	
+				case 2433:
+					FlxTween.tween(FlxG.camera, {zoom: 0.7}, 3, {ease: FlxEase.expoOut,});	
+			}
 		case 'insanity':
 			switch (curStep)
 			{
@@ -3277,21 +3261,30 @@ class PlayState extends MusicBeatState
 		if (FlxG.keys.anyJustPressed(debugKeysChart) && !endingSong && !inCutscene)
 		{
 			switch (curSong.toLowerCase()) {
-					case 'supernovae' | 'glitch':
+					case 'supernovae':
 						#if debug
 						MusicBeatState.switchState(new ChartingState());
 						#end
-						PlayState.SONG = Song.loadFromJson("cheating-hard", "cheating"); // haha no debug for u
+						PlayState.SONG = Song.loadFromJson("cheating", "charts"); // haha no debug for u
 						FlxG.save.data.cheatingFound = true;
 						shakeCam = false;
 						FlxG.switchState(new PlayState());
 						return;
 						// FlxG.switchState(new VideoState('assets/videos/fortnite/fortniteballs.webm', new CrasherState()));
+					case 'glitch':
+						#if debug
+						MusicBeatState.switchState(new ChartingState());
+						#end
+						PlayState.SONG = Song.loadFromJson("kabunga", "charts"); // exBONGo
+						FlxG.save.data.cheatingFound = true;
+						shakeCam = false;
+						FlxG.switchState(new PlayState());
+						return;
 					case 'cheating':
 						#if debug
 						MusicBeatState.switchState(new ChartingState());
 						#end
-						PlayState.SONG = Song.loadFromJson("unfairness-hard", "unfairness"); // are you fucking stupid? i said no debug for u
+						PlayState.SONG = Song.loadFromJson("unfairness", "charts"); // are you fucking stupid? i said no debug
 						FlxG.save.data.unfairnessFound = true;
 						shakeCam = false;
 						FlxG.switchState(new PlayState());
@@ -3534,17 +3527,17 @@ class PlayState extends MusicBeatState
 				{
 					opponentNoteHit(daNote);
 
-					var healthtolower:Float = 0.02;
+					var healthtolower:Float = 0.015;
 					var healthDrainSong:Bool = false;
 
 					if (earthquakers.contains(dad.curCharacter.toLowerCase()))
 					{
-						camHUD.shake(0.0045, 0.1);	
+						camHUD.shake(0.009, 0.1);	
 					}
 
 					if (earthquakers.contains(boyfriend.curCharacter.toLowerCase()))
 					{
-						camHUD.shake(0.0045, 0.1);	
+						camHUD.shake(0.009, 0.1);	
 					}
 
 					switch (SONG.song.toLowerCase())
@@ -3553,12 +3546,12 @@ class PlayState extends MusicBeatState
 								health -= healthtolower;
 								healthDrainSong = true;			
 						    case 'unfairness':
-								health -= (healthtolower / 6);
+								health -= (healthtolower / 4);
 								healthDrainSong = true;
 							default:
 								if (dudesWhoTakeUrHealthBecauseTheyCan.contains(dad.curCharacter.toLowerCase()))
 								{
-									health -= (healthtolower / 2);
+									health -= (healthtolower / 1.5);
 								}
 						}
 				}
@@ -4018,9 +4011,9 @@ class PlayState extends MusicBeatState
 			camFollow.x -= boyfriend.cameraPosition[0] - boyfriendCameraOffset[0];
 			camFollow.y += boyfriend.cameraPosition[1] + boyfriendCameraOffset[1];
 
-			if (Paths.formatToSongPath(SONG.song) == 'tutorial' && cameraTwn == null && FlxG.camera.zoom != 1)
+			if (Paths.formatToSongPath(SONG.song) == 'overdrive' && cameraTwn == null && FlxG.camera.zoom != 1)
 			{
-				cameraTwn = FlxTween.tween(FlxG.camera, {zoom: 1}, (Conductor.stepCrochet * 4 / 1000), {ease: FlxEase.elasticInOut, onComplete:
+				cameraTwn = FlxTween.tween(FlxG.camera, {zoom: 0.65}, (Conductor.stepCrochet * 4 / 1000), {ease: FlxEase.quadOut, onComplete:
 					function (twn:FlxTween)
 					{
 						cameraTwn = null;
@@ -4031,8 +4024,8 @@ class PlayState extends MusicBeatState
 	}
 
 	function tweenCamIn() {
-		if (Paths.formatToSongPath(SONG.song) == 'tutorial' && cameraTwn == null && FlxG.camera.zoom != 1.3) {
-			cameraTwn = FlxTween.tween(FlxG.camera, {zoom: 1.3}, (Conductor.stepCrochet * 4 / 1000), {ease: FlxEase.elasticInOut, onComplete:
+		if (Paths.formatToSongPath(SONG.song) == 'overdrive' && cameraTwn == null && FlxG.camera.zoom != 1.3) {
+			cameraTwn = FlxTween.tween(FlxG.camera, {zoom: 1.1}, (Conductor.stepCrochet * 4 / 1000), {ease: FlxEase.quadOut, onComplete:
 				function (twn:FlxTween) {
 					cameraTwn = null;
 				}
@@ -4100,6 +4093,7 @@ class PlayState extends MusicBeatState
 		
 		timeBarBG.visible = false;
 		timeBar.visible = false;
+		timeBarFG.visible = false;
 		timeTxt.visible = false;
 		canPause = false;
 		endingSong = true;
@@ -4202,7 +4196,7 @@ class PlayState extends MusicBeatState
 					prevCamFollow = camFollow;
 					prevCamFollowPos = camFollowPos;
 
-					PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0] + difficulty, PlayState.storyPlaylist[0]);
+					PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0], 'charts');
 					FlxG.sound.music.stop();
 
 					if(winterHorrorlandNext) {
@@ -4774,7 +4768,7 @@ class PlayState extends MusicBeatState
 
 	function opponentNoteHit(note:Note):Void
 	{
-		if (Paths.formatToSongPath(SONG.song) != 'tutorial')
+		if (Paths.formatToSongPath(SONG.song) != 'overdrive')
 			camZooming = true;
 
 		if(note.noteType == 'Hey!' && dad.animOffsets.exists('hey')) {
@@ -4787,7 +4781,7 @@ class PlayState extends MusicBeatState
 			var curSection:Int = Math.floor(curStep / 16);
 			if (SONG.notes[curSection] != null)
 			{
-				if (SONG.notes[curSection].altAnim || note.noteType == 'Alt Animation') {
+				if (SONG.notes[curSection].altAnim || note.noteType == 'Alt Animation' || note.noteType == 'Phone Note Alt') {
 					altAnim = '-alt';
 				}
 			}

@@ -65,7 +65,7 @@ class OptionsState extends MusicBeatState
 		camera.zoom = 2.2;
 		CoolUtil.cameraZoom(camera, 1, .5, FlxEase.sineOut, ONESHOT);
 
-		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('backgrounds/Olyantwo'));
+		var bg:FlxSprite = new FlxSprite().loadGraphic(MainMenuState.randomizeBG());
 		bg.color = 0xFFea71fd;
 		bg.updateHitbox();
 

@@ -1,78 +1,78 @@
 {
 	"animations": [
 		{
-			"loop": true,
+			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
 			"anim": "idle",
 			"fps": 24,
-			"name": "DaveAngry idle dance",
+			"name": "Idle",
 			"indices": []
 		},
 		{
-			"loop": true,
+			"loop": false,
 			"offsets": [
-				0,
-				0
+				80,
+				-30
 			],
 			"anim": "singLEFT",
 			"fps": 24,
-			"name": "DaveAngry Sing Note LEFT",
+			"name": "Left",
 			"indices": []
 		},
 		{
-			"loop": true,
+			"loop": false,
 			"offsets": [
-				0,
-				0
+				40,
+				-30
 			],
 			"anim": "singDOWN",
 			"fps": 24,
-			"name": "DaveAngry Sing Note DOWN",
+			"name": "Down",
 			"indices": []
 		},
 		{
-			"loop": true,
+			"loop": false,
 			"offsets": [
-				0,
-				0
-			],
-			"anim": "singRIGHT",
-			"fps": 24,
-			"name": "DaveAngry Sing Note RIGHT",
-			"indices": []
-		},
-		{
-			"loop": true,
-			"offsets": [
-				0,
-				0
+				-10,
+				-10
 			],
 			"anim": "singUP",
 			"fps": 24,
-			"name": "DaveAngry Sing Note UP",
+			"name": "Up",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-50,
+				-30
+			],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "Right",
 			"indices": []
 		}
 	],
 	"no_antialiasing": false,
-	"image": "characters/bambi/stop-cheating",
+	"image": "characters/expunged/Cheating",
 	"position": [
-		0,
-		-70
+		-120,
+		50
 	],
 	"healthicon": "bambi-3d",
 	"flip_x": false,
 	"healthbar_colors": [
-		23,
-		143,
-		23
+		13,
+		199,
+		27
 	],
 	"camera_position": [
-		0,
+		90,
 		0
 	],
 	"sing_duration": 6.1,
-	"scale": 0.8
+	"scale": 1.1
 }

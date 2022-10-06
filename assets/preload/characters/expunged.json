@@ -8,71 +8,71 @@
 			],
 			"anim": "idle",
 			"fps": 24,
-			"name": "idle",
+			"name": "Idle",
 			"indices": []
 		},
 		{
 			"loop": false,
 			"offsets": [
-				220,
-				-20
+				84,
+				-50
 			],
 			"anim": "singLEFT",
 			"fps": 24,
-			"name": "singLEFT",
+			"name": "Left",
 			"indices": []
 		},
 		{
 			"loop": false,
 			"offsets": [
-				0,
-				-140
+				130,
+				100
 			],
 			"anim": "singDOWN",
 			"fps": 24,
-			"name": "singDOWN",
+			"name": "Down",
 			"indices": []
 		},
 		{
 			"loop": false,
 			"offsets": [
-				-120,
-				-30
-			],
-			"anim": "singRIGHT",
-			"fps": 24,
-			"name": "singRIGHT",
-			"indices": []
-		},
-		{
-			"loop": false,
-			"offsets": [
-				50,
-				100
+				13,
+				0
 			],
 			"anim": "singUP",
 			"fps": 24,
-			"name": "singUP",
+			"name": "Up",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-80,
+				0
+			],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "Right",
 			"indices": []
 		}
 	],
 	"no_antialiasing": false,
-	"image": "characters/bambi/expunged",
+	"image": "characters/expunged/ExpungedFinal",
 	"position": [
-		0,
-		90
+		-370,
+		-460
 	],
 	"healthicon": "expunged",
 	"flip_x": false,
 	"healthbar_colors": [
-		150,
-		14,
-		11
-	],
-	"camera_position": [
-		20,
+		0,
+		0,
 		0
 	],
+	"camera_position": [
+		300,
+		-100
+	],
 	"sing_duration": 6.1,
-	"scale": 1
+	"scale": 0.8
 }

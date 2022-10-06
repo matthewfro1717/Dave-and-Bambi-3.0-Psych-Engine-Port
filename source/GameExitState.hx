@@ -46,7 +46,7 @@ class GameExitState extends MusicBeatState
                 System.exit(0);
 			case 'No':
                 FlxG.sound.play(Paths.sound('cancelMenu'));
-				MusicBeatState.switchState(new TitleState());
+				MusicBeatState.switchState(new MainMenuState());
 				CoolUtil.cameraZoom(camera, 3, 3, FlxEase.backOut, ONESHOT);
 		}
 	}

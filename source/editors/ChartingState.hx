@@ -255,7 +255,7 @@ class ChartingState extends MusicBeatState
 
 		vortex = FlxG.save.data.chart_vortex;
 		ignoreWarnings = FlxG.save.data.ignoreWarnings;
-		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('backgrounds/SwagnotrllyTheMod'));
+		var bg:FlxSprite = new FlxSprite().loadGraphic(MainMenuState.randomizeBG());
 		bg.scrollFactor.set();
 		bg.color = 0xFF393939;
 		add(bg);
@@ -472,7 +472,7 @@ class ChartingState extends MusicBeatState
 			#end
 			{
 				clearEvents();
-				var events:SwagSong = Song.loadFromJson('events', songName);
+				var events:SwagSong = Song.loadFromJson('events', 'events/' + songName);
 				_song.events = events.events;
 				changeSection(curSection);
 			}
@@ -3027,10 +3027,7 @@ class ChartingState extends MusicBeatState
 	{
 		//make it look sexier if possible
 		if (CoolUtil.difficulties[PlayState.storyDifficulty] != null && CoolUtil.difficulties[PlayState.storyDifficulty] != "Normal"){
-		PlayState.SONG = Song.loadFromJson(song.toLowerCase()+"-"+CoolUtil.difficulties[PlayState.storyDifficulty], song.toLowerCase());
-			
-		}else{
-		PlayState.SONG = Song.loadFromJson(song.toLowerCase(), song.toLowerCase());
+		PlayState.SONG = Song.loadFromJson(song.toLowerCase(), 'charts');
 		}
 		MusicBeatState.resetState();
 	}

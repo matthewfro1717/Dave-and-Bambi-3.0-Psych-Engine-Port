@@ -1,0 +1,111 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "idle",
+			"loop": true,
+			"name": "a_bambi idle"
+		},
+		{
+			"offsets": [
+				102,
+				-6
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singLEFT",
+			"loop": false,
+			"name": "a_bambi left"
+		},
+		{
+			"offsets": [
+				5,
+				-30
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singDOWN",
+			"loop": false,
+			"name": "a_bambi down"
+		},
+		{
+			"offsets": [
+				17,
+				40
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singUP",
+			"loop": false,
+			"name": "a_bambi up"
+		},
+		{
+			"offsets": [
+				0,
+				2
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singRIGHT",
+			"loop": false,
+			"name": "a_bambi right"
+		},
+		{
+			"offsets": [
+				81,
+				79
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "phone",
+			"loop": false,
+			"name": "a_bambi phone"
+		},
+		{
+			"offsets": [
+				147,
+				18
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "phone throw",
+			"loop": false,
+			"name": "a_bambi throw"
+		},
+		{
+			"offsets": [
+				20,
+				31
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "scream",
+			"loop": false,
+			"name": "a_bambi scream"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/bambi/Angry_Bambi",
+	"position": [
+		120,
+		440
+	],
+	"healthicon": "bambi-angey",
+	"flip_x": false,
+	"healthbar_colors": [
+		37,
+		191,
+		55
+	],
+	"camera_position": [
+		30,
+		0
+	],
+	"sing_duration": 6.1,
+	"scale": 1
+}

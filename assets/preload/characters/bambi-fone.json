@@ -1,0 +1,34 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [
+				120,
+				80
+			],
+			"anim": "idle",
+			"fps": 24,
+			"name": "bambi idiot",
+			"indices": []
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/bambi/im_gonna_break_me_phone",
+	"position": [
+		120,
+		440
+	],
+	"healthicon": "bambi",
+	"flip_x": false,
+	"healthbar_colors": [
+		37,
+		191,
+		55
+	],
+	"camera_position": [
+		30,
+		0
+	],
+	"sing_duration": 6.1,
+	"scale": 1
+}

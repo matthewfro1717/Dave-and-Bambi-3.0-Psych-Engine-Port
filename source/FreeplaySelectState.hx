@@ -12,7 +12,8 @@ import flixel.tweens.FlxTween;
 
 class FreeplaySelectState extends MusicBeatState 
 {
-    public static var freeplayCats:Array<String> = ['Dave', 'Base', 'Extra', 'Joke', 'Insanity']; 
+    public static var freeplayCats:Array<String> = ['Story', 'Joke', 'Extras', 'Insanity'];
+    public static var freeplayCatsHidden:Array<String> = ['Terminal', 'uh oh'];
     public static var curCategory:Int = 0;
     public var NameAlpha:Alphabet;
     var grpCats:FlxTypedGroup<Alphabet>;
@@ -35,7 +36,7 @@ class FreeplaySelectState extends MusicBeatState
     {
         CoolUtil.cameraZoom(camera, 1, .5, FlxEase.sineOut, ONESHOT);
 
-        BG = new FlxSprite().loadGraphic(Paths.image('backgrounds/morie'));
+        BG = new FlxSprite().loadGraphic(MainMenuState.randomizeBG());
         BG.updateHitbox();
         BG.screenCenter();
         //BG.color = 0x55D650;
@@ -43,7 +44,7 @@ class FreeplaySelectState extends MusicBeatState
 
         var gridthing:FlxBackdrop;
 
-		gridthing = new FlxBackdrop(Paths.image('loading'), 0.2, 0, true, true);
+		gridthing = new FlxBackdrop(Paths.image('checkeredBG'), 0.2, 0, true, true);
 		gridthing.velocity.set(50, -25);
 		gridthing.updateHitbox();
 		gridthing.alpha = 0.4;
@@ -52,7 +53,7 @@ class FreeplaySelectState extends MusicBeatState
 		gridthing.antialiasing = ClientPrefs.globalAntialiasing;
 		add(gridthing);
 
-        categoryIcon = new FlxSprite().loadGraphic(Paths.image('weekicons/week_icon_' + freeplayCats[curSelected].toLowerCase()));
+        categoryIcon = new FlxSprite().loadGraphic(Paths.image('packs/' + freeplayCats[curSelected].toLowerCase()));
         categoryIcon.updateHitbox();
         categoryIcon.screenCenter();
         add(categoryIcon);
@@ -133,7 +134,7 @@ class FreeplaySelectState extends MusicBeatState
         NameAlpha = new Alphabet(10,(FlxG.height / 2) - 282,freeplayCats[curSelected],true,false);
         NameAlpha.screenCenter(X);
         add(NameAlpha);
-        categoryIcon.loadGraphic(Paths.image('weekicons/week_icon_' + (freeplayCats[curSelected].toLowerCase())));
+        categoryIcon.loadGraphic(Paths.image('packs/' + (freeplayCats[curSelected].toLowerCase())));
         FlxG.sound.play(Paths.sound('scrollMenu'));
 
         FlxTween.color(BG, 0.25, BG.color, songColors[curSelected]);

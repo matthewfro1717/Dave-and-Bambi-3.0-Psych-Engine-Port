@@ -1,0 +1,78 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "idle",
+			"fps": 24,
+			"name": "idle",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				220,
+				-20
+			],
+			"anim": "singLEFT",
+			"fps": 24,
+			"name": "singLEFT",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				-140
+			],
+			"anim": "singDOWN",
+			"fps": 24,
+			"name": "singDOWN",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-120,
+				-30
+			],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "singRIGHT",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				50,
+				100
+			],
+			"anim": "singUP",
+			"fps": 24,
+			"name": "singUP",
+			"indices": []
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/bambi/expunged",
+	"position": [
+		0,
+		90
+	],
+	"healthicon": "expunged",
+	"flip_x": false,
+	"healthbar_colors": [
+		150,
+		14,
+		11
+	],
+	"camera_position": [
+		20,
+		0
+	],
+	"sing_duration": 6.1,
+	"scale": 1
+}

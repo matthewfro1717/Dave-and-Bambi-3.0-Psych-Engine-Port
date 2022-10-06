@@ -49,29 +49,29 @@ class StrumNote extends FlxSprite
 
 		plrStatic = player;
 
-		var skin:String = 'NOTE_assets';
+		var skin:String = 'notes/NOTE_assets';
 		if (PlayState.SONG.arrowSkin == null || PlayState.SONG.arrowSkin.length <= 1) {
 			if(ClientPrefs.noteSkinSettings == 'Clasic') {
-				skin = 'NOTE_assets';
+				skin = 'notes/NOTE_assets';
 			} else if (ClientPrefs.noteSkinSettings == 'Circle') {
-				skin = 'NOTE_assets_circle';
+				skin = 'notes/NOTE_assets_circle';
 			} else {
-				skin = 'NOTE_assets';// for preventing crashes
+				skin = 'notes/NOTE_assets';// for preventing crashes
 			}
 			/*if (cool3Dcharacters.contains(PlayState.SONG.player1)) {
-				skin = '3DNotes';
+				skin = 'notes/3DNotes';
 			} else if (cool3Dcharacters.contains(PlayState.SONG.player2)) {
-				skin = '3DNotes';
+				skin = 'notes/3DNotes';
 			}*/
 		}
 		
 		if (PlayState.SONG.arrowSkin != null && PlayState.SONG.arrowSkin.length > 1) skin = PlayState.SONG.arrowSkin;
 		//trace(PlayState.SONG.arrowSkin); мама я в ютубе
-		if (PlayState.cool3Dcharacters.contains(PlayState.SONG.player1) && player == 1) {
-			skin = '3DNotes';
+		if ((PlayState.floaterfloats.contains(PlayState.SONG.player1) || PlayState.floaterfloatsWHAR.contains(PlayState.SONG.player1)) && player == 1) {
+			skin = 'notes/3DNotes';
 		} 
-		if (PlayState.cool3Dcharacters.contains(PlayState.SONG.player2) && player == 0) {
-			skin = '3DNotes';
+		if ((PlayState.floaterfloats.contains(PlayState.SONG.player2) || PlayState.floaterfloatsWHAR.contains(PlayState.SONG.player2))  && player == 0) {
+			skin = 'notes/3DNotes';
 		}
 		texture = skin; //Load texture and anims
 

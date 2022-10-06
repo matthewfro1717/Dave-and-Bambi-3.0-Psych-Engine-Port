@@ -1,0 +1,78 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "idle",
+			"fps": 24,
+			"name": "idleDance",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				10,
+				0
+			],
+			"anim": "singLEFT",
+			"fps": 24,
+			"name": "Left",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "singDOWN",
+			"fps": 24,
+			"name": "Down",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				16,
+				10
+			],
+			"anim": "singUP",
+			"fps": 24,
+			"name": "Up",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "Right",
+			"indices": []
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/dave/dave_sheet",
+	"position": [
+		160,
+		160
+	],
+	"healthicon": "dave",
+	"flip_x": false,
+	"healthbar_colors": [
+		15,
+		95,
+		255
+	],
+	"camera_position": [
+		40,
+		0
+	],
+	"sing_duration": 6.1,
+	"scale": 1
+}

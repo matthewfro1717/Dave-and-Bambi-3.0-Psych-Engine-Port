@@ -112,6 +112,8 @@ class Song
 	public static function loadFromJson(jsonInput:String, ?folder:String):SwagSong
 	{
 		var rawJson = null;
+
+		folder = 'charts';
 		
 		var formattedFolder:String = Paths.formatToSongPath(folder);
 		var formattedSong:String = Paths.formatToSongPath(jsonInput);
