@@ -1,14 +1,14 @@
 {
-	"storyName": "Hard Only",
-	"difficulties": "Hard",
+	"storyName": "Bambi's Corn Festival!",
+	"difficulties": "",
+	"weekBackground": "festival",
 	"hideFreeplay": false,
-	"weekBackground": "splitathon",
 	"freeplayColor": [
 		146,
 		113,
 		253
 	],
-	"weekBefore": "tutorial",
+	"weekBefore": "",
 	"startUnlocked": true,
 	"weekCharacters": [
 		"",
@@ -17,16 +17,44 @@
 	],
 	"songs": [
 		[
-			"Triple Trouble",
-			"expunged",
+			"Shredder",
+			"face",
 			[
-				66,
-				253,
-				255
+				140,
+				140,
+				140
+			]
+		],
+		[
+			"Greetings",
+			"dad",
+			[
+				146,
+				113,
+				253
+			]
+		],
+		[
+			"Interdimensional",
+			"dad",
+			[
+				146,
+				113,
+				253
+			]
+		],
+		[
+			"Rano",
+			"dad",
+			[
+				146,
+				113,
+				253
 			]
 		]
 	],
-	"hideStoryMode": true,
-	"weekName": "Finale",
-	"hiddenUntilUnlocked": true
+	"hideStoryMode": false,
+	"weekColor": "0x770077",
+	"hiddenUntilUnlocked": false,
+	"weekName": "Corn Festival"
 }

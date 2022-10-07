@@ -427,6 +427,19 @@ class Note extends FlxSprite
 			}
 		}
 
+		if (PlayState.SONG.song.toLowerCase() == 'exploitation')
+		{
+			var rng:FlxRandom = new FlxRandom();
+			if (rng.int(0,120) == 1)
+			{
+				LocalScrollSpeed = 0.1;
+			}
+			else
+			{
+				LocalScrollSpeed = 3;
+			}
+		}
+
 		if(animName != null)
 			animation.play(animName, true);
 

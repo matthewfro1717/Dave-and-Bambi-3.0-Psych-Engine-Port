@@ -252,7 +252,7 @@ class TitleState extends MusicBeatState
 			// FlxG.sound.list.add(music);
 			// music.play();
 
-			FlxG.sound.playMusic(Paths.music('funkyTitle'), 0);
+			FlxG.sound.playMusic(Paths.music('freakyMenu'), 0);
 			FlxG.sound.music.fadeIn(4, 0, 0.7);
 		}
 
@@ -484,7 +484,6 @@ class TitleState extends MusicBeatState
 						blackBg.destroy();
 					});
 
-					FlxG.sound.music.fadeOut();
 					titlestatebg.velocity.set(400, 210);
 					skipped = true; // true
 
@@ -519,7 +518,6 @@ class TitleState extends MusicBeatState
 				FlxTween.tween(titleText, {y: 1500}, 3, {ease: FlxEase.backInOut, type: ONESHOT});
 				FlxTween.tween(camera, {zoom: 3}, 3, {ease: FlxEase.backOut, type: ONESHOT});
 				CoolUtil.cameraZoom(camera, 3, 3, FlxEase.backOut, ONESHOT);
-				FlxG.sound.music.fadeOut();
 				titlestatebg.velocity.set(400, 210);
 				skipped = true;
 
@@ -550,7 +548,6 @@ class TitleState extends MusicBeatState
 			// 	FlxTween.tween(logoBl, {y: -1500}, 3, {ease: FlxEase.backInOut, type: ONESHOT});
 			// 	FlxTween.tween(gfDance, {y: 1500}, 3, {ease: FlxEase.backInOut, type: ONESHOT});
 			// 	FlxTween.tween(titleText, {y: 1500}, 3, {ease: FlxEase.backInOut, type: ONESHOT});
-			// 	FlxG.sound.music.fadeOut();
 			// 	function Exit(timer:FlxTimer):Void
 			// 	{
 			// 		System.exit(0);
@@ -596,7 +593,6 @@ class TitleState extends MusicBeatState
 									MusicBeatState.switchState(new TitleState());
 								}
 							});
-							FlxG.sound.music.fadeOut();
 							closedState = true;
 							transitioning = true;
 							playJingle = true;
@@ -764,7 +760,6 @@ class TitleState extends MusicBeatState
 							playJingle = false;
 							
 							FlxG.sound.playMusic(Paths.music('freakyMenu'), 0);
-							FlxG.sound.music.fadeIn(4, 0, 0.7);
 							return;
 					}
 
@@ -786,7 +781,6 @@ class TitleState extends MusicBeatState
 						FlxG.camera.flash(FlxColor.WHITE, 3);
 						sound.onComplete = function() {
 							FlxG.sound.playMusic(Paths.music('freakyMenu'), 0);
-							FlxG.sound.music.fadeIn(4, 0, 0.7);
 							transitioning = false;
 						};
 					}

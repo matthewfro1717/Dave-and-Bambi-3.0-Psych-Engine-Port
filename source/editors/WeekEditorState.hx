@@ -39,6 +39,7 @@ class WeekEditorState extends MusicBeatState
 {
 	var txtWeekTitle:FlxText;
 	var bgSprite:FlxSprite;
+	var bgYellow:FlxSprite;
 	var lock:FlxSprite;
 	var txtTracklist:FlxText;
 	var grpWeekCharacters:FlxTypedGroup<MenuCharacter>;
@@ -60,7 +61,7 @@ class WeekEditorState extends MusicBeatState
 		txtWeekTitle.alpha = 0.7;
 		
 		var ui_tex = Paths.getSparrowAtlas('campaign_menu_UI_assets');
-		var bgYellow:FlxSprite = new FlxSprite(0, 56).makeGraphic(FlxG.width, 386, 0xFFF9CF51);
+		bgYellow = new FlxSprite(0, 56).makeGraphic(FlxG.width, 386, 0xFFFFFFFF);
 		bgSprite = new FlxSprite(0, 56);
 		bgSprite.antialiasing = ClientPrefs.globalAntialiasing;
 
@@ -163,7 +164,7 @@ class WeekEditorState extends MusicBeatState
 	var displayNameInputText:FlxUIInputText;
 	var weekNameInputText:FlxUIInputText;
 	var weekFileInputText:FlxUIInputText;
-	
+
 	var opponentInputText:FlxUIInputText;
 	var boyfriendInputText:FlxUIInputText;
 	var girlfriendInputText:FlxUIInputText;
@@ -228,6 +229,7 @@ class WeekEditorState extends MusicBeatState
 
 	var weekBeforeInputText:FlxUIInputText;
 	var difficultiesInputText:FlxUIInputText;
+	var weekColorInputText:FlxUIInputText;
 	var lockedCheckbox:FlxUICheckBox;
 	var hiddenUntilUnlockCheckbox:FlxUICheckBox;
 
@@ -255,12 +257,17 @@ class WeekEditorState extends MusicBeatState
 
 		difficultiesInputText = new FlxUIInputText(10, weekBeforeInputText.y + 60, 200, '', 8);
 		blockPressWhileTypingOn.push(difficultiesInputText);
+
+		weekColorInputText = new FlxUIInputText(10, difficultiesInputText.y + 60, 200, '', 8);
+		blockPressWhileTypingOn.push(weekColorInputText);
 		
 		tab_group.add(new FlxText(weekBeforeInputText.x, weekBeforeInputText.y - 28, 0, 'Week File name of the Week you have\nto finish for Unlocking:'));
 		tab_group.add(new FlxText(difficultiesInputText.x, difficultiesInputText.y - 20, 0, 'Difficulties:'));
-		tab_group.add(new FlxText(difficultiesInputText.x, difficultiesInputText.y + 20, 0, 'Default difficulties are "Easy, Normal, Hard"\nwithout quotes.'));
+		tab_group.add(new FlxText(difficultiesInputText.x, difficultiesInputText.y + 20, 0, 'NOTE: Difficulties are removed. This is now usless'));
+		tab_group.add(new FlxText(weekColorInputText.x, weekColorInputText.y - 20, 0, 'Week Color:'));
 		tab_group.add(weekBeforeInputText);
 		tab_group.add(difficultiesInputText);
+		tab_group.add(weekColorInputText);
 		tab_group.add(hiddenUntilUnlockCheckbox);
 		tab_group.add(lockedCheckbox);
 		UI_box.addGroup(tab_group);
@@ -285,6 +292,8 @@ class WeekEditorState extends MusicBeatState
 		hideCheckbox.checked = weekFile.hideStoryMode;
 
 		weekBeforeInputText.text = weekFile.weekBefore;
+
+		weekColorInputText.text = weekFile.weekColor;
 
 		difficultiesInputText.text = '';
 		if(weekFile.difficulties != null) difficultiesInputText.text = weekFile.difficulties;
@@ -332,9 +341,9 @@ class WeekEditorState extends MusicBeatState
 
 		var isMissing:Bool = true;
 		if(assetName != null && assetName.length > 0) {
-			if( #if MODS_ALLOWED FileSystem.exists(Paths.modsImages('menubackgrounds/menu_' + assetName)) || #end
-			Assets.exists(Paths.getPath('images/menubackgrounds/menu_' + assetName + '.png', IMAGE), IMAGE)) {
-				bgSprite.loadGraphic(Paths.image('menubackgrounds/menu_' + assetName));
+			if( #if MODS_ALLOWED FileSystem.exists(Paths.modsImages('weekBanners/' + assetName)) || #end
+			Assets.exists(Paths.getPath('images/weekBanners/' + assetName + '.png', IMAGE), IMAGE)) {
+				bgSprite.loadGraphic(Paths.image('weekBanners/' + assetName));
 				isMissing = false;
 			}
 		}
@@ -415,6 +424,8 @@ class WeekEditorState extends MusicBeatState
 				weekFile.weekBefore = weekBeforeInputText.text.trim();
 			} else if(sender == difficultiesInputText) {
 				weekFile.difficulties = difficultiesInputText.text.trim();
+			} else if(sender == weekColorInputText) {
+				weekFile.weekColor = weekColorInputText.text.trim();
 			}
 		}
 	}
@@ -452,6 +463,8 @@ class WeekEditorState extends MusicBeatState
 		}
 
 		super.update(elapsed);
+
+		bgYellow.color = FlxColor.fromString(weekFile.weekColor);
 
 		lock.y = weekThing.y;
 		missingFileText.y = weekThing.y + 36;

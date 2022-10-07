@@ -1,0 +1,51 @@
+{
+	"storyName": "Bambi's Master Week!",
+	"difficulties": "",
+	"weekBackground": "masterweek",
+	"hideFreeplay": false,
+	"weekBefore": "",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"startUnlocked": false,
+	"hideStoryMode": true,
+	"songs": [
+		[
+			"Supernovae",
+			"face",
+			[
+				140,
+				140,
+				140
+			]
+		],
+		[
+			"Glitch",
+			"dad",
+			[
+				146,
+				113,
+				253
+			]
+		],
+		[
+			"Master",
+			"dad",
+			[
+				146,
+				113,
+				253
+			]
+		]
+	],
+	"weekCharacters": [
+		"",
+		"",
+		""
+	],
+	"weekName": "Master Week",
+	"hiddenUntilUnlocked": false,
+	"weekColor": "0xff0000"
+}

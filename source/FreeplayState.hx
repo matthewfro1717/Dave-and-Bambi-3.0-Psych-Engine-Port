@@ -195,13 +195,6 @@ class FreeplayState extends MusicBeatState
 		gridthing.color = 0xFFFFFF;
 		gridthing.antialiasing = ClientPrefs.globalAntialiasing;
 		add(gridthing);
-
-		var border:FlxSprite = new FlxSprite().loadGraphic(Paths.image('mainmenuBorder'));
-        border.scrollFactor.set(0, 0);
-        border.updateHitbox();
-        border.screenCenter();
-        border.antialiasing = ClientPrefs.globalAntialiasing;
-        add(border);
 		
 		categoryIcon = new FlxSprite(0,0).loadGraphic(Paths.image('packs/' + FreeplaySelectState.freeplayCats[FreeplaySelectState.curCategory].toLowerCase()));
 		categoryIcon.setGraphicSize(Std.int(categoryIcon.width * 0.5), Std.int(categoryIcon.height * 0.5));

@@ -30,7 +30,7 @@ class WarningState extends MusicBeatState
 		bg.screenCenter();
 		add(bg);
 
-		FlxG.sound.playMusic(Paths.music('freakyMenu'), 0);
+		FlxG.sound.playMusic(Paths.music('freakyMenu'));
 
 		warnText = new FlxText(0, 50, FlxG.width,
 			"Hey! \n

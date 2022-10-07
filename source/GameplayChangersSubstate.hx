@@ -27,7 +27,7 @@ import Controls;
 
 using StringTools;
 
-class GameplayChangersSubstate extends MusicBeatSubstate
+class GameplayChangersSubstate extends MusicBeatSubstate // this is a troll you aint changing shit
 {
 	private var curOption:GameplayOption = null;
 	private var curSelected:Int = 0;
@@ -37,7 +37,7 @@ class GameplayChangersSubstate extends MusicBeatSubstate
 	private var checkboxGroup:FlxTypedGroup<CheckboxThingie>;
 	private var grpTexts:FlxTypedGroup<AttachedText>;
 
-	function getOptions()
+	function getOptions() 
 	{
 		var goption:GameplayOption = new GameplayOption('Scroll Type', 'scrolltype', 'string', 'multiplicative', ["multiplicative", "constant"]);
 		optionsArray.push(goption);

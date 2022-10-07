@@ -152,11 +152,12 @@ class PlayState extends MusicBeatState
 	public var updatevels:Bool = false;
 
 	var funnyZoomSongs:Array<String> = ['overdrive', 'amber', 'ultimatum'];
+	var zoomSong:Bool = false; // this shouldnt even have to fucking exist
 
-	public static var cool3Dcharacters:Array<String> = ['dave-angey', 'bambi-3d', 'bambi-unfair', 'expunged', 'morrow', 'bandu', 'corruptb', 'bf-3d', 'badai']; // is no more
+	//public static var cool3Dcharacters:Array<String> = ['dave-angey', 'bambi-3d', 'bambi-unfair', 'expunged', 'morrow', 'bandu', 'corruptb', 'bf-3d', 'badai']; // is no more
 
-	public static var floaterfloats:Array<String> = ['dave-angey', 'bambi-3d', 'bambi-unfair', 'expunged', 'morrow', 'corruptb', 'bf-3d'];
-	public static var floaterfloatsWHAR:Array<String> = ['morrow', 'corruptb', 'badai', 'bandu'];
+	public static var floaterfloats:Array<String> = ['dave-angey', 'bambi-3d', 'bambi-unfair', 'expunged', 'morrow', 'corruptb', 'lenzai', 'bf-3d'];
+	public static var floaterfloatsWHAR:Array<String> = ['morrow', 'lenzai', 'badai', 'bandu'];
 
 	var rotate:Array<String> = ['badai'];
 
@@ -352,6 +353,14 @@ class PlayState extends MusicBeatState
 	var insanityRed:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('backgrounds/redsky_insanity'));
 	public var spike1:FlxSprite;
 	public var spike2:FlxSprite;
+
+	// exploitation backgrounds
+	public var creepyRoom:BGSprite;
+	public var chains:BGSprite;
+	public var brokenChains:BGSprite;
+	public var glitchCheating:BGSprite;
+	public var glitchCheating2:BGSprite;
+	public var glitchUnfairness:BGSprite;
 
 	override public function create()
 	{
@@ -578,7 +587,7 @@ class PlayState extends MusicBeatState
 			case 'scarybg':
 				defaultCamZoom = 0.65;
 				var bg:FlxSprite = new FlxSprite(200, 0).loadGraphic(Paths.image('backgrounds/void/scarybg'));
-				bg.scale.set(1.7,1.7);
+				bg.scale.set(2.7,1.7);
 				bg.antialiasing = true;
 				bg.scrollFactor.set(0, 0);
 				bg.active = true;
@@ -1471,15 +1480,9 @@ class PlayState extends MusicBeatState
 
 				case 'house':
 					startVideo('daveCutscene');
-				
-				case 'house':
-					schoolIntro(doof);
 
 				case 'maze':
 					startVideo('mazeCutscene');
-
-				case 'maze':
-					schoolIntro(doof);
 
 				case 'ugh' | 'guns' | 'stress':
 					tankIntro();
@@ -3041,6 +3044,8 @@ class PlayState extends MusicBeatState
 		
 		callOnLuas('onUpdate', [elapsed]);
 
+		zoomSong = funnyZoomSongs.contains(SONG.song.toLowerCase());
+
 		switch (curStage)
 		{
 			case 'houseNight' | 'farmNight': // Dark character thing
@@ -4010,8 +4015,7 @@ class PlayState extends MusicBeatState
 			camFollow.set(boyfriend.getMidpoint().x - 100, boyfriend.getMidpoint().y - 100);
 			camFollow.x -= boyfriend.cameraPosition[0] - boyfriendCameraOffset[0];
 			camFollow.y += boyfriend.cameraPosition[1] + boyfriendCameraOffset[1];
-
-			if (Paths.formatToSongPath(SONG.song) == 'overdrive' && cameraTwn == null && FlxG.camera.zoom != 1)
+			if (funnyZoomSongs.contains(SONG.song.toLowerCase()) && cameraTwn == null && FlxG.camera.zoom != 1)
 			{
 				cameraTwn = FlxTween.tween(FlxG.camera, {zoom: 0.65}, (Conductor.stepCrochet * 4 / 1000), {ease: FlxEase.quadOut, onComplete:
 					function (twn:FlxTween)
@@ -4024,7 +4028,7 @@ class PlayState extends MusicBeatState
 	}
 
 	function tweenCamIn() {
-		if (Paths.formatToSongPath(SONG.song) == 'overdrive' && cameraTwn == null && FlxG.camera.zoom != 1.3) {
+		if (funnyZoomSongs.contains(SONG.song.toLowerCase()) && cameraTwn == null && FlxG.camera.zoom != 1.3) {
 			cameraTwn = FlxTween.tween(FlxG.camera, {zoom: 1.1}, (Conductor.stepCrochet * 4 / 1000), {ease: FlxEase.quadOut, onComplete:
 				function (twn:FlxTween) {
 					cameraTwn = null;
@@ -4768,7 +4772,7 @@ class PlayState extends MusicBeatState
 
 	function opponentNoteHit(note:Note):Void
 	{
-		if (Paths.formatToSongPath(SONG.song) != 'overdrive')
+		if (!zoomSong)
 			camZooming = true;
 
 		if(note.noteType == 'Hey!' && dad.animOffsets.exists('hey')) {

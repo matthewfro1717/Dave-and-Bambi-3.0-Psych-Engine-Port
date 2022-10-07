@@ -1,0 +1,51 @@
+{
+	"storyName": "???",
+	"difficulties": "",
+	"weekBackground": "masterweekquestion",
+	"hideFreeplay": true,
+	"weekBefore": "",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"startUnlocked": false,
+	"hideStoryMode": true,
+	"songs": [
+		[
+			"???",
+			"face",
+			[
+				140,
+				140,
+				140
+			]
+		],
+		[
+			"???",
+			"face",
+			[
+				140,
+				140,
+				140
+			]
+		],
+		[
+			"???",
+			"face",
+			[
+				140,
+				140,
+				140
+			]
+		]
+	],
+	"weekCharacters": [
+		"",
+		"",
+		""
+	],
+	"weekName": "???",
+	"hiddenUntilUnlocked": true,
+	"weekColor": "0x006600"
+}
