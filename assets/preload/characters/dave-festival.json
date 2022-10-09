@@ -1,0 +1,100 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "idle",
+			"loop": false,
+			"name": "idle"
+		},
+		{
+			"offsets": [
+				25,
+				2
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singLEFT",
+			"loop": false,
+			"name": "left"
+		},
+		{
+			"offsets": [
+				-40,
+				-13
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singDOWN",
+			"loop": false,
+			"name": "down"
+		},
+		{
+			"offsets": [
+				-15,
+				12
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singUP",
+			"loop": false,
+			"name": "up"
+		},
+		{
+			"offsets": [
+				-3,
+				-7
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singRIGHT",
+			"loop": false,
+			"name": "right"
+		},
+		{
+			"offsets": [
+				-18,
+				-1
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "bruh",
+			"loop": true,
+			"name": "bruh"
+		},
+		{
+			"offsets": [
+				-18,
+				-1
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "sleepy",
+			"loop": false,
+			"name": "sleepy"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/festival/dave_festival",
+	"position": [
+		0,
+		110
+	],
+	"healthicon": "dave-festival",
+	"flip_x": false,
+	"healthbar_colors": [
+		59,
+		180,
+		48
+	],
+	"camera_position": [
+		0,
+		0
+	],
+	"sing_duration": 6.1,
+	"scale": 1
+}

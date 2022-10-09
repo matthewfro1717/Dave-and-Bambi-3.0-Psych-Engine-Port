@@ -292,18 +292,18 @@ class MainMenuState extends MusicBeatState
 		*/
 		FlxG.camera.follow(camFollowPos, null, 1);
 
-		var versionShit:FlxText = new FlxText(FlxG.width * 0.7, FlxG.height - 64, 0, "Barren Engine v" + barrenEngineVesrion, 12);
+		var versionShit:FlxText = new FlxText(10, FlxG.height - 24, 0, "Barren Engine v" + barrenEngineVesrion, 12);
 		versionShit.scrollFactor.set();
 		versionShit.setFormat(Paths.font("comic.ttf"), 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(versionShit);
-		var versionShit:FlxText = new FlxText(FlxG.width * 0.7, FlxG.height - 44, 0, "OS Engine v" + osEngineVesrion + " - Modded Psych Engine", 12);
+		/*var versionShit:FlxText = new FlxText(10, FlxG.height - 44, 0, "OS Engine v" + osEngineVesrion + " - Modded Psych Engine", 12);
 		versionShit.scrollFactor.set();
 		versionShit.setFormat(Paths.font("comic.ttf"), 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(versionShit);
-		var versionShit:FlxText = new FlxText(FlxG.width * 0.7, FlxG.height - 24, 0, "Friday Night Funkin' v" + Application.current.meta.get('version'), 12);
+		var versionShit:FlxText = new FlxText(10, FlxG.height - 24, 0, "Friday Night Funkin' v" + Application.current.meta.get('version'), 12);
 		versionShit.scrollFactor.set();
 		versionShit.setFormat(Paths.font("comic.ttf"), 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-		add(versionShit);
+		add(versionShit);*/
 
 		//gamejoltButton = new FlxTypedButton(0, 0, function()
 		//{

@@ -4,6 +4,16 @@ import flixel.graphics.FlxGraphic;
 #if desktop
 import Discord.DiscordClient;
 #end
+import lime.app.Application;
+import lime.graphics.RenderContext;
+import lime.ui.MouseButton;
+import lime.ui.KeyCode;
+import lime.ui.KeyModifier;
+import lime.ui.Window;
+import openfl.geom.Matrix;
+import openfl.geom.Rectangle;
+import openfl.display.Sprite;
+import openfl.utils.Assets;
 import Section.SwagSection;
 import Song.SwagSong;
 import WiggleEffect.WiggleEffectType;
@@ -63,6 +73,7 @@ import FunkinLua;
 import DialogueBoxPsych;
 import Shaders;
 import DynamicShaderHandler;
+import FlxTransWindow;
 #if sys
 import sys.FileSystem;
 #end
@@ -151,7 +162,7 @@ class PlayState extends MusicBeatState
 	public var stupidy:Float = 0; // stupid velocities for cutscene
 	public var updatevels:Bool = false;
 
-	var funnyZoomSongs:Array<String> = ['overdrive', 'amber', 'ultimatum'];
+	var funnyZoomSongs:Array<String> = ['overdrive', 'amber', 'ultimatum', 'polygonized', 'get-real'];
 	var zoomSong:Bool = false; // this shouldnt even have to fucking exist
 
 	//public static var cool3Dcharacters:Array<String> = ['dave-angey', 'bambi-3d', 'bambi-unfair', 'expunged', 'morrow', 'bandu', 'corruptb', 'bf-3d', 'badai']; // is no more
@@ -161,8 +172,8 @@ class PlayState extends MusicBeatState
 
 	var rotate:Array<String> = ['badai'];
 
-	var earthquakers:Array<String> = ['expunged', 'bambi-unfair', 'bambi-3d', 'corruptb', 'badai'];
-	var dudesWhoTakeUrHealthBecauseTheyCan:Array<String> = ['expunged', 'bambi-unfair', 'bambi-3d', 'corruptb', 'morrow', 'badai'];
+	var earthquakers:Array<String> = ['expunged', 'bambi-unfair', 'bambi-3d', 'corruptb', 'lenzai', 'badai'];
+	var dudesWhoTakeUrHealthBecauseTheyCan:Array<String> = ['expunged', 'bambi-unfair', 'bambi-3d', 'corruptb', 'lenzai', 'morrow', 'badai'];
 
 	public var elapsedtime:Float = 0;
 
@@ -349,10 +360,22 @@ class PlayState extends MusicBeatState
 
 	var precacheList:Map<String, String> = new Map<String, String>();
 
-	// background stuffs
+	/// background stuffs
+
+	// other songs
 	var insanityRed:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('backgrounds/redsky_insanity'));
+
+	// ultimatum stuff
 	public var spike1:FlxSprite;
 	public var spike2:FlxSprite;
+
+	// interdimensional backgrounds
+	public var interdimensionVoid3D:BGSprite;
+	public var interdimensionVoid2D:BGSprite;
+	public var darkSpace:BGSprite;
+	public var spikeVoid:BGSprite;
+	public var hexagonVoid:BGSprite;
+	public var nimbiVoid:BGSprite;
 
 	// exploitation backgrounds
 	public var creepyRoom:BGSprite;
@@ -361,6 +384,14 @@ class PlayState extends MusicBeatState
 	public var glitchCheating:BGSprite;
 	public var glitchCheating2:BGSprite;
 	public var glitchUnfairness:BGSprite;
+
+	// shared
+	public var sky:BGSprite;
+
+	/// window shit
+	var windowDad:Window;
+	var dadWin = new Sprite();
+	var dadScrollWin = new Sprite();
 
 	override public function create()
 	{
@@ -468,7 +499,7 @@ class PlayState extends MusicBeatState
 			{
 				case 'house' | 'insanity' | 'supernovae':
 					curStage = 'houseDay';
-				case 'rano' | 'vs-dave-thanksgiving' | 'harmony':
+				case 'harmony':
 					curStage = 'houseSunset';
 				case 'bonus-song' | 'glitch':
 					curStage = 'houseNight';
@@ -587,7 +618,7 @@ class PlayState extends MusicBeatState
 			case 'scarybg':
 				defaultCamZoom = 0.65;
 				var bg:FlxSprite = new FlxSprite(200, 0).loadGraphic(Paths.image('backgrounds/void/scarybg'));
-				bg.scale.set(2.7,1.7);
+				bg.scale.set(2.2,2.2);
 				bg.antialiasing = true;
 				bg.scrollFactor.set(0, 0);
 				bg.active = true;
@@ -1089,7 +1120,7 @@ class PlayState extends MusicBeatState
 		laneunderlayOp.cameras = [camHUD];
 
 		var showTime:Bool = (ClientPrefs.timeBarType != 'Disabled');
-		timeTxt = new FlxText(0, 30, 400, "", 32);
+		timeTxt = new FlxText(STRUM_X + (FlxG.width / 2) - 248, 19, 400, "", 32);
 		timeTxt.setFormat(Paths.font("comic.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		timeTxt.scrollFactor.set();
 		timeTxt.alpha = 0;
@@ -1125,7 +1156,6 @@ class PlayState extends MusicBeatState
 		timeBar.alpha = 0;
 		timeBar.visible = showTime;
 		add(timeBar);
-		add(timeTxt);
 		timeBarBG.sprTracker = timeBar;
 
 		timeBarFG = new FlxSprite().loadGraphic(Paths.image('roundBar'));
@@ -1137,6 +1167,7 @@ class PlayState extends MusicBeatState
 		timeBarFG.color = FlxColor.BLACK;
 		timeBarFG.antialiasing = ClientPrefs.globalAntialiasing;
 		add(timeBarFG);
+		add(timeTxt);
 
 		strumLineNotes = new FlxTypedGroup<StrumNote>();
 		add(strumLineNotes);
@@ -2525,6 +2556,7 @@ class PlayState extends MusicBeatState
 		songLength = FlxG.sound.music.length;
 		FlxTween.tween(timeBar, {alpha: 1}, 0.5, {ease: FlxEase.circOut});
 		FlxTween.tween(timeTxt, {alpha: 1}, 0.5, {ease: FlxEase.circOut});
+		FlxTween.tween(timeBarFG, {alpha: 1}, 0.5, {ease: FlxEase.circOut});
 		
 		#if desktop
 		// Updating Discord Rich Presence (with Time Left)
@@ -3561,11 +3593,11 @@ class PlayState extends MusicBeatState
 						}
 				}
 
-				if (daNote.isSustainNote) {
+				/*if (daNote.isSustainNote) {
 					if (daNote.mustPress) { 
 						daNote.alpha = ClientPrefs.holdNoteVisibility; 
 					}
-				}
+				}*/
 
 				if(daNote.mustPress && cpuControlled) {
 					if(daNote.isSustainNote) {
@@ -3651,10 +3683,83 @@ class PlayState extends MusicBeatState
 		}
 		#end
 		callOnLuas('onUpdatePost', [elapsed]);
+
+		@:privateAccess
+        var dadFrame = dad._frame;
+        
+        if (dadFrame == null || dadFrame.frame == null) return; // prevents crashes (i think???)
+            
+        var rect = new Rectangle(dadFrame.frame.x, dadFrame.frame.y, dadFrame.frame.width, dadFrame.frame.height);
+        
+        dadScrollWin.scrollRect = rect;
+        dadScrollWin.x = (((dadFrame.offset.x) - (dad.offset.x / 2)) * dadScrollWin.scaleX);
+        dadScrollWin.y = (((dadFrame.offset.y) - (dad.offset.y / 2)) * dadScrollWin.scaleY);
+
 		for (i in shaderUpdates){
 			i(elapsed);
 		}
 	}
+
+	function popupWindow(customWidth:Int, customHeight:Int, ?windowX:Int, ?windowY:Int, ?customName:String) {
+        var display = Application.current.window.display.currentMode;
+        // PlayState.defaultCamZoom = 0.5;
+
+		if(customName == '' || customName == null){
+			customName = 'Opponent.json';
+		}
+
+        windowDad = Lib.application.createWindow({
+            title: customName,
+            width: customWidth,
+            height: customHeight,
+            borderless: false,
+            alwaysOnTop: true
+
+        });
+		if(windowX == null){
+			windowX = -10;
+		}
+		if(windowY == null){
+			windowY = 10;
+		}
+        windowDad.x = windowX;
+	    windowDad.y = windowY;
+        windowDad.stage.color = 0xFF010101;
+        @:privateAccess
+        windowDad.stage.addEventListener("keyDown", FlxG.keys.onKeyDown);
+        @:privateAccess
+        windowDad.stage.addEventListener("keyUp", FlxG.keys.onKeyUp);
+        // Application.current.window.x = Std.int(display.width / 2) - 640;
+        // Application.current.window.y = Std.int(display.height / 2);
+
+        // var bg = Paths.image(PUT YOUR IMAGE HERE!!!!).bitmap;
+        // var spr = new Sprite();
+
+        var m = new Matrix();
+
+        // spr.graphics.beginBitmapFill(bg, m);
+        // spr.graphics.drawRect(0, 0, bg.width, bg.height);
+        // spr.graphics.endFill();
+        FlxG.mouse.useSystemCursor = false;
+
+        //Application.current.window.resize(640, 480);
+
+
+
+        dadWin.graphics.beginBitmapFill(dad.pixels, m);
+        dadWin.graphics.drawRect(0, 0, dad.pixels.width, dad.pixels.height);
+        dadWin.graphics.endFill();
+        dadScrollWin.scrollRect = new Rectangle();
+	// windowDad.stage.addChild(spr);
+        windowDad.stage.addChild(dadScrollWin);
+        dadScrollWin.addChild(dadWin);
+        dadScrollWin.scaleX = 0.7;
+        dadScrollWin.scaleY = 0.7;
+        // dadGroup.visible = false;
+        // uncomment the line above if you want it to hide the dad ingame and make it visible via the windoe
+        Application.current.window.focus();
+	    	FlxG.autoPause = false;
+    }
 
 	function openChartEditor()
 	{
@@ -4716,11 +4821,27 @@ class PlayState extends MusicBeatState
 		if(char != null && char.hasMissAnimations)
 		{
 			var daAlt = '';
-			if(daNote.noteType == 'Alt Animation') daAlt = '-alt';
+			if(daNote.noteType == 'Alt Animation') {
+				daAlt = '-alt';
+			} 
 
 			var animToPlay:String = singAnimations[Std.int(Math.abs(daNote.noteData))] + 'miss' + daAlt;
 			char.playAnim(animToPlay, true);
 		}
+		
+		if((daNote.noteType == 'Dodge Phone Note' && char.animOffsets.exists('hurt')) || daNote.noteType == 'Dodge Phone Note') {
+			playerStrums.members[daNote.noteData].alpha = 0;
+			daNote.alpha = 0;
+			char.playAnim('hurt', true);
+			new FlxTimer().start(3, function(tmr:FlxTimer)
+			{
+				FlxTween.tween(playerStrums.members[daNote.noteData], {alpha: 1}, 5, {ease: FlxEase.linear});
+				if (!daNote.isSustainNote)
+					FlxTween.tween(daNote, {alpha: 1}, 5, {ease: FlxEase.linear});
+				else
+					FlxTween.tween(daNote, {alpha: 0.4}, 5, {ease: FlxEase.linear});
+			});
+		};
 
 		callOnLuas('noteMiss', [notes.members.indexOf(daNote), daNote.noteData, daNote.noteType, daNote.isSustainNote]);
 	}
@@ -4779,6 +4900,12 @@ class PlayState extends MusicBeatState
 			dad.playAnim('hey', true);
 			dad.specialAnim = true;
 			dad.heyTimer = 0.6;
+		} else if(note.noteType == 'Phone Note' && dad.animOffsets.exists('phone')) {
+			dad.playAnim('phone', true);
+			dad.specialAnim = true;
+		} else if(note.noteType == 'Dodge Phone Note' && dad.animOffsets.exists('phone throw')) {
+			dad.playAnim('phone throw', true);
+			dad.specialAnim = true;
 		} else if(!note.noAnimation) {
 			var altAnim:String = "";
 
@@ -4927,7 +5054,7 @@ class PlayState extends MusicBeatState
 					boyfriend.holdTimer = 0;
 					
 					//if(SONG.cameraMoveOnNotes){
-						if(SONG.notes[Math.floor(curStep / 16)].mustHitSection == true && !note.isSustainNote){
+						if(SONG.notes[Math.floor(curStep / 16)].mustHitSection == true){
 							if (!boyfriend.stunned){
 								switch(Std.int(Math.abs(note.noteData))){				 
 									case 0:
@@ -4960,6 +5087,16 @@ class PlayState extends MusicBeatState
 						gf.playAnim('cheer', true);
 						gf.specialAnim = true;
 						gf.heyTimer = 0.6;
+					}
+				} else if(note.noteType == 'Dodge Phone Note') {
+					if(boyfriend.animOffsets.exists('dodge')) {
+						boyfriend.playAnim('dodge', true);
+						boyfriend.specialAnim = true;
+					}
+
+					if(dad.animOffsets.exists('phone throw')) {
+						dad.playAnim('phone throw', true);
+						dad.specialAnim = true;
 					}
 				}
 			}

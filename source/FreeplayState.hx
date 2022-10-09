@@ -57,7 +57,7 @@ class FreeplayState extends MusicBeatState
 	override function create()
 	{
 		/*
-		switch (FreeplaySelectState.freeplayCats[FreeplaySelectState.curCategory].toLowerCase()) //2.0 old shit
+		switch (FreeplaySelectState.freeplayCats[FreeplaySelectState.curCategory].toLowerCase()) //2.5 old shit
 		{
 			case 'base':
 				addWeek(['Tutorial'], 0, 0xFFce3c80, ['gf']);
@@ -112,10 +112,11 @@ class FreeplayState extends MusicBeatState
 			case 'extras':
 				addWeek(['Bonus Song'], 1, 0xff00b3ff, ['dave']);
 				addWeek(['Mealie'], 2, 0xFF58cf08, ['bambi']);
-				addWeek(['Indignancy'], 4, 0xFF58cf08, ['bambi-maddd']);
-				addWeek(["Rockin'"], 4, 0xFF58cf08, ['bambi']);
-				addWeek(['Harmony'], 4, 0xff00b3ff, ['dave']);
-				addWeek(['Empowered'], 4, 0xFF35C2FF, ['bf']);
+				addWeek(['Indignancy'], 2, 0xFF58cf08, ['bambi-maddd']);
+				addWeek(["Rockin'"], 2, 0xFF58cf08, ['bambi']);
+				addWeek(['Harmony'], 1, 0xff00b3ff, ['dave']);
+				addWeek(['Empowered'], 6, 0xFF35C2FF, ['bf']);
+				addWeek(['get real'], 6, 0xff00b3ff, ['dave-angey']);
 			//	if(FlxG.save.data.talesFound)
 				//	addWeek(['Tales'], 1, 0xff00b3ff, ['dave']);
 			case 'insanity':

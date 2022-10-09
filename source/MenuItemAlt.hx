@@ -35,7 +35,8 @@ class MenuItemAlt extends FlxSprite
 	override function update(elapsed:Float)
 	{
 		super.update(elapsed);
-		x = FlxMath.lerp(x, (targetX * 480) + 480, CoolUtil.boundTo(elapsed * 10.2, 0, 1));
+		x = FlxMath.lerp(x, (targetX * 480) + 380, CoolUtil.boundTo(elapsed * 10.2, 0, 1));
+		y = (FlxG.height/2) + 200;
 
 		if (isFlashing)
 			flashingInt += 1;

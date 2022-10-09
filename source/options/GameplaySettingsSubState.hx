@@ -117,7 +117,8 @@ class GameplaySettingsSubState extends BaseOptionsMenu
 		option.decimals = 1;
 		option.onChange = onChangeHitsoundVolume;
 
-		var option:Option = new Option('Hold Notes Visibility',
+		/*
+		var option:Option = new Option('Hold Notes Visibility', //REMOVED THIS BECAUSE IT BREAKS PHONE NOTES
 			'These lines after hold notes will be shown with selecter visibility',
 			'holdNoteVisibility',
 			'percent',
@@ -128,6 +129,7 @@ class GameplaySettingsSubState extends BaseOptionsMenu
 		option.changeValue = 0.1;
 		option.maxValue = 1;
 		option.decimals = 1;
+		*/
 
 		var option:Option = new Option('Opponent Lane Underlay Visibility',
 			'Sets visibility of opponent\'s lane underlay.',

@@ -186,13 +186,13 @@ class StoryMenuState extends MusicBeatState
 		add(tracksSprite);
 		*/
 
-		var tracksTxt = new FlxText(FlxG.width/2, bgSprite.y + 400 + 60, 0, "TRACKS", 32);
+		var tracksTxt = new FlxText((FlxG.width / 2) - 248, bgSprite.y + 390, 400, "TRACKS", 32);
 		tracksTxt.alignment = CENTER;
 		tracksTxt.font = rankText.font;
 		tracksTxt.color = 0xFFe55777;
 		add(tracksTxt);
 
-		txtTracklist = new FlxText(FlxG.width/2, tracksTxt.y + 60, 0, "", 32);
+		txtTracklist = new FlxText((FlxG.width / 2) - 445, tracksTxt.y + 25, 800, "", 32);
 		txtTracklist.alignment = CENTER;
 		txtTracklist.font = rankText.font;
 		txtTracklist.color = 0xFFe55777;
@@ -493,13 +493,16 @@ class StoryMenuState extends MusicBeatState
 		txtTracklist.text = '';
 		for (i in 0...stringThing.length)
 		{
-			txtTracklist.text += stringThing[i] + '\n';
+			if (i == (stringThing.length - 1))
+				txtTracklist.text += stringThing[i];
+			else
+				txtTracklist.text += stringThing[i] + ' - ';
 		}
 
-		txtTracklist.text = txtTracklist.text.toUpperCase();
+		txtTracklist.text = txtTracklist.text;
 
-		txtTracklist.screenCenter(X);
-		txtTracklist.x -= FlxG.width * 0.35;
+		//txtTracklist.screenCenter(X);
+		//txtTracklist.x -= FlxG.width * 0.35;
 
 		#if !switch
 		intendedScore = Highscore.getWeekScore(loadedWeeks[curWeek].fileName, curDifficulty);

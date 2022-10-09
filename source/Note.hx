@@ -124,6 +124,8 @@ class Note extends FlxSprite
 					reloadNote('DRIVE');
 					noteSplashTexture = 'HURTnoteSplashes';
 					hitCausesMiss = true;
+				case 'Dodge Phone Note' | 'Phone Note' | 'Phone Note Alt':
+					reloadNote('PHONE');
 				case 'No Animation':
 					noAnimation = true;
 				case 'GF Sing':
@@ -333,6 +335,8 @@ class Note extends FlxSprite
 						skin = 'NOTE_assets';
 					case 'DRIVE':
 						skin = 'NOTE_assets';
+					case 'PHONE':
+						skin = 'NOTE_assets';
 					default:
 						if ((PlayState.floaterfloats.contains(PlayState.SONG.player1) || PlayState.floaterfloatsWHAR.contains(PlayState.SONG.player1)) && (PlayState.floaterfloats.contains(PlayState.SONG.player2) || PlayState.floaterfloatsWHAR.contains(PlayState.SONG.player2))) {
 							skin = '3DNotes';
@@ -423,7 +427,7 @@ class Note extends FlxSprite
 			}
 			else
 			{
-				LocalScrollSpeed = rng.float(1,5);
+				LocalScrollSpeed = rng.float(1,4);
 			}
 		}
 

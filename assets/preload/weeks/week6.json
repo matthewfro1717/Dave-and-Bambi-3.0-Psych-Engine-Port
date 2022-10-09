@@ -1,0 +1,69 @@
+{
+	"songs": [
+		[
+			"Blu",
+			"face",
+			[
+				140,
+				140,
+				140
+			]
+		],
+		[
+			"Anillo",
+			"dad",
+			[
+				146,
+				113,
+				253
+			]
+		],
+		[
+			"Remorseless",
+			"dad",
+			[
+				146,
+				113,
+				253
+			]
+		],
+		[
+			"Overdrive",
+			"dad",
+			[
+				146,
+				113,
+				253
+			]
+		],
+		[
+			"Amber",
+			"dad",
+			[
+				146,
+				113,
+				253
+			]
+		]
+	],
+	"weekColor": "0x0099FF",
+	"hiddenUntilUnlocked": false,
+	"hideFreeplay": false,
+	"weekBackground": "insanity",
+	"difficulties": "",
+	"weekCharacters": [
+		"",
+		"",
+		""
+	],
+	"storyName": "this is not finished!",
+	"weekName": "Insanity",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"hideStoryMode": false,
+	"weekBefore": "",
+	"startUnlocked": true
+}
