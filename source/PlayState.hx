@@ -164,7 +164,7 @@ class PlayState extends MusicBeatState
 	public var stupidy:Float = 0; // stupid velocities for cutscene
 	public var updatevels:Bool = false;
 
-	var funnyZoomSongs:Array<String> = ['overdrive', 'amber', 'ultimatum', 'polygonized', 'get-real'];
+	var funnyZoomSongs:Array<String> = ['overdrive', 'polygonized'];
 	var zoomSong:Bool = false; // this shouldnt even have to fucking exist
 
 	static var cool3Dcharacters:Array<String> = ['dave-angey', 'bambi-3d', 'expunged', 'bambi-unfair', 'exbungo', 'dave-festival-3d', 'dave-3d-recursed'];
@@ -172,9 +172,6 @@ class PlayState extends MusicBeatState
 	var funnyFloatyBoys:Array<String> = ['dave-angey', 'bambi-3d', 'expunged', 'bambi-unfair', 'exbungo', 'dave-festival-3d', 'dave-3d-recursed'];
 
 	var rotate:Array<String> = ['badai'];
-
-	var earthquakers:Array<String> = ['expunged', 'bambi-unfair', 'bambi-3d', 'corruptb', 'lenzai', 'badai'];
-	var dudesWhoTakeUrHealthBecauseTheyCan:Array<String> = ['expunged', 'bambi-unfair', 'bambi-3d', 'corruptb', 'lenzai', 'morrow', 'badai'];
 
 	public var elapsedtime:Float = 0;
 
