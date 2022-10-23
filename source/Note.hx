@@ -130,6 +130,8 @@ class Note extends FlxSprite
 					noAnimation = true;
 				case 'GF Sing':
 					gfNote = true;
+         			case 'Shape':
+					reloadNote('SHAPE');	
 			}
 			noteType = value;
 		}
@@ -332,14 +334,16 @@ class Note extends FlxSprite
 				skin = 'NOTE_assets';
 				switch (prefix) { //had to rework note skins because the drive note assets werent loading
 					case 'HURT':
-						skin = 'NOTE_assets';
+						skin = 'HURTNOTE_assets';
 					case 'DRIVE':
-						skin = 'NOTE_assets';
+						skin = 'OMGtop10awesomehi';
 					case 'PHONE':
-						skin = 'NOTE_assets';
+						skin = 'NOTE_phone';
+					case 'SHAPE':
+						skin = 'NOTE_assets_Shape';
 					default:
 						if ((PlayState.floaterfloats.contains(PlayState.SONG.player1) || PlayState.floaterfloatsWHAR.contains(PlayState.SONG.player1)) && (PlayState.floaterfloats.contains(PlayState.SONG.player2) || PlayState.floaterfloatsWHAR.contains(PlayState.SONG.player2))) {
-							skin = '3DNotes';
+							skin = 'NOTE_assets_3D';
 						} else if ((PlayState.floaterfloats.contains(PlayState.SONG.player2) || PlayState.floaterfloatsWHAR.contains(PlayState.SONG.player2)) || (PlayState.floaterfloats.contains(PlayState.SONG.player1) || PlayState.floaterfloatsWHAR.contains(PlayState.SONG.player1))) {
 							var rng:FlxRandom = new FlxRandom();
 							if (rng.int(0,1) == 1)
