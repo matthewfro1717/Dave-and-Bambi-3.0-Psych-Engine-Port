@@ -286,7 +286,6 @@ class Note extends FlxSprite
 				switch (PlayState.SONG.song.toLowerCase())
 				{
 					case 'cheating':
-					  if (mania == 0) {
 						switch (prevNote.noteData)
 						{
 							case 3:
@@ -298,7 +297,8 @@ class Note extends FlxSprite
 							case 0:
 								prevNote.animation.play('redScroll');
 						}
-					  } else if (mania == 2) {
+
+					        else if (mania == 2) 
 						{
 					                case 0:
 								prevNote.animation.play('purplehold');
@@ -313,7 +313,6 @@ class Note extends FlxSprite
 							case 5:
 								prevNote.animation.play('darkScroll');
 						}
-					]
 						
 					default:
 						switch (prevNote.noteData)
