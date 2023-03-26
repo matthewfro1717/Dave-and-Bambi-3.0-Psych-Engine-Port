@@ -297,22 +297,6 @@ class Note extends FlxSprite
 							case 0:
 								prevNote.animation.play('redScroll');
 						}
-
-					        else if (mania == 2) 
-						{
-					                case 0:
-								prevNote.animation.play('purplehold');
-							case 1;
-								prevNote.animation.play('greenScroll');
-							case 2:
-								prevNote.animation.play('redScroll');
-							case 3:
-								prevNote.animation.play('yellowScroll');
-							case 4:
-								prevNote.animation.play('blueScroll');
-							case 5:
-								prevNote.animation.play('darkScroll');
-						}
 						
 					default:
 						switch (prevNote.noteData)
