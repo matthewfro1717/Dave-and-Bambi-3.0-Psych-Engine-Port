@@ -1761,7 +1761,7 @@ class Controls extends FlxActionSet
 				inline bindKeys(Control.LEFT, [D, FlxKey.LEFT]);
 				inline bindKeys(Control.RIGHT, [K, FlxKey.RIGHT]);
                                 inline bindKeys(Control.KEY5, [SPACE, SHIFT]);
-				inline bindKeys(Control.CENTER, [SPACE, SHIFT])
+				inline bindKeys(Control.CENTER, [SPACE, SHIFT]);
 				inline bindKeys(Control.DODGE, keysMap.get('dodge_button'));
 				inline bindKeys(Control.EXTRA_1, keysMap.get('extra_1'));
 				inline bindKeys(Control.EXTRA_2, keysMap.get('extra_2'));
@@ -1962,7 +1962,7 @@ class Controls extends FlxActionSet
 				inline bindKeys(Control.LEFT, [D, FlxKey.LEFT]);
 				inline bindKeys(Control.RIGHT, [K, FlxKey.RIGHT]);
                                 inline bindKeys(Control.KEY5, [SPACE, SHIFT]);
-				inline bindKeys(Control.CENTER, [SPACE, SHIFT])
+				inline bindKeys(Control.CENTER, [SPACE, SHIFT]);
 				inline bindKeys(Control.DODGE, keysMap.get('dodge_button'));
 				inline bindKeys(Control.EXTRA_1, keysMap.get('extra_1'));
 				inline bindKeys(Control.EXTRA_2, keysMap.get('extra_2'));
