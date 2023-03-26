@@ -375,14 +375,10 @@ enum Control
 	NOTE_LEFT;
 	NOTE_RIGHT;
 	NOTE_DOWN;
-	RESET;
-	ACCEPT;
-	BACK;
-	PAUSE;
 	DODGE;
 	EXTRA_1;
 	EXTRA_2;
-		UP;
+        UP;
 	LEFT;
 	RIGHT;
 	DOWN;
