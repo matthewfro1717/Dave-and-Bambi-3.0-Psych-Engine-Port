@@ -492,12 +492,13 @@ class Note extends FlxSprite
 		}
 	}
 
-	function loadNoteAnims() {
+	function loadNoteAnims() 
+	{
 		animation.addByPrefix('greenScroll', 'green0');
 		animation.addByPrefix('redScroll', 'red0');
 		animation.addByPrefix('blueScroll', 'blue0');
 		animation.addByPrefix('purpleScroll', 'purple0');
-
+	}
 		if (isSustainNote)
 		{
 			default:
