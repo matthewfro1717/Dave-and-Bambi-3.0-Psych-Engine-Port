@@ -324,7 +324,7 @@ class Note extends FlxSprite
 			notetolookfor = not;
 			animation.play(notes[not] + 'Scroll');
 		}
-		#end	
+
 		{
 
 			if(PlayState.isPixelStage) {
