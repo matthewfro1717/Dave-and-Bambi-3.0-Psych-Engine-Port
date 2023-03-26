@@ -2226,7 +2226,7 @@ class Controls extends FlxActionSet
 			Control.LEFT => [DPAD_LEFT, LEFT_STICK_DIGITAL_LEFT],
 			Control.RIGHT => [DPAD_RIGHT, LEFT_STICK_DIGITAL_RIGHT],
 			Control.PAUSE => [START],
-			Control.RESET => [Y]
+			Control.RESET => [Y],
 			Control.PAUSE => [START],
 			Control.RESET => [8]
 		]);
