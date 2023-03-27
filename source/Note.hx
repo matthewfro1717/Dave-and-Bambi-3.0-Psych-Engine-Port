@@ -499,6 +499,8 @@ class Note extends FlxSprite
 		animation.addByPrefix('blueScroll', 'blue0');
 		animation.addByPrefix('purpleScroll', 'purple0');
 	}
+	
+	{
 		if (isSustainNote)
 		{
 			default:
