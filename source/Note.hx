@@ -643,6 +643,7 @@ class Note extends FlxSprite
 				// noteOffset = 20;
 
 		}
+	}
 
 	override function update(elapsed:Float)
 	{
