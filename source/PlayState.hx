@@ -361,8 +361,6 @@ class PlayState extends MusicBeatState
 
 	var precacheList:Map<String, String> = new Map<String, String>();
 
-
-
 	//bg stuff
 	var baldi:BGSprite;
 	var spotLight:FlxSprite;
@@ -556,11 +554,12 @@ class PlayState extends MusicBeatState
 			['Cool!', 1], //From 90% to 99%
 			['Nice one!', 1] //The value on this one isn't used actually, since Perfect is always "1"
 		];
+	}
 
-		// ^^^^^^ if i won't add it, setRating() won't work properly
+	// ^^^^^^ if i won't add it, setRating() won't work properly
 
-		// for lua
-		instance = this;
+	// for lua
+	instance = this;
 
 		debugKeysChart = ClientPrefs.copyKey(ClientPrefs.keyBinds.get('debug_1'));
 		debugKeysCharacter = ClientPrefs.copyKey(ClientPrefs.keyBinds.get('debug_2'));
