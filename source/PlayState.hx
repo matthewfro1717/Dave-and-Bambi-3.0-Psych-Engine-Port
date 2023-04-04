@@ -536,7 +536,9 @@ class PlayState extends MusicBeatState
 				add(blackScreen);
 			case 'five-nights':
 				inFiveNights = true;
-	
+		}
+	}
+
 	override public function create()
 	{
 		Paths.clearStoredMemory();
