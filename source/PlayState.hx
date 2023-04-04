@@ -4047,7 +4047,6 @@ class PlayState extends MusicBeatState
 				boyfriendIdleTime += elapsed;
 				if(boyfriendIdleTime >= 0.15) { // Kind of a mercy thing for making the achievement easier to get as it's apparently frustrating to some playerss
 					boyfriendIdled = true;
-				}
 			} else {
 				boyfriendIdleTime = 0;
 			}
