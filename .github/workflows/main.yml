@@ -32,6 +32,7 @@ jobs:
       - name: Install Haxelib
         run: |
           haxelib setup ~/haxelib
+          haxelib --global update haxelib
           haxelib install hxcpp > /dev/null
           haxelib install lime
           haxelib install openfl
@@ -75,6 +76,7 @@ jobs:
       - name: Install Haxelib
         run: |
           haxelib setup C:/haxelib
+          haxelib --global update haxelib
           haxelib install hxcpp > nul
           haxelib install lime
           haxelib install openfl
@@ -119,6 +121,7 @@ jobs:
       - name: Install Haxelib
         run: |
           haxelib setup ~/haxelib
+          haxelib --global update haxelib
           haxelib install hxcpp > /dev/null
           haxelib install lime
           haxelib install openfl
