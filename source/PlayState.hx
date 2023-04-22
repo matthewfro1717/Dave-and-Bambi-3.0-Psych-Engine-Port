@@ -3693,6 +3693,7 @@ class PlayState extends MusicBeatState
 		switch (SONG.song.toLowerCase())
 		{
 		case 'splitathon':
+		{
 			switch (curStep)
 			{
 				case 4800:
@@ -4039,7 +4040,7 @@ class PlayState extends MusicBeatState
 				}
 			}
 		}
-
+           }
 		if(!inCutscene) {
 			var lerpVal:Float = CoolUtil.boundTo(elapsed * 2.4 * cameraSpeed, 0, 1);
 			camFollowPos.setPosition(FlxMath.lerp(camFollowPos.x, camFollow.x, lerpVal), FlxMath.lerp(camFollowPos.y, camFollow.y, lerpVal));
