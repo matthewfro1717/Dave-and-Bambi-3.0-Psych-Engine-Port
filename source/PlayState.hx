@@ -5322,20 +5322,6 @@ class PlayState extends MusicBeatState
 		});
 	}
 
-	public function KillNotes() {
-		while(notes.length > 0) {
-			var daNote:Note = notes.members[0];
-			daNote.active = false;
-			daNote.visible = false;
-
-			daNote.kill();
-			notes.remove(daNote, true);
-			daNote.destroy();
-		}
-		unspawnNotes = [];
-		eventNotes = [];
-	}
-
 	public var totalPlayed:Int = 0;
 	public var totalNotesHit:Float = 0.0;
 
