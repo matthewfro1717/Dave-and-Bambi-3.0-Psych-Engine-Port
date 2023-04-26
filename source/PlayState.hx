@@ -5322,7 +5322,7 @@ class PlayState extends MusicBeatState
 		});
 	}
 
-	//public function KillNotes() {
+	public function KillNotes() {
 		while(notes.length > 0) {
 			var daNote:Note = notes.members[0];
 			daNote.active = false;
@@ -5335,7 +5335,6 @@ class PlayState extends MusicBeatState
 		unspawnNotes = [];
 		eventNotes = [];
 	}
-
 	public var totalPlayed:Int = 0;
 	public var totalNotesHit:Float = 0.0;
 
