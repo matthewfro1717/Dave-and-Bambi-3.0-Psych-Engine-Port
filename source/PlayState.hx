@@ -3719,6 +3719,7 @@ class PlayState extends MusicBeatState
 					FlxG.camera.flash(FlxColor.WHITE, 1);
 					splitExpress('split-bambi', 'corn', -30, 520);
 			}
+	        }
 		case 'polygonized':
 			switch(curStep)
 			{
@@ -3738,7 +3739,7 @@ class PlayState extends MusicBeatState
 			{
 				case 660 | 680:
 					FlxG.sound.play(Paths.sound('static'), 0.1);
-                    insanityRed.visible = true;
+					insanityRed.visible = true;
 				case 664 | 684:
 					insanityRed.visible = false;
 				case 1176:
@@ -3747,9 +3748,6 @@ class PlayState extends MusicBeatState
 				case 1180:
 					dad.animation.play('scared', true);
 			}
-		}
-
-		/*
 		switch (SONG.song.toLowerCase())
 		{
 		case 'cheating':
