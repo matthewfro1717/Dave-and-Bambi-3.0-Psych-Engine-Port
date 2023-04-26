@@ -191,7 +191,7 @@
 	"image": "characters/shaggy",
 	"position": [
 		0,
-		-370
+		0
 	],
 	"healthicon": "shaggy",
 	"flip_x": false,
