@@ -3755,9 +3755,9 @@ class PlayState extends MusicBeatState
 				forceMiddleScrollOff = true;
 			}
 		default:
+		{
 			forceMiddleScrollOff = false;
 		}
-		*/
 
 		if (shakeCam)
 		{
