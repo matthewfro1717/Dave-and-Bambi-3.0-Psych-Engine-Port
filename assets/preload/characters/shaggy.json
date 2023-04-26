@@ -1,0 +1,209 @@
+{
+	"animations": [
+		{
+			"offsets_player": [
+				90,
+				-160
+			],
+			"loop": false,
+			"offsets": [
+				90,
+				-160
+			],
+			"fps": 30,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "shaggy_down"
+		},
+		{
+			"offsets_player": [
+				-36,
+				27
+			],
+			"loop": false,
+			"offsets": [
+				-36,
+				27
+			],
+			"fps": 30,
+			"anim": "singUP",
+			"indices": [],
+			"name": "shaggy_up"
+		},
+		{
+			"offsets_player": [
+				0,
+				0
+			],
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"fps": 30,
+			"anim": "idle",
+			"indices": [],
+			"name": "shaggy_idle0"
+		},
+		{
+			"offsets_player": [
+				-22,
+				0
+			],
+			"loop": false,
+			"offsets": [
+				-22,
+				0
+			],
+			"anim": "idle2",
+			"fps": 30,
+			"name": "shaggy_idle2"
+		},
+		{
+			"offsets_player": [
+				0,
+				0
+			],
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"fps": 30,
+			"anim": "idle_s",
+			"indices": [],
+			"name": "shaggy_super_idle0"
+		},
+		{
+			"offsets_player": [
+				0,
+				0
+			],
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"fps": 24,
+			"anim": "powerup",
+			"indices": [],
+			"name": "shaggy_powerup"
+		},
+		{
+			"offsets_player": [
+				140,
+				90
+			],
+			"loop": false,
+			"offsets": [
+				140,
+				90
+			],
+			"fps": 30,
+			"anim": "catch",
+			"indices": [],
+			"name": "shaggy_catch"
+		},
+		{
+			"offsets_player": [
+				90,
+				100
+			],
+			"loop": false,
+			"offsets": [
+				90,
+				100
+			],
+			"fps": 30,
+			"anim": "hold",
+			"indices": [],
+			"name": "shaggy_hold"
+		},
+		{
+			"offsets_player": [
+				90,
+				0
+			],
+			"loop": false,
+			"offsets": [
+				90,
+				0
+			],
+			"fps": 30,
+			"anim": "h_half",
+			"indices": [],
+			"name": "shaggy_h_half"
+		},
+		{
+			"offsets_player": [
+				130,
+				0
+			],
+			"loop": false,
+			"offsets": [
+				130,
+				0
+			],
+			"fps": 30,
+			"anim": "fall",
+			"indices": [],
+			"name": "shaggy_fall"
+		},
+		{
+			"offsets_player": [
+				110,
+				-123
+			],
+			"loop": false,
+			"offsets": [
+				110,
+				-123
+			],
+			"fps": 30,
+			"anim": "kneel",
+			"indices": [],
+			"name": "shaggy_half_ground"
+		},
+		{
+			"offsets": [
+				130,
+				-36
+			],
+			"indices": [],
+			"fps": 30,
+			"anim": "singLEFT",
+			"loop": false,
+			"name": "shaggy_right"
+		},
+		{
+			"offsets": [
+				-61,
+				-118
+			],
+			"indices": [],
+			"fps": 30,
+			"anim": "singRIGHT",
+			"loop": false,
+			"name": "shaggy_left"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/shaggy",
+	"position": [
+		0,
+		0
+	],
+	"healthicon": "shaggy",
+	"flip_x": false,
+	"healthbar_colors": [
+		51,
+		114,
+		74
+	],
+	"camera_position": [
+		-20,
+		0
+	],
+	"sing_duration": 6.1,
+	"scale": 1
+}
