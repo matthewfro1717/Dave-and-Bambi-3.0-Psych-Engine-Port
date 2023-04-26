@@ -1146,7 +1146,7 @@ class PlayState extends MusicBeatState
 				var stfu:BGSprite = new BGSprite('stfu', -583, -383, Paths.image('backgrounds/stfu'), null, 1, 1);
 				sprites.add(stfu);
 				add(stfu);
-		}
+
 			case 'stage': //Week 1
 				var bg:BGSprite = new BGSprite('stageback', -600, -200, 0.9, 0.9);
 				add(bg);
