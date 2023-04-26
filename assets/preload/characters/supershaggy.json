@@ -70,7 +70,7 @@
 	"image": "characters/shaggy_super",
 	"position": [
 		0,
-		-110
+		0
 	],
 	"healthicon": "supershaggy",
 	"flip_x": false,
