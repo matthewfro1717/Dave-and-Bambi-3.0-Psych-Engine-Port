@@ -1,0 +1,56 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [
+				57,
+				65
+			],
+			"anim": "deathConfirm",
+			"fps": 24,
+			"name": "shaggy_lose_retry",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				92,
+				-12
+			],
+			"anim": "firstDeath",
+			"fps": 24,
+			"name": "shaggy_lose_start",
+			"indices": []
+		},
+		{
+			"offsets": [
+				81,
+				41
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "deathLoop",
+			"loop": true,
+			"name": "shaggy_lose_loop1"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/shaggy_red_gameover",
+	"position": [
+		0,
+		0
+	],
+	"healthicon": "redshaggy",
+	"flip_x": true,
+	"healthbar_colors": [
+		51,
+		114,
+		74
+	],
+	"camera_position": [
+		0,
+		0
+	],
+	"sing_duration": 4,
+	"scale": 1
+}
