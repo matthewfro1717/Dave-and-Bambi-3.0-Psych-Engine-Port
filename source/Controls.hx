@@ -45,141 +45,6 @@ enum abstract Action(String) to String from String
 	var DODGE = "dodge_button";
 	var EXTRA_1 = "extra_1";
 	var EXTRA_2 = "extra_2";
-		var UP = "up";
-	var LEFT = "left";
-	var RIGHT = "right";
-	var DOWN = "down";
-	var UP_P = "up-press";
-	var LEFT_P = "left-press";
-	var RIGHT_P = "right-press";
-	var DOWN_P = "down-press";
-	var UP_R = "up-release";
-	var LEFT_R = "left-release";
-	var RIGHT_R = "right-release";
-	var DOWN_R = "down-release";
-	var ACCEPT = "accept";
-	var BACK = "back";
-	var PAUSE = "pause";
-	var RESET = "reset";
-	var CHEAT = "cheat";
-	var KEY5 = "key5";
-	var CENTER = "center";
-	var CENTER_P = "center-press";
-	var CENTER_R = "center-release";
-
-	var L1 = "l1";
-	var U1 = "u";
-	var R1 = "r1";
-	var L2 = "l2";
-	var D1 = "d";
-	var R2 = "r2";
-
-	var L1_P = "l1-press";
-	var U1_P = "u-press";
-	var R1_P = "r1-press";
-	var L2_P = "l2-press";
-	var D1_P = "d-press";
-	var R2_P = "r2-press";
-
-	var L1_R = "l1-release";
-	var U1_R = "u-release";
-	var R1_R = "r1-release";
-	var L2_R = "l2-release";
-	var D1_R = "d-release";
-	var R2_R = "r2-release";
-
-	var A0 = "a0";
-	var A1 = "a1";
-	var A2 = "a2";
-	var A3 = "a3";
-	var A4 = "a4";
-	var A5 = "a5";
-	var A6 = "a6";
-
-	var A0_P = "a0-press";
-	var A1_P = "a1-press";
-	var A2_P = "a2-press";
-	var A3_P = "a3-press";
-	var A4_P = "a4-press";
-	var A5_P = "a5-press";
-	var A6_P = "a6-press";
-
-	var A0_R = "a0-release";
-	var A1_R = "a1-release";
-	var A2_R = "a2-release";
-	var A3_R = "a3-release";
-	var A4_R = "a4-release";
-	var A5_R = "a5-release";
-	var A6_R = "a6-release";
-
-	var N0 = "n0";
-	var N1 = "n1";
-	var N2 = "n2";
-	var N3 = "n3";
-	var N4 = "n4";
-	var N5 = "n5";
-	var N6 = "n6";
-	var N7 = "n7";
-	var N8 = "n8";
-
-	var N0_P = "n0-press";
-	var N1_P = "n1-press";
-	var N2_P = "n2-press";
-	var N3_P = "n3-press";
-	var N4_P = "n4-press";
-	var N5_P = "n5-press";
-	var N6_P = "n6-press";
-	var N7_P = "n7-press";
-	var N8_P = "n8-press";
-
-	var N0_R = "n0-release";
-	var N1_R = "n1-release";
-	var N2_R = "n2-release";
-	var N3_R = "n3-release";
-	var N4_R = "n4-release";
-	var N5_R = "n5-release";
-	var N6_R = "n6-release";
-	var N7_R = "n7-release";
-	var N8_R = "n8-release";
-
-	var T0 = "t0";
-	var T1 = "t1";
-	var T2 = "t2";
-	var T3 = "t3";
-	var T4 = "t4";
-	var T5 = "t5";
-	var T6 = "t6";
-	var T7 = "t7";
-	var T8 = "t8";
-	var T9 = "t9";
-	var T10 = "t10";
-	var T11 = "t11";
-
-	var T0_P = "t0-press";
-	var T1_P = "t1-press";
-	var T2_P = "t2-press";
-	var T3_P = "t3-press";
-	var T4_P = "t4-press";
-	var T5_P = "t5-press";
-	var T6_P = "t6-press";
-	var T7_P = "t7-press";
-	var T8_P = "t8-press";
-	var T9_P = "t9-press";
-	var T10_P = "t10-press";
-	var T11_P = "t11-press";
-
-	var T0_R = "t0-release";
-	var T1_R = "t1-release";
-	var T2_R = "t2-release";
-	var T3_R = "t3-release";
-	var T4_R = "t4-release";
-	var T5_R = "t5-release";
-	var T6_R = "t6-release";
-	var T7_R = "t7-release";
-	var T8_R = "t8-release";
-	var T9_R = "t9-release";
-	var T10_R = "t10-release";
-	var T11_R = "t11-release";
 }
 #else
 @:enum
@@ -216,141 +81,6 @@ abstract Action(String) to String from String
 	var DODGE = "dodge_button";
 	var EXTRA_1 = "extra_1";
 	var EXTRA_2 = "extra_2";
-		var UP = "up";
-	var LEFT = "left";
-	var RIGHT = "right";
-	var DOWN = "down";
-	var UP_P = "up-press";
-	var LEFT_P = "left-press";
-	var RIGHT_P = "right-press";
-	var DOWN_P = "down-press";
-	var UP_R = "up-release";
-	var LEFT_R = "left-release";
-	var RIGHT_R = "right-release";
-	var DOWN_R = "down-release";
-	var ACCEPT = "accept";
-	var BACK = "back";
-	var PAUSE = "pause";
-	var RESET = "reset";
-	var CHEAT = "cheat";
-	var KEY5 = "key5";
-	var CENTER = "center";
-	var CENTER_P = "center-press";
-	var CENTER_R = "center-release";
-
-	var L1 = "l1";
-	var U1 = "u";
-	var R1 = "r1";
-	var L2 = "l2";
-	var D1 = "d";
-	var R2 = "r2";
-
-	var L1_P = "l1-press";
-	var U1_P = "u-press";
-	var R1_P = "r1-press";
-	var L2_P = "l2-press";
-	var D1_P = "d-press";
-	var R2_P = "r2-press";
-
-	var L1_R = "l1-release";
-	var U1_R = "u-release";
-	var R1_R = "r1-release";
-	var L2_R = "l2-release";
-	var D1_R = "d-release";
-	var R2_R = "r2-release";
-
-	var A0 = "a0";
-	var A1 = "a1";
-	var A2 = "a2";
-	var A3 = "a3";
-	var A4 = "a4";
-	var A5 = "a5";
-	var A6 = "a6";
-
-	var A0_P = "a0-press";
-	var A1_P = "a1-press";
-	var A2_P = "a2-press";
-	var A3_P = "a3-press";
-	var A4_P = "a4-press";
-	var A5_P = "a5-press";
-	var A6_P = "a6-press";
-
-	var A0_R = "a0-release";
-	var A1_R = "a1-release";
-	var A2_R = "a2-release";
-	var A3_R = "a3-release";
-	var A4_R = "a4-release";
-	var A5_R = "a5-release";
-	var A6_R = "a6-release";
-
-	var N0 = "n0";
-	var N1 = "n1";
-	var N2 = "n2";
-	var N3 = "n3";
-	var N4 = "n4";
-	var N5 = "n5";
-	var N6 = "n6";
-	var N7 = "n7";
-	var N8 = "n8";
-
-	var N0_P = "n0-press";
-	var N1_P = "n1-press";
-	var N2_P = "n2-press";
-	var N3_P = "n3-press";
-	var N4_P = "n4-press";
-	var N5_P = "n5-press";
-	var N6_P = "n6-press";
-	var N7_P = "n7-press";
-	var N8_P = "n8-press";
-
-	var N0_R = "n0-release";
-	var N1_R = "n1-release";
-	var N2_R = "n2-release";
-	var N3_R = "n3-release";
-	var N4_R = "n4-release";
-	var N5_R = "n5-release";
-	var N6_R = "n6-release";
-	var N7_R = "n7-release";
-	var N8_R = "n8-release";
-
-	var T0 = "t0";
-	var T1 = "t1";
-	var T2 = "t2";
-	var T3 = "t3";
-	var T4 = "t4";
-	var T5 = "t5";
-	var T6 = "t6";
-	var T7 = "t7";
-	var T8 = "t8";
-	var T9 = "t9";
-	var T10 = "t10";
-	var T11 = "t11";
-
-	var T0_P = "t0-press";
-	var T1_P = "t1-press";
-	var T2_P = "t2-press";
-	var T3_P = "t3-press";
-	var T4_P = "t4-press";
-	var T5_P = "t5-press";
-	var T6_P = "t6-press";
-	var T7_P = "t7-press";
-	var T8_P = "t8-press";
-	var T9_P = "t9-press";
-	var T10_P = "t10-press";
-	var T11_P = "t11-press";
-
-	var T0_R = "t0-release";
-	var T1_R = "t1-release";
-	var T2_R = "t2-release";
-	var T3_R = "t3-release";
-	var T4_R = "t4-release";
-	var T5_R = "t5-release";
-	var T6_R = "t6-release";
-	var T7_R = "t7-release";
-	var T8_R = "t8-release";
-	var T9_R = "t9-release";
-	var T10_R = "t10-release";
-	var T11_R = "t11-release";
 }
 #end
 
@@ -375,19 +105,13 @@ enum Control
 	NOTE_LEFT;
 	NOTE_RIGHT;
 	NOTE_DOWN;
-	DODGE;
-	EXTRA_1;
-	EXTRA_2;
-        UP;
-	LEFT;
-	RIGHT;
-	DOWN;
 	RESET;
 	ACCEPT;
 	BACK;
 	PAUSE;
-	CHEAT;
-	KEY5;
+	DODGE;
+	EXTRA_1;
+	EXTRA_2;
 	CENTER;
 	L1;
 	U1;
@@ -470,24 +194,6 @@ class Controls extends FlxActionSet
 	var _dodge = new FlxActionDigital(Action.DODGE);
 	var _extra_1 = new FlxActionDigital(Action.EXTRA_1);
 	var _extra_2 = new FlxActionDigital(Action.EXTRA_2);
-		var _up = new FlxActionDigital(Action.UP);
-	var _left = new FlxActionDigital(Action.LEFT);
-	var _right = new FlxActionDigital(Action.RIGHT);
-	var _down = new FlxActionDigital(Action.DOWN);
-	var _upP = new FlxActionDigital(Action.UP_P);
-	var _leftP = new FlxActionDigital(Action.LEFT_P);
-	var _rightP = new FlxActionDigital(Action.RIGHT_P);
-	var _downP = new FlxActionDigital(Action.DOWN_P);
-	var _upR = new FlxActionDigital(Action.UP_R);
-	var _leftR = new FlxActionDigital(Action.LEFT_R);
-	var _rightR = new FlxActionDigital(Action.RIGHT_R);
-	var _downR = new FlxActionDigital(Action.DOWN_R);
-	var _accept = new FlxActionDigital(Action.ACCEPT);
-	var _back = new FlxActionDigital(Action.BACK);
-	var _pause = new FlxActionDigital(Action.PAUSE);
-	var _reset = new FlxActionDigital(Action.RESET);
-	var _cheat = new FlxActionDigital(Action.CHEAT);
-	var _key5 = new FlxActionDigital(Action.KEY5);
 	var _center = new FlxActionDigital(Action.CENTER);
 	var _centerP = new FlxActionDigital(Action.CENTER_P);
 	var _centerR = new FlxActionDigital(Action.CENTER_R);
@@ -679,80 +385,100 @@ class Controls extends FlxActionSet
 	inline function get_UI_DOWN_R()
 		return _ui_downR.check();
 
-	public var UP(get, never):Bool;
+	public var NOTE_UP(get, never):Bool;
 
-	inline function get_UP()
-		return _up.check();
+	inline function get_NOTE_UP()
+		return _note_up.check();
 
-	public var LEFT(get, never):Bool;
+	public var NOTE_LEFT(get, never):Bool;
 
-	inline function get_LEFT()
-		return _left.check();
+	inline function get_NOTE_LEFT()
+		return _note_left.check();
 
-	public var RIGHT(get, never):Bool;
+	public var NOTE_RIGHT(get, never):Bool;
 
-	inline function get_RIGHT()
-		return _right.check();
+	inline function get_NOTE_RIGHT()
+		return _note_right.check();
 
-	public var DOWN(get, never):Bool;
+	public var NOTE_DOWN(get, never):Bool;
 
-	inline function get_DOWN()
-		return _down.check();
+	inline function get_NOTE_DOWN()
+		return _note_down.check();
 
-	public var UP_P(get, never):Bool;
+	public var NOTE_UP_P(get, never):Bool;
 
-	inline function get_UP_P()
-		return _upP.check();
+	inline function get_NOTE_UP_P()
+		return _note_upP.check();
 
-	public var LEFT_P(get, never):Bool;
+	public var NOTE_LEFT_P(get, never):Bool;
 
-	inline function get_LEFT_P()
-		return _leftP.check();
+	inline function get_NOTE_LEFT_P()
+		return _note_leftP.check();
 
-	public var RIGHT_P(get, never):Bool;
+	public var NOTE_RIGHT_P(get, never):Bool;
 
-	inline function get_RIGHT_P()
-		return _rightP.check();
+	inline function get_NOTE_RIGHT_P()
+		return _note_rightP.check();
 
-	public var DOWN_P(get, never):Bool;
+	public var NOTE_DOWN_P(get, never):Bool;
 
-	inline function get_DOWN_P()
-		return _downP.check();
+	inline function get_NOTE_DOWN_P()
+		return _note_downP.check();
 
-	public var UP_R(get, never):Bool;
+	public var NOTE_UP_R(get, never):Bool;
 
-	inline function get_UP_R()
-		return _upR.check();
+	inline function get_NOTE_UP_R()
+		return _note_upR.check();
 
-	public var LEFT_R(get, never):Bool;
+	public var NOTE_LEFT_R(get, never):Bool;
 
-	inline function get_LEFT_R()
-		return _leftR.check();
+	inline function get_NOTE_LEFT_R()
+		return _note_leftR.check();
 
-	public var RIGHT_R(get, never):Bool;
+	public var NOTE_RIGHT_R(get, never):Bool;
 
-	inline function get_RIGHT_R()
-		return _rightR.check();
+	inline function get_NOTE_RIGHT_R()
+		return _note_rightR.check();
 
-	public var DOWN_R(get, never):Bool;
+	public var NOTE_DOWN_R(get, never):Bool;
 
-	inline function get_DOWN_R()
-		return _downR.check();
+	inline function get_NOTE_DOWN_R()
+		return _note_downR.check();
 
 	public var ACCEPT(get, never):Bool;
 
 	inline function get_ACCEPT()
 		return _accept.check();
 
-	public var KEY5(get, never):Bool;
+	public var BACK(get, never):Bool;
 
-	inline function get_KEY5()
-		return _key5.check();
+	inline function get_BACK()
+		return _back.check();
 
-	public var CHEAT(get, never):Bool;
+	public var PAUSE(get, never):Bool;
 
-	inline function get_CHEAT()
-		return _cheat.check();
+	inline function get_PAUSE()
+		return _pause.check();
+
+	public var RESET(get, never):Bool;
+
+	inline function get_RESET()
+		return _reset.check();
+
+	public var DODGE(get, never):Bool;
+
+	inline function get_DODGE()
+		return _dodge.check();
+
+	public var EXTRA_1(get, never):Bool;
+
+	inline function get_EXTRA_1()
+		return _extra_1.check();
+
+	public var EXTRA_2(get, never):Bool;
+
+	inline function get_EXTRA_2()
+		return _extra_2.check();
 
 	public var CENTER(get, never):Bool;
 
@@ -859,43 +585,6 @@ class Controls extends FlxActionSet
 
 	inline function get_R2_R()
 		return _r2R.check();
-
-	public var ACCEPT(get, never):Bool;
-
-	inline function get_ACCEPT()
-		return _accept.check();
-
-	public var BACK(get, never):Bool;
-
-	inline function get_BACK()
-		return _back.check();
-
-	public var PAUSE(get, never):Bool;
-
-	inline function get_PAUSE()
-		return _pause.check();
-
-	public var RESET(get, never):Bool;
-
-	inline function get_RESET()
-		return _reset.check();
-
-	public var DODGE(get, never):Bool;
-
-	inline function get_DODGE()
-		return _dodge.check();
-
-	public var EXTRA_1(get, never):Bool;
-
-	inline function get_EXTRA_1()
-		return _extra_1.check();
-
-	public var EXTRA_2(get, never):Bool;
-
-	inline function get_EXTRA_2()
-		return _extra_2.check();
-	
-	
 
 	public var A0(get, never):Bool;
 	public var A1(get, never):Bool;
@@ -1079,7 +768,7 @@ class Controls extends FlxActionSet
 	inline function get_T6_R() return _t6R.check();
 	inline function get_T7_R() return _t7R.check();
 	inline function get_T8_R() return _t8R.check();
-	inline function get_T9_R() return _t9R.check();	
+	inline function get_T9_R() return _t9R.check();
 	inline function get_T10_R() return _t10R.check();
 	inline function get_T11_R() return _t11R.check();
 
@@ -1100,18 +789,67 @@ class Controls extends FlxActionSet
 		add(_ui_leftR);
 		add(_ui_rightR);
 		add(_ui_downR);
-		add(_up);
-		add(_left);
-		add(_right);
-		add(_down);
-		add(_upP);
-		add(_leftP);
-		add(_rightP);
-		add(_downP);
-		add(_upR);
-		add(_leftR);
-		add(_rightR);
-		add(_downR);
+		add(_note_up);
+		add(_note_left);
+		add(_note_right);
+		add(_note_down);
+		add(_note_upP);
+		add(_note_leftP);
+		add(_note_rightP);
+		add(_note_downP);
+		add(_note_upR);
+		add(_note_leftR);
+		add(_note_rightR);
+		add(_note_downR);
+		add(_accept);
+		add(_back);
+		add(_pause);
+		add(_reset);
+		add(_dodge);
+		add(_extra_1);
+		add(_extra_2);
+
+		for (action in digitalActions)
+			byName[action.name] = action;
+
+		setKeyboardScheme(scheme, false);
+	}
+	#else
+	public function new(name, scheme:KeyboardScheme = null)
+	{
+		super(name);
+
+		add(_ui_up);
+		add(_ui_left);
+		add(_ui_right);
+		add(_ui_down);
+		add(_ui_upP);
+		add(_ui_leftP);
+		add(_ui_rightP);
+		add(_ui_downP);
+		add(_ui_upR);
+		add(_ui_leftR);
+		add(_ui_rightR);
+		add(_ui_downR);
+		add(_note_up);
+		add(_note_left);
+		add(_note_right);
+		add(_note_down);
+		add(_note_upP);
+		add(_note_leftP);
+		add(_note_rightP);
+		add(_note_downP);
+		add(_note_upR);
+		add(_note_leftR);
+		add(_note_rightR);
+		add(_note_downR);
+		add(_accept);
+		add(_back);
+		add(_pause);
+		add(_reset);
+		add(_dodge);
+		add(_extra_1);
+		add(_extra_2);
 		add(_center);
 		add(_centerP);
 		add(_centerR);
@@ -1229,57 +967,6 @@ class Controls extends FlxActionSet
 		add(_t9R);
 		add(_t10R);
 		add(_t11R);
-		add(_accept);
-		add(_back);
-		add(_pause);
-		add(_reset);
-		add(_cheat);
-		add(_dodge);
-		add(_key5);
-		add(_extra_1);
-		add(_extra_2);
-
-		for (action in digitalActions)
-			byName[action.name] = action;
-
-		setKeyboardScheme(scheme, false);
-	}
-	#else
-	public function new(name, scheme:KeyboardScheme = null)
-	{
-		super(name);
-
-		add(_ui_up);
-		add(_ui_left);
-		add(_ui_right);
-		add(_ui_down);
-		add(_ui_upP);
-		add(_ui_leftP);
-		add(_ui_rightP);
-		add(_ui_downP);
-		add(_ui_upR);
-		add(_ui_leftR);
-		add(_ui_rightR);
-		add(_ui_downR);
-		add(_note_up);
-		add(_note_left);
-		add(_note_right);
-		add(_note_down);
-		add(_note_upP);
-		add(_note_leftP);
-		add(_note_rightP);
-		add(_note_downP);
-		add(_note_upR);
-		add(_note_leftR);
-		add(_note_rightR);
-		add(_note_downR);
-		add(_accept);
-		add(_back);
-		add(_pause);
-		add(_reset);
-		add(_dodge);
-		add(_extra_1);
-		add(_extra_2);
 
 		for (action in digitalActions)
 			byName[action.name] = action;
@@ -1329,17 +1016,17 @@ class Controls extends FlxActionSet
 			case UI_DOWN: _ui_down;
 			case UI_LEFT: _ui_left;
 			case UI_RIGHT: _ui_right;
-			case UP: _up;
-			case DOWN: _down;
-			case LEFT: _left;
-			case RIGHT: _right;
+			case NOTE_UP: _note_up;
+			case NOTE_DOWN: _note_down;
+			case NOTE_LEFT: _note_left;
+			case NOTE_RIGHT: _note_right;
 			case ACCEPT: _accept;
 			case BACK: _back;
 			case PAUSE: _pause;
 			case RESET: _reset;
-			case CHEAT: _cheat;
-			case KEY5: _key5;
 			case DODGE: _dodge;
+			case EXTRA_1: _extra_1;
+			case EXTRA_2: _extra_2;
 			case CENTER: _center;
 
 			case L1: _l1;
@@ -1379,8 +1066,6 @@ class Controls extends FlxActionSet
 			case T9: _t9;
 			case T10: _t10;
 			case T11: _t11;
-			case EXTRA_1: _extra_1;
-			case EXTRA_2: _extra_2;
 		}
 	}
 
@@ -1416,22 +1101,22 @@ class Controls extends FlxActionSet
 				func(_ui_down, PRESSED);
 				func(_ui_downP, JUST_PRESSED);
 				func(_ui_downR, JUST_RELEASED);
-			case UP:
-				func(_up, PRESSED);
-				func(_upP, JUST_PRESSED);
-				func(_upR, JUST_RELEASED);
-			case LEFT:
-				func(_left, PRESSED);
-				func(_leftP, JUST_PRESSED);
-				func(_leftR, JUST_RELEASED);
-			case RIGHT:
-				func(_right, PRESSED);
-				func(_rightP, JUST_PRESSED);
-				func(_rightR, JUST_RELEASED);
-			case DOWN:
-				func(_down, PRESSED);
-				func(_downP, JUST_PRESSED);
-				func(_downR, JUST_RELEASED);
+			case NOTE_UP:
+				func(_note_up, PRESSED);
+				func(_note_upP, JUST_PRESSED);
+				func(_note_upR, JUST_RELEASED);
+			case NOTE_LEFT:
+				func(_note_left, PRESSED);
+				func(_note_leftP, JUST_PRESSED);
+				func(_note_leftR, JUST_RELEASED);
+			case NOTE_RIGHT:
+				func(_note_right, PRESSED);
+				func(_note_rightP, JUST_PRESSED);
+				func(_note_rightR, JUST_RELEASED);
+			case NOTE_DOWN:
+				func(_note_down, PRESSED);
+				func(_note_downP, JUST_PRESSED);
+				func(_note_downR, JUST_RELEASED);
 			case ACCEPT:
 				func(_accept, JUST_PRESSED);
 			case BACK:
@@ -1440,20 +1125,16 @@ class Controls extends FlxActionSet
 				func(_pause, JUST_PRESSED);
 			case RESET:
 				func(_reset, JUST_PRESSED);
-			case CHEAT:
-				func(_cheat, JUST_PRESSED);
-			case KEY5:
-				func(_key5, PRESSED);
-			case CENTER:
-				func(_center, PRESSED);
-				func(_centerP, JUST_PRESSED);
-				func(_centerR, JUST_RELEASED);			
 			case DODGE:
 				func(_dodge, JUST_PRESSED);
 			case EXTRA_1:
 				func(_extra_1, JUST_PRESSED);
 			case EXTRA_2:
 				func(_extra_2, JUST_PRESSED);
+			case CENTER:
+				func(_center, PRESSED);
+				func(_centerP, JUST_PRESSED);
+				func(_centerR, JUST_RELEASED);
 			case L1:
 				func(_l1, PRESSED);
 				func(_l1P, JUST_PRESSED);
@@ -1752,21 +1433,56 @@ class Controls extends FlxActionSet
 				inline bindKeys(Control.UI_DOWN, keysMap.get('ui_down'));
 				inline bindKeys(Control.UI_LEFT, keysMap.get('ui_left'));
 				inline bindKeys(Control.UI_RIGHT, keysMap.get('ui_right'));
-				inline bindKeys(Control.UP, [J, FlxKey.UP]);
-				inline bindKeys(Control.DOWN, [F, FlxKey.DOWN]);
-				inline bindKeys(Control.LEFT, [D, FlxKey.LEFT]);
-				inline bindKeys(Control.RIGHT, [K, FlxKey.RIGHT]);
-                                inline bindKeys(Control.KEY5, [SPACE, SHIFT]);
-				inline bindKeys(Control.CENTER, [SPACE, SHIFT]);
+				inline bindKeys(Control.NOTE_UP, keysMap.get('note_up'));
+				inline bindKeys(Control.NOTE_DOWN, keysMap.get('note_down'));
+				inline bindKeys(Control.NOTE_LEFT, keysMap.get('note_left'));
+				inline bindKeys(Control.NOTE_RIGHT, keysMap.get('note_right'));
 				inline bindKeys(Control.DODGE, keysMap.get('dodge_button'));
 				inline bindKeys(Control.EXTRA_1, keysMap.get('extra_1'));
 				inline bindKeys(Control.EXTRA_2, keysMap.get('extra_2'));
 
-				inline bindKeys(Control.ACCEPT, [SPACE, ENTER]);
-				inline bindKeys(Control.BACK, [BACKSPACE, ESCAPE]);
-				inline bindKeys(Control.PAUSE, [ENTER, ESCAPE]);
-				inline bindKeys(Control.RESET, [R, DELETE]);
-				
+				inline bindKeys(Control.ACCEPT, keysMap.get('accept'));
+				inline bindKeys(Control.BACK, keysMap.get('back'));
+				inline bindKeys(Control.PAUSE, keysMap.get('pause'));
+				inline bindKeys(Control.RESET, keysMap.get('reset'));
+				inline bindKeys(Control.CENTER, [SPACE, SHIFT]);
+				inline bindKeys(Control.L1, [A, NONE]);
+				inline bindKeys(Control.U1, [S, NONE]);
+				inline bindKeys(Control.R1, [D, NONE]);
+				inline bindKeys(Control.L2, [FlxKey.LEFT, NONE]);
+				inline bindKeys(Control.D1, [FlxKey.DOWN, NONE]);
+				inline bindKeys(Control.R2, [FlxKey.RIGHT, NONE]);
+
+				inline bindKeys(Control.A0, [S, NONE]);
+				inline bindKeys(Control.A1, [D, NONE]);
+				inline bindKeys(Control.A2, [F, NONE]);
+				inline bindKeys(Control.A3, [SPACE, NONE]);
+				inline bindKeys(Control.A4, [J, NONE]);
+				inline bindKeys(Control.A5, [K, NONE]);
+				inline bindKeys(Control.A6, [L, NONE]);
+		
+				inline bindKeys(Control.N0, [A, NONE]);
+				inline bindKeys(Control.N1, [S, NONE]);
+				inline bindKeys(Control.N2, [D, NONE]);
+				inline bindKeys(Control.N3, [F, NONE]);
+				inline bindKeys(Control.N4, [SPACE, NONE]);
+				inline bindKeys(Control.N5, [H, NONE]);
+				inline bindKeys(Control.N6, [J, NONE]);
+				inline bindKeys(Control.N7, [K, NONE]);
+				inline bindKeys(Control.N8, [L, NONE]);
+		
+				inline bindKeys(Control.T0, [A, NONE]);
+				inline bindKeys(Control.T1, [S, NONE]);
+				inline bindKeys(Control.T2, [D, NONE]);
+				inline bindKeys(Control.T3, [F, NONE]);
+				inline bindKeys(Control.T4, [C, NONE]);
+				inline bindKeys(Control.T5, [V, NONE]);
+				inline bindKeys(Control.T6, [B, NONE]);
+				inline bindKeys(Control.T7, [N, NONE]);
+				inline bindKeys(Control.T8, [J, NONE]);
+				inline bindKeys(Control.T9, [K, NONE]);
+				inline bindKeys(Control.T10, [L, NONE]);
+				inline bindKeys(Control.T11, [SEMICOLON, NONE]);
 			case Duo(true):
 				inline bindKeys(Control.UI_UP, [W]);
 				inline bindKeys(Control.UI_DOWN, [S]);
@@ -1783,6 +1499,44 @@ class Controls extends FlxActionSet
 				inline bindKeys(Control.DODGE, [SPACE]);
 				inline bindKeys(Control.EXTRA_1, [F]);
 				inline bindKeys(Control.EXTRA_2, [J]);
+				inline bindKeys(Control.CENTER, [SPACE, SHIFT]);
+				inline bindKeys(Control.L1, [A, NONE]);
+				inline bindKeys(Control.U1, [S, NONE]);
+				inline bindKeys(Control.R1, [D, NONE]);
+				inline bindKeys(Control.L2, [FlxKey.LEFT, NONE]);
+				inline bindKeys(Control.D1, [FlxKey.DOWN, NONE]);
+				inline bindKeys(Control.R2, [FlxKey.RIGHT, NONE]);
+
+				inline bindKeys(Control.A0, [S, NONE]);
+				inline bindKeys(Control.A1, [D, NONE]);
+				inline bindKeys(Control.A2, [F, NONE]);
+				inline bindKeys(Control.A3, [SPACE, NONE]);
+				inline bindKeys(Control.A4, [J, NONE]);
+				inline bindKeys(Control.A5, [K, NONE]);
+				inline bindKeys(Control.A6, [L, NONE]);
+		
+				inline bindKeys(Control.N0, [A, NONE]);
+				inline bindKeys(Control.N1, [S, NONE]);
+				inline bindKeys(Control.N2, [D, NONE]);
+				inline bindKeys(Control.N3, [F, NONE]);
+				inline bindKeys(Control.N4, [SPACE, NONE]);
+				inline bindKeys(Control.N5, [H, NONE]);
+				inline bindKeys(Control.N6, [J, NONE]);
+				inline bindKeys(Control.N7, [K, NONE]);
+				inline bindKeys(Control.N8, [L, NONE]);
+		
+				inline bindKeys(Control.T0, [A, NONE]);
+				inline bindKeys(Control.T1, [S, NONE]);
+				inline bindKeys(Control.T2, [D, NONE]);
+				inline bindKeys(Control.T3, [F, NONE]);
+				inline bindKeys(Control.T4, [C, NONE]);
+				inline bindKeys(Control.T5, [V, NONE]);
+				inline bindKeys(Control.T6, [B, NONE]);
+				inline bindKeys(Control.T7, [N, NONE]);
+				inline bindKeys(Control.T8, [J, NONE]);
+				inline bindKeys(Control.T9, [K, NONE]);
+				inline bindKeys(Control.T10, [L, NONE]);
+				inline bindKeys(Control.T11, [SEMICOLON, NONE]);
 			case Duo(false):
 				inline bindKeys(Control.UI_UP, [FlxKey.UP]);
 				inline bindKeys(Control.UI_DOWN, [FlxKey.DOWN]);
@@ -1799,6 +1553,44 @@ class Controls extends FlxActionSet
 				inline bindKeys(Control.DODGE, [ALT]);
 				inline bindKeys(Control.EXTRA_1, [G]);
 				inline bindKeys(Control.EXTRA_2, [H]);
+				inline bindKeys(Control.CENTER, [SPACE, SHIFT]);
+				inline bindKeys(Control.L1, [A, NONE]);
+				inline bindKeys(Control.U1, [S, NONE]);
+				inline bindKeys(Control.R1, [D, NONE]);
+				inline bindKeys(Control.L2, [FlxKey.LEFT, NONE]);
+				inline bindKeys(Control.D1, [FlxKey.DOWN, NONE]);
+				inline bindKeys(Control.R2, [FlxKey.RIGHT, NONE]);
+
+				inline bindKeys(Control.A0, [S, NONE]);
+				inline bindKeys(Control.A1, [D, NONE]);
+				inline bindKeys(Control.A2, [F, NONE]);
+				inline bindKeys(Control.A3, [SPACE, NONE]);
+				inline bindKeys(Control.A4, [J, NONE]);
+				inline bindKeys(Control.A5, [K, NONE]);
+				inline bindKeys(Control.A6, [L, NONE]);
+		
+				inline bindKeys(Control.N0, [A, NONE]);
+				inline bindKeys(Control.N1, [S, NONE]);
+				inline bindKeys(Control.N2, [D, NONE]);
+				inline bindKeys(Control.N3, [F, NONE]);
+				inline bindKeys(Control.N4, [SPACE, NONE]);
+				inline bindKeys(Control.N5, [H, NONE]);
+				inline bindKeys(Control.N6, [J, NONE]);
+				inline bindKeys(Control.N7, [K, NONE]);
+				inline bindKeys(Control.N8, [L, NONE]);
+		
+				inline bindKeys(Control.T0, [A, NONE]);
+				inline bindKeys(Control.T1, [S, NONE]);
+				inline bindKeys(Control.T2, [D, NONE]);
+				inline bindKeys(Control.T3, [F, NONE]);
+				inline bindKeys(Control.T4, [C, NONE]);
+				inline bindKeys(Control.T5, [V, NONE]);
+				inline bindKeys(Control.T6, [B, NONE]);
+				inline bindKeys(Control.T7, [N, NONE]);
+				inline bindKeys(Control.T8, [J, NONE]);
+				inline bindKeys(Control.T9, [K, NONE]);
+				inline bindKeys(Control.T10, [L, NONE]);
+				inline bindKeys(Control.T11, [SEMICOLON, NONE]);
 			case None: // nothing
 			case Custom:
 				inline bindKeys(Control.UP, KeybindPrefs.keybinds.get('up'));
@@ -1949,59 +1741,54 @@ class Controls extends FlxActionSet
 		switch (scheme)
 		{
 			case Solo:
-				inline bindKeys(Control.UI_UP, keysMap.get('ui_up'));
-				inline bindKeys(Control.UI_DOWN, keysMap.get('ui_down'));
-				inline bindKeys(Control.UI_LEFT, keysMap.get('ui_left'));
-				inline bindKeys(Control.UI_RIGHT, keysMap.get('ui_right'));
-				inline bindKeys(Control.UP, [J, FlxKey.UP]);
-				inline bindKeys(Control.DOWN, [F, FlxKey.DOWN]);
-				inline bindKeys(Control.LEFT, [D, FlxKey.LEFT]);
-				inline bindKeys(Control.RIGHT, [K, FlxKey.RIGHT]);
-                                inline bindKeys(Control.KEY5, [SPACE, SHIFT]);
-				inline bindKeys(Control.CENTER, [SPACE, SHIFT]);
-				inline bindKeys(Control.DODGE, keysMap.get('dodge_button'));
-				inline bindKeys(Control.EXTRA_1, keysMap.get('extra_1'));
-				inline bindKeys(Control.EXTRA_2, keysMap.get('extra_2'));
-
-				inline bindKeys(Control.ACCEPT, [SPACE, ENTER]);
-				inline bindKeys(Control.BACK, [BACKSPACE, ESCAPE]);
-				inline bindKeys(Control.PAUSE, [ENTER, ESCAPE]);
-				inline bindKeys(Control.RESET, [R, DELETE]);
-				
+				bindKeys(Control.UI_UP, [W, FlxKey.UP]);
+				bindKeys(Control.UI_DOWN, [S, FlxKey.DOWN]);
+				bindKeys(Control.UI_LEFT, [A, FlxKey.LEFT]);
+				bindKeys(Control.UI_RIGHT, [D, FlxKey.RIGHT]);
+				bindKeys(Control.NOTE_UP, [W, FlxKey.UP]);
+				bindKeys(Control.NOTE_DOWN, [S, FlxKey.DOWN]);
+				bindKeys(Control.NOTE_LEFT, [A, FlxKey.LEFT]);
+				bindKeys(Control.NOTE_RIGHT, [D, FlxKey.RIGHT]);
+				bindKeys(Control.ACCEPT, [Z, SPACE, ENTER]);
+				bindKeys(Control.BACK, [BACKSPACE, ESCAPE]);
+				bindKeys(Control.PAUSE, [P, ENTER, ESCAPE]);
+				bindKeys(Control.RESET, [R]);
+				bindKeys(Control.DODGE, [SPACE]);
+				bindKeys(Control.EXTRA_1, [F]);
+				bindKeys(Control.EXTRA_2, [J]);
 			case Duo(true):
-				inline bindKeys(Control.UI_UP, [W]);
-				inline bindKeys(Control.UI_DOWN, [S]);
-				inline bindKeys(Control.UI_LEFT, [A]);
-				inline bindKeys(Control.UI_RIGHT, [D]);
-				inline bindKeys(Control.NOTE_UP, [W]);
-				inline bindKeys(Control.NOTE_DOWN, [S]);
-				inline bindKeys(Control.NOTE_LEFT, [A]);
-				inline bindKeys(Control.NOTE_RIGHT, [D]);
-				inline bindKeys(Control.ACCEPT, [G, Z]);
-				inline bindKeys(Control.BACK, [H, X]);
-				inline bindKeys(Control.PAUSE, [ONE]);
-				inline bindKeys(Control.RESET, [R]);
-				inline bindKeys(Control.DODGE, [SPACE]);
-				inline bindKeys(Control.EXTRA_1, [F]);
-				inline bindKeys(Control.EXTRA_2, [J]);
+				bindKeys(Control.UI_UP, [W]);
+				bindKeys(Control.UI_DOWN, [S]);
+				bindKeys(Control.UI_LEFT, [A]);
+				bindKeys(Control.UI_RIGHT, [D]);
+				bindKeys(Control.NOTE_UP, [W]);
+				bindKeys(Control.NOTE_DOWN, [S]);
+				bindKeys(Control.NOTE_LEFT, [A]);
+				bindKeys(Control.NOTE_RIGHT, [D]);
+				bindKeys(Control.ACCEPT, [G, Z]);
+				bindKeys(Control.BACK, [H, X]);
+				bindKeys(Control.PAUSE, [ONE]);
+				bindKeys(Control.RESET, [R]);
+				bindKeys(Control.DODGE, [SPACE]);
+				bindKeys(Control.EXTRA_1, [F]);
+				bindKeys(Control.EXTRA_2, [J]);
 			case Duo(false):
-				inline bindKeys(Control.UI_UP, [FlxKey.UP]);
-				inline bindKeys(Control.UI_DOWN, [FlxKey.DOWN]);
-				inline bindKeys(Control.UI_LEFT, [FlxKey.LEFT]);
-				inline bindKeys(Control.UI_RIGHT, [FlxKey.RIGHT]);
-				inline bindKeys(Control.NOTE_UP, [FlxKey.UP]);
-				inline bindKeys(Control.NOTE_DOWN, [FlxKey.DOWN]);
-				inline bindKeys(Control.NOTE_LEFT, [FlxKey.LEFT]);
-				inline bindKeys(Control.NOTE_RIGHT, [FlxKey.RIGHT]);
-				inline bindKeys(Control.ACCEPT, [O]);
-				inline bindKeys(Control.BACK, [P]);
-				inline bindKeys(Control.PAUSE, [ENTER]);
-				inline bindKeys(Control.RESET, [BACKSPACE]);
-				inline bindKeys(Control.DODGE, [ALT]);
-				inline bindKeys(Control.EXTRA_1, [G]);
-				inline bindKeys(Control.EXTRA_2, [H]);
-			case None: // nothing
-			case Custom:
+				bindKeys(Control.UI_UP, [FlxKey.UP]);
+				bindKeys(Control.UI_DOWN, [FlxKey.DOWN]);
+				bindKeys(Control.UI_LEFT, [FlxKey.LEFT]);
+				bindKeys(Control.UI_RIGHT, [FlxKey.RIGHT]);
+				bindKeys(Control.NOTE_UP, [FlxKey.UP]);
+				bindKeys(Control.NOTE_DOWN, [FlxKey.DOWN]);
+				bindKeys(Control.NOTE_LEFT, [FlxKey.LEFT]);
+				bindKeys(Control.NOTE_RIGHT, [FlxKey.RIGHT]);
+				bindKeys(Control.ACCEPT, [O]);
+				bindKeys(Control.BACK, [P]);
+				bindKeys(Control.PAUSE, [ENTER]);
+				bindKeys(Control.RESET, [BACKSPACE]);
+				bindKeys(Control.DODGE, [SPACE]);
+				bindKeys(Control.EXTRA_1, [F]);
+				bindKeys(Control.EXTRA_2, [J]);
+			case None: // nothing			case Custom:
 				inline bindKeys(Control.UP, KeybindPrefs.keybinds.get('up'));
 				inline bindKeys(Control.DOWN, KeybindPrefs.keybinds.get('down'));
 				inline bindKeys(Control.LEFT, KeybindPrefs.keybinds.get('left'));
@@ -2209,40 +1996,41 @@ class Controls extends FlxActionSet
 	{
 		#if !switch
 		addGamepadLiteral(id, [
-			Control.ACCEPT => [A],
+			Control.ACCEPT => [A, START],
 			Control.BACK => [B],
-			Control.KEY5 => [LEFT_STICK_CLICK],
-			Control.CENTER => [LEFT_STICK_CLICK],
 			Control.UI_UP => [DPAD_UP, LEFT_STICK_DIGITAL_UP],
 			Control.UI_DOWN => [DPAD_DOWN, LEFT_STICK_DIGITAL_DOWN],
 			Control.UI_LEFT => [DPAD_LEFT, LEFT_STICK_DIGITAL_LEFT],
 			Control.UI_RIGHT => [DPAD_RIGHT, LEFT_STICK_DIGITAL_RIGHT],
+			Control.NOTE_UP => [DPAD_UP, LEFT_STICK_DIGITAL_UP, RIGHT_STICK_DIGITAL_UP, Y],
+			Control.NOTE_DOWN => [DPAD_DOWN, LEFT_STICK_DIGITAL_DOWN, RIGHT_STICK_DIGITAL_DOWN, A],
+			Control.NOTE_LEFT => [DPAD_LEFT, LEFT_STICK_DIGITAL_LEFT, RIGHT_STICK_DIGITAL_LEFT, X],
+			Control.NOTE_RIGHT => [DPAD_RIGHT, LEFT_STICK_DIGITAL_RIGHT, RIGHT_STICK_DIGITAL_RIGHT, B],
+			Control.PAUSE => [START],
+			Control.RESET => [8],
+			Control.CENTER => [LEFT_STICK_CLICK],
 			Control.UP => [DPAD_UP, LEFT_STICK_DIGITAL_UP],
 			Control.DOWN => [DPAD_DOWN, LEFT_STICK_DIGITAL_DOWN],
 			Control.LEFT => [DPAD_LEFT, LEFT_STICK_DIGITAL_LEFT],
 			Control.RIGHT => [DPAD_RIGHT, LEFT_STICK_DIGITAL_RIGHT],
 			Control.PAUSE => [START],
-			Control.RESET => [Y],
-			Control.PAUSE => [START],
-			Control.RESET => [8]
+			Control.RESET => [Y]
 		]);
 		#else
 		addGamepadLiteral(id, [
 			//Swap A and B for switch
-			Control.ACCEPT => [B],
+			Control.ACCEPT => [B, START],
 			Control.BACK => [A],
 			Control.UI_UP => [DPAD_UP, LEFT_STICK_DIGITAL_UP, RIGHT_STICK_DIGITAL_UP],
 			Control.UI_DOWN => [DPAD_DOWN, LEFT_STICK_DIGITAL_DOWN, RIGHT_STICK_DIGITAL_DOWN],
 			Control.UI_LEFT => [DPAD_LEFT, LEFT_STICK_DIGITAL_LEFT, RIGHT_STICK_DIGITAL_LEFT],
 			Control.UI_RIGHT => [DPAD_RIGHT, LEFT_STICK_DIGITAL_RIGHT, RIGHT_STICK_DIGITAL_RIGHT],
-			Control.UP => [DPAD_UP, LEFT_STICK_DIGITAL_UP, RIGHT_STICK_DIGITAL_UP],
-			Control.DOWN => [DPAD_DOWN, LEFT_STICK_DIGITAL_DOWN, RIGHT_STICK_DIGITAL_DOWN],
-			Control.LEFT => [DPAD_LEFT, LEFT_STICK_DIGITAL_LEFT, RIGHT_STICK_DIGITAL_LEFT],
-			Control.RIGHT => [DPAD_RIGHT, LEFT_STICK_DIGITAL_RIGHT, RIGHT_STICK_DIGITAL_RIGHT],
+			Control.NOTE_UP => [DPAD_UP, LEFT_STICK_DIGITAL_UP, RIGHT_STICK_DIGITAL_UP, X],
+			Control.NOTE_DOWN => [DPAD_DOWN, LEFT_STICK_DIGITAL_DOWN, RIGHT_STICK_DIGITAL_DOWN, B],
+			Control.NOTE_LEFT => [DPAD_LEFT, LEFT_STICK_DIGITAL_LEFT, RIGHT_STICK_DIGITAL_LEFT, Y],
+			Control.NOTE_RIGHT => [DPAD_RIGHT, LEFT_STICK_DIGITAL_RIGHT, RIGHT_STICK_DIGITAL_RIGHT, A],
 			Control.PAUSE => [START],
-			//Swap Y and X for switch
-			Control.RESET => [Y],
-			Control.CHEAT => [X]
+			Control.RESET => [8],
 		]);
 		#end
 	}
